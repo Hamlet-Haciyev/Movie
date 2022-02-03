@@ -1,0 +1,3868 @@
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__fullname input, #movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__email input {
+  height: 40px;
+  width: 100%;
+  border: 1px solid #405266;
+  margin-top: 10px;
+  background-color: #020d18;
+  padding: 15px;
+  font-size: 14px;
+  color: #abb7c4;
+  font-weight: 400;
+  outline: none;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__fullname input:focus, #movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__email input:focus {
+  border: 1px solid #dcf836;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .post-btn {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  color: #ffffff;
+  width: 140px;
+  height: 42px;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+  text-align: center;
+  background-color: #dd003f;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-top: 10px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .post-btn:hover {
+  background-color: #dcf836;
+  color: #020d18;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  padding: 0;
+}
+
+* ::-webkit-scrollbar {
+  width: 10px;
+}
+
+* ::-webkit-scrollbar-track {
+  border-radius: 3px;
+}
+
+* ::-webkit-scrollbar-thumb {
+  background-color: #212121;
+}
+
+* header {
+  position: relative;
+  height: 105px;
+}
+
+* .theme-menu-box {
+  background-color: #020d18;
+  position: absolute;
+  width: 100%;
+  height: 105px;
+}
+
+* .theme-menu-box .menu-flex-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 105px;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu {
+  margin-left: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu .theme-nav-list-menu ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu .theme-nav-list-menu ul li {
+  font-family: "Nunito", sans-serif;
+  line-height: 105px;
+  cursor: pointer;
+  padding-right: 20px;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu .theme-nav-list-menu ul li a {
+  color: #abb7c4;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu .theme-nav-list-menu ul li a:hover {
+  color: #dcf836;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu .theme-nav-list-menu ul li a.active {
+  color: #dcf836;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu .theme-nav-btn-menu ul {
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu .theme-nav-btn-menu ul li {
+  padding-right: 20px;
+  font-family: "Nunito", sans-serif;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu .theme-nav-btn-menu ul li a {
+  display: inline-block;
+  color: #abb7c4;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu .theme-nav-btn-menu ul li:nth-of-type(1) a {
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu .theme-nav-btn-menu ul li:nth-of-type(1) a:hover {
+  color: #dcf836;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu .theme-nav-btn-menu ul li:nth-of-type(1) a.active {
+  color: #dcf836;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu .theme-nav-btn-menu ul li:nth-of-type(1) {
+  line-height: 105px;
+}
+
+* .theme-menu-box .menu-flex-box .theme-wrap-nav-menu .theme-nav-btn-menu ul li:nth-of-type(2) a {
+  background-color: #dd003f;
+  border-radius: 20px;
+  padding: 10px 15px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+* .theme-menu-box form {
+  border: 4px solid #020d18;
+  border-radius: 3px;
+  width: 99%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  height: 50px;
+  z-index: 99;
+}
+
+* .theme-menu-box form select {
+  color: #ffffff;
+  background-color: #233a50;
+  margin: 0;
+  width: 200px;
+  padding: 0px 15px;
+  border: none;
+  border-right: 1px solid #020d18;
+  font-family: "Nunito", sans-serif;
+  outline: none;
+  -webkit-appearance: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+* .theme-menu-box form input {
+  margin: 0;
+  width: 100%;
+  outline: none;
+  padding: 0px 15px;
+  color: #ffffff;
+  background-color: #233a50;
+  border: none;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  color: #abb7c4;
+}
+
+* .theme-menu-box form input::-webkit-input-placeholder {
+  color: #abb7c4;
+}
+
+* .theme-menu-box form input:-ms-input-placeholder {
+  color: #abb7c4;
+}
+
+* .theme-menu-box form input::-ms-input-placeholder {
+  color: #abb7c4;
+}
+
+* .theme-menu-box form input::placeholder {
+  color: #abb7c4;
+}
+
+* .overlay-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  visibility: hidden;
+}
+
+* .overlay-form .wrapped-form {
+  background-color: #ffffff;
+}
+
+* .overlay-form .wrapped-form .custom-form {
+  padding: 10px 0 50px 0;
+}
+
+* .overlay-form .wrapped-form .custom-form h3 {
+  font-family: "Dosis", sans-serif;
+  font-size: 36px;
+  color: #020d18;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 430px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+* .overlay-form .wrapped-form .custom-form form {
+  width: 330px;
+  height: auto;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+* .overlay-form .wrapped-form .custom-form form .username-email {
+  margin-bottom: 20px;
+}
+
+* .overlay-form .wrapped-form .custom-form form .username-email label {
+  display: block;
+  width: 100%;
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  color: #222222;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+* .overlay-form .wrapped-form .custom-form form .username-email input {
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  color: #222222;
+  font-weight: 700;
+  text-transform: none;
+  margin-top: 10px;
+  height: 42px;
+  border: 1px solid #e1e1e1;
+  padding: 0 15px;
+  outline: none;
+  width: 100%;
+}
+
+* .overlay-form .wrapped-form .custom-form form .user-password {
+  margin-bottom: 20px;
+}
+
+* .overlay-form .wrapped-form .custom-form form .user-password label {
+  display: block;
+  width: 100%;
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  color: #222222;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+* .overlay-form .wrapped-form .custom-form form .user-password input {
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  color: #222222;
+  font-weight: 700;
+  text-transform: none;
+  margin-top: 10px;
+  height: 42px;
+  border: 1px solid #e1e1e1;
+  padding: 0 15px;
+  outline: none;
+  width: 100%;
+}
+
+* .overlay-form .wrapped-form .custom-form form .remember-me {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 32px;
+}
+
+* .overlay-form .wrapped-form .custom-form form .remember-me .check-remember {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* .overlay-form .wrapped-form .custom-form form .remember-me label {
+  font-weight: 400;
+  text-transform: capitalize;
+  font-family: "Nunito", sans-serif;
+  margin-left: 5px;
+}
+
+* .overlay-form .wrapped-form .custom-form form .sign-up {
+  display: inline-block;
+  color: #428bca;
+  font-family: "Dosis", sans-serif;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+* .overlay-form .wrapped-form .custom-form form .sign-up:hover {
+  color: #dcf836;
+}
+
+* .overlay-form .wrapped-form .custom-form form #btn {
+  margin: 10px 0;
+  background-color: #dd003f;
+  display: block;
+  border: none;
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  height: 42px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.open {
+  visibility: visible;
+}
+
+main {
+  background-color: #020d18;
+}
+
+main #movie-list {
+  position: relative;
+  padding-top: 120px;
+  background-image: url("../../assets/images/slider-bg2.jpg");
+}
+
+main #movie-list .owl-carousel .owl-nav {
+  display: none;
+}
+
+main #movie-list .owl-carousel .owl-dots {
+  margin-top: 40px;
+  margin-bottom: 27px;
+  text-align: right;
+  margin-right: 40px;
+}
+
+main #movie-list .owl-carousel .owl-dots span {
+  width: 13px;
+  height: 13px;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+main #movie-list .owl-carousel .owl-dots span:hover {
+  background-color: #dcf836;
+}
+
+main #movie-list .movie-card {
+  position: relative;
+  background-color: #020d18;
+  border-radius: 10px;
+  width: 288px;
+}
+
+main #movie-list .movie-card .image {
+  max-width: 100%;
+}
+
+main #movie-list .movie-card .image a {
+  text-decoration: none;
+}
+
+main #movie-list .movie-card .image a img {
+  width: 100%;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  border-radius: 5px;
+}
+
+main #movie-list .movie-card .image .readmore-btn {
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #dd003f;
+  padding: 10px 18px;
+  border-radius: 30px;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  cursor: pointer;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  opacity: 0;
+}
+
+main #movie-list .movie-card .image .readmore-btn i {
+  margin-left: 3px;
+}
+
+main #movie-list .movie-card:hover img {
+  opacity: 0.6;
+}
+
+main #movie-list .movie-card:hover .readmore-btn {
+  opacity: 1;
+}
+
+main #movie-list .movie-card:hover .movie-info h6 a {
+  color: #dcf836;
+}
+
+main #movie-list .movie-card .movie-info {
+  position: absolute;
+  bottom: 20px;
+  left: 25px;
+}
+
+main #movie-list .movie-card .movie-info h6 a {
+  font-size: 18px;
+  color: #ffffff;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  padding-right: 30px;
+  text-decoration: none;
+}
+
+main #movie-list .movie-card .movie-info ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 7px;
+}
+
+main #movie-list .movie-card .movie-info ul li {
+  margin: 0 5px;
+}
+
+main #movie-list .movie-card .movie-info ul li:nth-of-type(1) {
+  margin-left: 0;
+}
+
+main #movie-list .movie-card .movie-info ul li a {
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 3px;
+  color: #ffffff;
+  padding: 3px 4px;
+  background-color: #ec5a1a;
+  text-decoration: none;
+}
+
+main #movie-list .movie-card .movie-info .vote p {
+  color: #ffffff;
+}
+
+main #movie-list .overlay {
+  background-color: #020d18;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0.8;
+}
+
+main #generes-celebrities {
+  padding-bottom: 80px;
+}
+
+main #generes-celebrities .movie-generes .movie-G-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main #generes-celebrities .movie-generes .movie-G-header h4 {
+  font-size: 24px;
+  font-family: "Nunito", sans-serif;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 36px;
+  margin: 0;
+}
+
+main #generes-celebrities .movie-generes .movie-G-header p {
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #abb7c4;
+  margin-bottom: 0;
+}
+
+main #generes-celebrities .movie-generes .movie-G-List {
+  margin: 50px 0;
+}
+
+main #generes-celebrities .movie-generes .movie-G-List ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 520px;
+}
+
+main #generes-celebrities .movie-generes .movie-G-List ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+main #generes-celebrities .movie-generes .movie-G-List ul li a:hover {
+  color: #dcf836;
+}
+
+main #generes-celebrities .movie-generes .movie-G-List ul li a.active {
+  color: #dcf836;
+}
+
+main #generes-celebrities .movie-generes .movies-G .movies-G-card {
+  height: 300px;
+  width: 200px;
+  position: relative;
+}
+
+main #generes-celebrities .movie-generes .movies-G .movies-G-card .image {
+  width: 100%;
+  height: 100%;
+}
+
+main #generes-celebrities .movie-generes .movies-G .movies-G-card .image a img {
+  max-width: 100%;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  border-radius: 5px;
+  height: 100%;
+}
+
+main #generes-celebrities .movie-generes .movies-G .movies-G-card .image .movie-G-readmore-btn {
+  font-family: "Dosis", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: #dd003f;
+  padding: 9px 13px;
+  border-radius: 30px;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  cursor: pointer;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  opacity: 0;
+}
+
+main #generes-celebrities .movie-generes .movies-G .movies-G-card .image .movie-G-readmore-btn i {
+  margin-left: 3px;
+}
+
+main #generes-celebrities .movie-generes .movies-G .movies-G-card:hover img {
+  opacity: 0.6;
+}
+
+main #generes-celebrities .movie-generes .movies-G .movies-G-card:hover .movie-G-readmore-btn {
+  opacity: 1;
+}
+
+main #generes-celebrities .movie-generes .movies-G .movies-G-card:hover .movies-G-info h6 a {
+  color: #dcf836;
+}
+
+main #generes-celebrities .movie-generes .movies-G .movies-G-card .movies-G-info {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 10px;
+}
+
+main #generes-celebrities .movie-generes .movies-G .movies-G-card .movies-G-info h6 a {
+  text-decoration: none;
+  display: inline-block;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: "Dosis", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+main #generes-celebrities .movie-generes .movies-G .movies-G-card .movies-G-info .movies-G-vote p {
+  color: #ffffff;
+}
+
+main #generes-celebrities .movie-generes .movie-pagination ul {
+  list-style-type: none;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 150px;
+  margin-top: 30px;
+  margin-left: 15px;
+}
+
+main #generes-celebrities .movie-generes .movie-pagination ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #428bca;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+main #generes-celebrities .movie-generes .movie-pagination ul li a:hover {
+  color: #dcf836;
+}
+
+main #generes-celebrities .movie-generes .movie-pagination ul li a.active {
+  color: #dcf836;
+}
+
+main #generes-celebrities .theater {
+  padding-top: 50px;
+  padding-bottom: 80px;
+}
+
+main #generes-celebrities .theater .theater-header {
+  margin-bottom: 50px;
+}
+
+main #generes-celebrities .theater .theater-header h2 {
+  font-family: "Dosis", sans-serif;
+  font-size: 24px;
+  color: #ffffff;
+  line-height: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+main #generes-celebrities .latest-news {
+  padding-top: 30px;
+}
+
+main #generes-celebrities .latest-news .latest-news-header {
+  margin-bottom: 40px;
+}
+
+main #generes-celebrities .latest-news .latest-news-header h2 {
+  font-family: "Dosis", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 36px;
+  margin: 15px 0;
+}
+
+main #generes-celebrities .latest-news .latest-news-movie {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+}
+
+main #generes-celebrities .latest-news .latest-news-movie:hover .latest-news-movie-info h2 a {
+  color: #dcf836;
+}
+
+main #generes-celebrities .latest-news .latest-news-movie .latest-news-movie-image a {
+  text-decoration: none;
+}
+
+main #generes-celebrities .latest-news .latest-news-movie .latest-news-movie-image a img {
+  border-radius: 5px;
+  width: 170px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+main #generes-celebrities .latest-news .latest-news-movie .latest-news-movie-info h2 {
+  margin-bottom: 15px;
+  line-height: 32px;
+}
+
+main #generes-celebrities .latest-news .latest-news-movie .latest-news-movie-info h2 a {
+  font-family: "Dosis", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  color: #4280bf;
+  font-size: 20px;
+  display: inline-block;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+main #generes-celebrities .latest-news .latest-news-movie .latest-news-movie-info p {
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #abb7c4;
+  margin: 0;
+}
+
+main #generes-celebrities .latest-news .latest-news-movie .latest-news-movie-info .description {
+  margin-bottom: 30px;
+  margin-top: 15px;
+}
+
+main #generes-celebrities .latest-news .latest-news-movie .latest-news-movie-info .description p {
+  margin-bottom: 20px;
+}
+
+main #generes-celebrities .latest-news .see-all-movies-news .see-all-movies-news-header {
+  margin-bottom: 30px;
+}
+
+main #generes-celebrities .latest-news .see-all-movies-news .see-all-movies-news-header .blockbuster-leftside-header h3 {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 24px;
+  margin: 15px 0;
+}
+
+main #generes-celebrities .latest-news .see-all-movies-news .see-all-movies-news-header .blockbuster-rightside-header {
+  padding-top: 15px;
+  text-align: right;
+}
+
+main #generes-celebrities .latest-news .see-all-movies-news .see-all-movies-news-header .blockbuster-rightside-header p {
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #abb7c4;
+  margin-bottom: 0;
+}
+
+main #generes-celebrities .latest-news .see-all-movies-news .movies-news-list .news-item h2 {
+  line-height: 30px;
+  margin-bottom: 0;
+}
+
+main #generes-celebrities .latest-news .see-all-movies-news .movies-news-list .news-item h2 a {
+  font-family: "Dosis";
+  font-weight: bold;
+  display: inline-block;
+  color: #4280bf;
+  font-size: 14px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+main #generes-celebrities .latest-news .see-all-movies-news .movies-news-list .news-item p {
+  color: #abb7c4;
+  font-size: 12px;
+}
+
+main #generes-celebrities .latest-news .see-all-movies-news .movies-news-list .news-item:hover h2 a {
+  color: #dcf836;
+}
+
+#footer {
+  background-image: url("../../assets/images/footer-bg.jpg");
+}
+
+#footer #footer-contact {
+  padding: 80px 0;
+}
+
+#footer #footer-contact .company-address .footer-logo {
+  margin-bottom: 60px;
+}
+
+#footer #footer-contact .company-address p {
+  color: #abb7c4;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+}
+
+#footer #footer-contact .company-address p:nth-of-type(1) {
+  max-width: 180px;
+  margin-bottom: 30px;
+}
+
+#footer #footer-contact .company-address p:nth-of-type(2) a {
+  font-size: 18px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#footer #footer-contact .footer-resources h4 {
+  margin-top: 20px;
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+#footer #footer-contact .footer-resources ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer #footer-contact .footer-resources ul li a {
+  text-decoration: none;
+  color: #abb7c4;
+  display: inline-block;
+  margin-bottom: 2px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#footer #footer-contact .footer-resources ul li a:hover {
+  color: #dcf836;
+}
+
+#footer #footer-contact .newsletter h4 {
+  margin-top: 20px;
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+#footer #footer-contact .newsletter p {
+  color: #abb7c4;
+}
+
+#footer #footer-contact .newsletter form {
+  position: relative;
+}
+
+#footer #footer-contact .newsletter form input {
+  outline: none;
+  padding: 5px 15px;
+  border: 1px solid #405266;
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+  color: #abb7c4;
+  background-color: transparent;
+  margin: 15px 0;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 3px;
+  width: 100%;
+}
+
+#footer #footer-contact .newsletter form i {
+  position: absolute;
+  top: 29px;
+  right: 13px;
+  color: #abb7c4;
+  font-size: 14px;
+}
+
+#footer #footer-contact .newsletter a {
+  text-decoration: none;
+  color: #dd003f;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+#footer #footer-contact .newsletter a:hover {
+  color: #dcf836;
+}
+
+#footer #right-reserved {
+  border-top: 2px solid #1e2c3b;
+  padding: 20px 0;
+  background-color: #03111b;
+}
+
+#footer #right-reserved .footer-blockter p {
+  color: #abb7c4;
+  margin: 0;
+}
+
+#footer #right-reserved .footer-blockter p a {
+  margin-left: 5px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  text-decoration: none;
+  color: #428bca;
+}
+
+#footer #right-reserved .footer-blockter p a:hover {
+  color: #dcf836;
+}
+
+#footer #right-reserved .back-top {
+  text-align: end;
+}
+
+#footer #right-reserved .back-top a {
+  color: #abb7c4;
+  text-decoration: none;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  display: inline-block;
+  font-size: 15px;
+}
+
+#footer #right-reserved .back-top a:hover {
+  color: #dcf836;
+}
+
+#footer #right-reserved .back-top a span i {
+  font-size: 12px;
+}
+
+#banner {
+  background-color: #0c2238;
+  height: 350px;
+  position: relative;
+  padding-top: 120px;
+}
+
+#banner h1 {
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 48px;
+  font-family: "Dosis", sans-serif;
+  position: relative;
+  padding-bottom: 5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#banner .bread {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#banner .bread ul li {
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+#banner .bread ul li:nth-of-type(2) {
+  color: #abb7c4;
+  font-weight: 400;
+}
+
+#banner .bread ul li a {
+  text-decoration: none;
+}
+
+#movies {
+  background-color: #020d18;
+}
+
+#movies #movies-list {
+  padding: 80px 0;
+}
+
+#movies #movies-list .topbar-filters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+  border-top: 1px solid #405266;
+  border-bottom: 1px solid #405266;
+  padding: 5px 0;
+  height: 40px;
+}
+
+#movies #movies-list .topbar-filters .result-count span {
+  font-size: 15px;
+  color: #abb7c4;
+}
+
+#movies #movies-list .topbar-filters .sorted-by {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#movies #movies-list .topbar-filters .sorted-by span {
+  margin-right: 15px;
+  color: #abb7c4;
+}
+
+#movies #movies-list .topbar-filters .sorted-by form {
+  position: relative;
+}
+
+#movies #movies-list .topbar-filters .sorted-by form select {
+  height: 40px;
+  padding: 0 15px;
+  background-color: #020d18;
+  border: 1px solid #405266;
+  color: #ffffff;
+  width: 180px;
+  -webkit-appearance: none;
+}
+
+#movies #movies-list .topbar-filters .sorted-by form i {
+  position: absolute;
+  color: #abb7c4;
+  right: 20px;
+  top: 13px;
+  font-size: 14px;
+}
+
+#movies #movies-list .movies-abouts .movie__about {
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__image {
+  margin-right: 30px;
+  width: 180px;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__image a {
+  text-decoration: none;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__image a img {
+  width: 170px;
+  opacity: 0.8;
+  border-radius: 5px;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__info h6 {
+  line-height: 18px;
+  padding-right: 15px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__info h6 a {
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__info .movie__about__desc {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #405266;
+  padding-right: 30px;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__info .movie__about__desc p {
+  font-weight: 400;
+  line-height: 28px;
+  color: #abb7c4;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__info .movie__details {
+  margin-bottom: 5px;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__info .movie__details span:nth-of-type(1) {
+  margin-left: 0;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__info .movie__details span {
+  color: #abb7c4;
+  margin: 0 15px;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__info .mv-director {
+  color: #abb7c4;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__info .mv-director span {
+  color: #4280bf;
+  margin-left: 3px;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__info .mv-stars {
+  color: #abb7c4;
+}
+
+#movies #movies-list .movies-abouts .movie__about .movie__about__info .mv-stars span {
+  margin-left: 3px;
+  color: #4280bf;
+}
+
+#movies #movies-list .movies-abouts .movie__about:hover .movie__about__info h6 a {
+  color: #dcf836;
+}
+
+#movies #movies-list .bottombar-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 30px;
+  border-top: 1px solid #405266;
+  border-bottom: 1px solid #405266;
+  padding: 5px 0;
+  height: 40px;
+}
+
+#movies #movies-list .bottombar-pagination .result-count span {
+  font-size: 15px;
+  color: #abb7c4;
+}
+
+#movies #movies-list .bottombar-pagination .rightside-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#movies #movies-list .bottombar-pagination .rightside-pagination .pagination-text span {
+  color: #abb7c4;
+}
+
+#movies #movies-list .bottombar-pagination .rightside-pagination .pagination-number ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style-type: none;
+  padding-left: 5px;
+}
+
+#movies #movies-list .bottombar-pagination .rightside-pagination .pagination-number ul li {
+  padding: 0 10px;
+}
+
+#movies #movies-list .bottombar-pagination .rightside-pagination .pagination-number ul li :nth-of-type(1) {
+  padding-left: 0;
+}
+
+#movies #movies-list .bottombar-pagination .rightside-pagination .pagination-number ul li a {
+  display: inline-block;
+  color: #abb7c4;
+  text-decoration: none;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+#movies #movies-list .bottombar-pagination .rightside-pagination .pagination-number ul li a.active {
+  color: #dcf836;
+}
+
+#movies #movies-list .bottombar-pagination .rightside-pagination .pagination-number ul li a:hover {
+  color: #dcf836;
+}
+
+#movies #movies-list .bottombar-pagination .rightside-pagination .pagination-number ul li a i {
+  font-size: 13px;
+}
+
+#movies-header {
+  height: 105px;
+}
+
+#blog {
+  padding: 80px 0;
+}
+
+#blog .blog__list .blog__about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+#blog .blog__list .blog__about .blog__about__image {
+  min-width: 260px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  overflow: hidden;
+  line-height: 0;
+}
+
+#blog .blog__list .blog__about .blog__about__image a {
+  text-decoration: none;
+}
+
+#blog .blog__list .blog__about .blog__about__image a img {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  max-width: 100%;
+}
+
+#blog .blog__list .blog__about .blog__about__content {
+  background-color: #071829;
+  padding: 30px;
+}
+
+#blog .blog__list .blog__about .blog__about__content h2 {
+  line-height: 30px;
+}
+
+#blog .blog__list .blog__about .blog__about__content h2 a {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: #4280bf;
+  font-size: 18px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+#blog .blog__list .blog__about .blog__about__content .posted_date p {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  display: inline-block;
+  color: #4280bf;
+}
+
+#blog .blog__list .blog__about .blog__about__content .posted_date p:hover {
+  color: #dcf836;
+}
+
+#blog .blog__list .blog__about .blog__about__content .description p {
+  font-size: 14px;
+  line-height: 28px;
+  color: #abb7c4;
+}
+
+#blog .blog__list .blog__about:hover .blog__about__image a img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#blog .blog__list .blog__about:hover .blog__about__content h2 a {
+  color: #dcf836;
+}
+
+#blog .right-sidebar .search {
+  margin-bottom: 30px;
+}
+
+#blog .right-sidebar .search h4 {
+  font-family: "Dosis", sans-serif;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 24px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #405266;
+}
+
+#blog .right-sidebar .search form input {
+  font-family: "Nunito", sans-serif;
+  outline: none;
+  border: 1px solid transparent;
+  background-color: #071829;
+  padding: 10px 15px;
+  border-radius: 3px;
+  color: #abb7c4;
+  font-size: 12px;
+  font-weight: 300;
+  width: 100%;
+}
+
+#blog .right-sidebar .search form input::-webkit-input-placeholder {
+  font-size: 14px;
+  color: #abb7c4;
+}
+
+#blog .right-sidebar .search form input:-ms-input-placeholder {
+  font-size: 14px;
+  color: #abb7c4;
+}
+
+#blog .right-sidebar .search form input::-ms-input-placeholder {
+  font-size: 14px;
+  color: #abb7c4;
+}
+
+#blog .right-sidebar .search form input::placeholder {
+  font-size: 14px;
+  color: #abb7c4;
+}
+
+#blog .right-sidebar .search form input:focus {
+  border: 1px solid #dcf836;
+}
+
+#blog .right-sidebar .categories {
+  margin-bottom: 30px;
+}
+
+#blog .right-sidebar .categories h4 {
+  font-family: "Dosis", sans-serif;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 24px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #405266;
+}
+
+#blog .right-sidebar .categories ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#blog .right-sidebar .categories ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5px;
+}
+
+#blog .right-sidebar .categories ul li:hover a {
+  color: #dcf836;
+}
+
+#blog .right-sidebar .categories ul li span {
+  font-family: "Dosis", sans-serif;
+  font-size: 48px;
+  color: #abb7c4;
+  font-weight: 300;
+  text-transform: none;
+  width: 20%;
+}
+
+#blog .right-sidebar .categories ul li a {
+  font-family: "Dosis", sans-serif;
+  color: #4280bf;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 28px;
+  font-size: 14px;
+  font-weight: 700;
+  width: 80%;
+  margin-left: 10px;
+}
+
+#blog .right-sidebar .tags h4 {
+  font-family: "Dosis", sans-serif;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 24px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #405266;
+}
+
+#blog .right-sidebar .tags .tag-list ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#blog .right-sidebar .tags .tag-list ul li a {
+  background-color: #152a3e;
+  font-family: "Nunito", sans-serif;
+  color: #abb7c4;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 28px;
+  font-size: 14px;
+  padding: 5px 10px;
+  margin-right: 5px;
+  margin-bottom: 3px;
+}
+
+#blog .right-sidebar .tags .tag-list ul li a:hover {
+  color: #dcf836;
+}
+
+#blog .blog__pagination ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#blog .blog__pagination ul li {
+  margin-right: 5px;
+}
+
+#blog .blog__pagination ul li a {
+  display: inline-block;
+  background-color: #071829;
+  padding: 5px 12px;
+  border: 1px solid #405266;
+  text-decoration: none;
+  color: #abb7c4;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+#blog .blog__pagination ul li a i {
+  font-size: 14px;
+}
+
+#blog .blog__pagination ul li a:hover {
+  border: 1px solid #dcf836;
+  color: #dcf836;
+}
+
+#blog .blog__pagination ul li a.active {
+  border: 1px solid #dcf836;
+  color: #dcf836;
+}
+
+#celebrities {
+  background-color: #020d18;
+  padding: 80px 0;
+}
+
+#celebrities .col-md-9 {
+  margin: 0 auto;
+}
+
+#celebrities .celebrities__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#celebrities .celebrities__list .celebritie__about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #071829;
+  margin-bottom: 30px;
+  height: 150px;
+}
+
+#celebrities .celebrities__list .celebritie__about .celebritie__image {
+  height: auto;
+}
+
+#celebrities .celebrities__list .celebritie__about .celebritie__image a {
+  width: 100px;
+  text-decoration: none;
+}
+
+#celebrities .celebrities__list .celebritie__about .celebritie__image a img {
+  height: 100%;
+  max-width: 100%;
+}
+
+#celebrities .celebrities__list .celebritie__about .celebritie__content {
+  padding: 0 30px;
+  width: 100%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#celebrities .celebrities__list .celebritie__about .celebritie__content .celebritie-name {
+  margin-bottom: 15px;
+}
+
+#celebrities .celebrities__list .celebritie__about .celebritie__content .celebritie-name a {
+  font-family: "Dosis", sans-serif;
+  font-size: 19px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+#celebrities .celebrities__list .celebritie__about .celebritie__content .celebritie-detail {
+  font-size: 12px;
+  line-height: 28px;
+  color: #abb7c4;
+  text-transform: uppercase;
+  padding-left: 10px;
+  position: relative;
+  margin-bottom: 0;
+}
+
+#celebrities .celebrities__list .celebritie__about .celebritie__content .celebritie-detail::before {
+  content: "-";
+  position: absolute;
+  top: 0;
+  left: -3px;
+  color: #abb7c4;
+  width: 10px;
+  height: 5px;
+  font-size: 20px;
+}
+
+#celebrities .celebrities__list .celebritie__about:hover .celebritie-name a {
+  color: #dcf836;
+}
+
+#celebrities .celebrities-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-top: 1px solid #405266;
+  border-bottom: 1px solid #405266;
+  padding: 5px 0;
+}
+
+#celebrities .celebrities-pagination .page-text span {
+  font-size: 14px;
+  color: #abb7c4;
+}
+
+#celebrities .celebrities-pagination ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#celebrities .celebrities-pagination ul li {
+  padding: 0 5px;
+}
+
+#celebrities .celebrities-pagination ul li a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #428bca;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#celebrities .celebrities-pagination ul li a i {
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  color: #428bca;
+  font-size: 12px;
+}
+
+#celebrities .celebrities-pagination ul li a:hover {
+  color: #dcf836;
+}
+
+#celebrities .celebrities-pagination ul li a:hover i {
+  color: #dcf836;
+}
+
+#celebrities .celebrities-pagination ul li a.active {
+  color: #dcf836;
+}
+
+.mv-single {
+  height: 0 !important;
+}
+
+.mv-single .theme-menu-box {
+  z-index: 44;
+  background-color: transparent;
+}
+
+.banner-bg-img {
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 10;
+  background-image: url("../../assets/images/banner-bg.jpg") !important;
+}
+
+.banner-bg-img::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 600px;
+  top: 0;
+  left: 0;
+  background-color: rgba(2, 13, 24, 0.8);
+}
+
+#movie-single {
+  background-color: #020d18;
+  padding: 100px 0;
+}
+
+#movie-single #movie-details {
+  position: relative;
+  margin-top: -415px;
+  z-index: 30;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#movie-single #movie-details .movie-poster {
+  margin-bottom: 30px;
+  max-width: 300px;
+}
+
+#movie-single #movie-details .movie-poster .movie__detail__image img {
+  border-radius: 5px;
+}
+
+#movie-single #movie-details .movie-poster .btn-transform {
+  text-align: center;
+  padding: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #07101a;
+  border: 3px solid #0c1c2c;
+  overflow: hidden;
+  position: relative;
+  height: 100px;
+}
+
+#movie-single #movie-details .movie-poster .movie__detail__trailer__btn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+#movie-single #movie-details .movie-poster .movie__detail__trailer__btn a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #dd003f;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 5px;
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  margin-left: 10px;
+  width: 93%;
+}
+
+#movie-single #movie-details .movie-poster .movie__detail__trailer__btn a i {
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+#movie-single #movie-details .movie-poster .movie__detail__trailer__btn-play {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+#movie-single #movie-details .movie-poster .movie__detail__trailer__btn-play a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #dd003f;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 5px;
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  margin-left: 10px;
+  left: 0;
+  width: 93%;
+}
+
+#movie-single #movie-details .movie__detail__content h2 {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 36px;
+  line-height: 42px;
+  margin-bottom: 30px;
+  margin-top: 15px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie__detail__rating {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  border-top: 1px solid #405266;
+  border-bottom: 1px solid #405266;
+  margin: 30px 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie__detail__rating .left-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-right: 1px solid #405266;
+  height: 60px;
+  padding-right: 30px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie__detail__rating .left-field > span {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie__detail__rating .left-field > span i {
+  color: #f5b50a;
+}
+
+#movie-single #movie-details .movie__detail__content .movie__detail__rating .left-field .rating-star .rate-num span {
+  font-size: 12px;
+  color: #abb7c4;
+}
+
+#movie-single #movie-details .movie__detail__content .movie__detail__rating .left-field .rating-star .rate-num span:nth-of-type(1) {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie__detail__rating .left-field .rating-star .rv {
+  font-size: 12px;
+  color: #4280bf;
+}
+
+#movie-single #movie-details .movie__detail__content .movie__detail__rating .right-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 30px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie__detail__rating .right-field .rate-title > span {
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-right: 15px;
+  color: #abb7c4;
+}
+
+#movie-single #movie-details .movie__detail__content .movie__detail__rating .right-field .rate-stars > span {
+  font-size: 24px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie__detail__rating .right-field .rate-stars > span i {
+  color: #abb7c4;
+}
+
+#movie-single #movie-details .movie__detail__content .movie__detail__rating .right-field .rate-stars > span i.voted {
+  color: #f5b50a;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .pt-30px {
+  padding-top: 30px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview {
+  display: none;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview.show {
+  display: block;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #abb7c4;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__media .movie__media__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #405266;
+  padding: 10px 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__media .movie__media__title h4 {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__media .movie__media__title a {
+  text-decoration: none;
+  color: #428bca;
+  font-size: 12px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__media .movie__media__title a:hover {
+  color: #dcf836;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__media .movie__media__video {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 30px 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__media .movie__media__video .video {
+  margin-right: 25px;
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 170px;
+  overflow: hidden;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__media .movie__media__video a {
+  display: inline-block;
+  width: 170px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  line-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__media .movie__media__video a:hover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__media .movie__media__video a i {
+  position: absolute;
+  font-size: 14px;
+  color: #ffffff;
+  left: 40%;
+  top: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 35px;
+  height: 35px;
+  background-color: #dd003f;
+  border-radius: 50%;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  overflow: hidden;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__media .movie__media__video a img {
+  border-radius: 5px;
+  max-width: 100%;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__cast .movie__cast__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #405266;
+  padding: 10px 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__cast .movie__cast__title h4 {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__cast .movie__actors {
+  margin: 30px 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__cast .movie__actors .mv__actor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__cast .movie__actors .mv__actor .mv__actor__img {
+  overflow: hidden;
+  width: 40px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__cast .movie__actors .mv__actor .mv__actor__img img {
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__cast .movie__actors .mv__actor a {
+  text-decoration: none;
+  color: #4280bf;
+  margin-left: 30px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__cast .movie__actors .mv__actor a:hover {
+  color: #dcf836;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews .movie__review__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #405266;
+  padding: 10px 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews .movie__review__title h4 {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews .movie__review__title a {
+  text-decoration: none;
+  color: #428bca;
+  font-size: 12px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews .movie__review__title a:hover {
+  color: #dcf836;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews > .movie__review__comments {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 40px;
+  padding: 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews > .movie__review__comments > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 15px;
+  width: 100%;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews > .movie__review__comments > li .user__did__comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews > .movie__review__comments > li .user__did__comment .movie__comment__image {
+  margin-right: 30px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews > .movie__review__comments > li .user__did__comment .movie__comment__image img {
+  border-radius: 5px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews > .movie__review__comments > li .user__did__comment .movie__comment__rate {
+  line-height: 17px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews > .movie__review__comments > li .user__did__comment .movie__comment__rate > span {
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: none;
+  margin-right: 10px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews > .movie__review__comments > li .user__did__comment .movie__comment__rate > a {
+  text-decoration: none;
+  color: #abb7c4;
+  font-size: 13px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews > .movie__review__comments > li .user__did__comment .movie__comment__rate .comment__movieRate > span {
+  margin-right: -3px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews > .movie__review__comments > li .user__did__comment .movie__comment__rate .comment__movieRate > span i {
+  font-size: 13px;
+  color: #abb7c4;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews > .movie__review__comments > li .user__did__comment .movie__comment__rate .comment__movieRate > span i.voted {
+  color: #f5b50a;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews > .movie__review__comments > li .user__did__text {
+  border-bottom: 1px solid #405266;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .movie__reviews > .movie__review__comments > li .user__did__text p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #abb7c4;
+  margin: 15px 0;
+  padding-bottom: 10px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .overview-mv h6 {
+  font-size: 14px;
+  font-family: Dosis;
+  font-weight: bold;
+  margin: 15px 0;
+  color: #abb7c4;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .overview-mv .white-text {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .overview-mv a {
+  text-decoration: none;
+  color: #428bca;
+  margin-right: 10px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__overview .overview-mv a:hover {
+  color: #dcf836;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__media {
+  display: none;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__media.show {
+  display: block;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__media > .movie__media .movie__media__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #405266;
+  padding: 10px 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__media > .movie__media .movie__media__title h4 {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__media > .movie__media .movie__media__title a {
+  text-decoration: none;
+  color: #428bca;
+  font-size: 12px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__media > .movie__media .movie__media__title a:hover {
+  color: #dcf836;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__media > .movie__media .movie__media__video {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 30px 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__media > .movie__media .movie__media__video .video {
+  margin-right: 25px;
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 170px;
+  overflow: hidden;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__media > .movie__media .movie__media__video a {
+  display: inline-block;
+  width: 170px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  line-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__media > .movie__media .movie__media__video a:hover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__media > .movie__media .movie__media__video a i {
+  position: absolute;
+  font-size: 14px;
+  color: #ffffff;
+  left: 40%;
+  top: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 35px;
+  height: 35px;
+  background-color: #dd003f;
+  border-radius: 50%;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  overflow: hidden;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__media > .movie__media .movie__media__video a img {
+  border-radius: 5px;
+  max-width: 100%;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies {
+  display: none;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies.show {
+  display: block;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .mv-subtitle {
+  margin-bottom: 30px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .mv-subtitle h6 {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #abb7c4;
+  margin: 15px 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .mv-subtitle h4 {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: #4280bf;
+  margin: 15px 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about {
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__image {
+  margin-right: 30px;
+  width: 180px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__image a {
+  text-decoration: none;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__image a img {
+  max-width: 100%;
+  opacity: 0.8;
+  border-radius: 5px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__info h6 {
+  line-height: 18px;
+  padding-right: 15px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__info h6 a {
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__info .movie__about__desc {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #405266;
+  padding-right: 30px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__info .movie__about__desc p {
+  font-weight: 400;
+  line-height: 28px;
+  color: #abb7c4;
+  font-size: 14px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__info .movie__details {
+  margin-bottom: 5px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__info .movie__details span:nth-of-type(1) {
+  margin-left: 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__info .movie__details span {
+  color: #abb7c4;
+  margin: 0 15px;
+  font-size: 14px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__info .mv-director {
+  color: #abb7c4;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__info .mv-director span {
+  color: #4280bf;
+  margin-left: 3px;
+  font-size: 14px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__info .mv-stars {
+  color: #abb7c4;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__info .mv-stars span {
+  margin-left: 3px;
+  color: #4280bf;
+  font-size: 14px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews {
+  display: none;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews.show {
+  display: block;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .sub__mv__title {
+  margin-bottom: 30px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .sub__mv__title h6 {
+  font-size: 16px;
+  color: #abb7c4;
+  font-family: "Dosis", sans-serif;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .sub__mv__title h4 {
+  color: #4280bf;
+  font-size: 24px;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment {
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid #405266;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment > .movie__review__comments {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment > .movie__review__comments > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 15px;
+  width: 100%;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment > .movie__review__comments > li .user__did__comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment > .movie__review__comments > li .user__did__comment .movie__comment__image {
+  margin-right: 30px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment > .movie__review__comments > li .user__did__comment .movie__comment__image img {
+  border-radius: 5px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment > .movie__review__comments > li .user__did__comment .movie__comment__rate {
+  line-height: 17px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment > .movie__review__comments > li .user__did__comment .movie__comment__rate > span {
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: none;
+  margin-right: 10px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment > .movie__review__comments > li .user__did__comment .movie__comment__rate > a {
+  text-decoration: none;
+  color: #abb7c4;
+  font-size: 13px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment > .movie__review__comments > li .user__did__comment .movie__comment__rate .comment__movieRate > span {
+  margin-right: -3px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment > .movie__review__comments > li .user__did__comment .movie__comment__rate .comment__movieRate > span i {
+  font-size: 13px;
+  color: #abb7c4;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment > .movie__review__comments > li .user__did__comment .movie__comment__rate .comment__movieRate > span i.voted {
+  color: #f5b50a;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment > .movie__review__comments > li .user__did__text {
+  border-bottom: 1px solid #405266;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews .all__reviews__comment > .movie__review__comments > li .user__did__text p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #abb7c4;
+  margin: 15px 0;
+  padding-bottom: 10px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews h3 {
+  font-family: "Dosis", sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form p {
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #abb7c4;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__text {
+  margin-bottom: 17px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__text label {
+  color: #abb7c4;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__text textarea {
+  font-size: 14px;
+  color: #abb7c4;
+  font-weight: 400;
+  margin-top: 10px;
+  width: 100%;
+  background-color: #020d18;
+  border: 1px solid #405266;
+  outline: none;
+  padding: 15px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__text textarea:focus {
+  border: 1px solid #dcf836;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__fullname {
+  margin-bottom: 17px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__fullname label {
+  color: #abb7c4;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__email {
+  margin-bottom: 17px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__email label {
+  color: #abb7c4;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__rating {
+  margin-bottom: 17px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__rating label {
+  color: #abb7c4;
+  margin-bottom: 10px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__rating label .required-rt {
+  color: red;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__rating .cm__rating__stars span {
+  font-size: 14px;
+  margin: 0 -1px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__rating .cm__rating__stars span.voted {
+  color: #016c50;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__all__reviews form .cm__rating .cm__rating__stars span.over {
+  color: #016c50;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab > ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab > ul > li {
+  line-height: 24px;
+  margin: 15px 0;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab > ul > li > a {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: #abb7c4;
+  font-size: 20px;
+  display: inline-block;
+  text-transform: uppercase;
+  margin-right: 30px;
+  border-bottom: 3px solid transparent;
+  padding: 15px 0;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab > ul > li > a.active {
+  color: #dcf836;
+  border-bottom-color: #dcf836;
+}
+
+#movie-single #movie-details .movie__detail__content .movie-tab > ul > li > a:hover {
+  color: #dcf836;
+  border-bottom-color: #dcf836;
+}
+
+.mfp-iframe-holder .mfp-content {
+  max-width: 1100px !important;
+}
+
+#news__blog {
+  background-color: #020d18;
+}
+
+#news__blog #blog__detail {
+  padding: 100px 0;
+}
+
+#news__blog #blog__detail .blog__about h2 {
+  margin-bottom: 15px;
+  font-family: "Dosis", sans-serif;
+  font-size: 36px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: none;
+  line-height: 42px;
+}
+
+#news__blog #blog__detail .blog__about span {
+  display: block;
+  margin: 15px 0;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  color: #abb7c4;
+  font-size: 14px;
+}
+
+#news__blog #blog__detail .blog__about .blog__about__image {
+  margin-bottom: 30px;
+}
+
+#news__blog #blog__detail .blog__about .blog__about__image img {
+  max-width: 100%;
+}
+
+#news__blog #blog__detail .blog__about p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #abb7c4;
+  margin: 15px 0;
+}
+
+#news__blog #blog__detail .blog__about .blog__inner__single {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#news__blog #blog__detail .blog__about .blog__inner__single .blog__inner__single__text {
+  width: 55%;
+  margin-right: 30px;
+}
+
+#news__blog #blog__detail .blog__about .blog__inner__single .blog__inner__single__image {
+  width: 35%;
+  margin-top: 20px;
+}
+
+#news__blog #blog__detail .blog__about .blog__inner__single .blog__inner__single__image img {
+  max-width: 100%;
+}
+
+#news__blog #blog__detail .blog__about .blog__tags {
+  margin: 30px 0;
+}
+
+#news__blog #blog__detail .blog__about .blog__tags ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#news__blog #blog__detail .blog__about .blog__tags ul li {
+  display: inline-block;
+}
+
+#news__blog #blog__detail .blog__about .blog__tags ul li a {
+  text-decoration: none;
+  color: #428bca;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  font-size: 14px;
+}
+
+#news__blog #blog__detail .blog__about .blog__tags ul li a:hover {
+  color: #dcf836;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related {
+  margin-top: 30px;
+  padding-top: 30px;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related .wrapped__comment__form {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #405266;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related .consult__title h3 {
+  font-family: "Dosis", sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-bottom: 50px;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related .consult__comments {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related .consult__comments .comment__user__image {
+  margin-right: 30px;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related .consult__comments .comment__content .comment__date > .author__name {
+  display: inline-block;
+  margin: 0;
+  font-size: 14px;
+  font-family: "Dosis", sans-serif;
+  color: #ffffff;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related .consult__comments .comment__content .comment__date > p {
+  display: inline-block;
+  margin: 0;
+  font-family: "Dosis", sans-serif;
+  font-size: 12px;
+  color: #abb7c4;
+  font-weight: 400;
+  text-transform: capitalize;
+  margin-right: 15px;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related .consult__comments .comment__content .comment__text p {
+  margin: 15px 0;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related .consult__comments .comment__content .comment__reply a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #abb7c4;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-right: 15px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related .consult__comments .comment__content .comment__reply a:hover {
+  color: #dcf836;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related h3 {
+  font-family: "Dosis", sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: none;
+  margin-bottom: 30px;
+  margin-top: 15px;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related h3 small a {
+  display: none;
+  text-decoration: none;
+  color: #428bca;
+  font-size: 13px;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related h3 small a.clicked {
+  display: inline-block;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related form .form_email_name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related form .form_email_name > .form__control {
+  width: 45%;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related form .form_email_name input {
+  border: 1px solid #405266;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  height: 40px;
+  width: 100%;
+  margin-top: 10px;
+  background-color: #020d18;
+  padding: 10px;
+  color: #abb7c4;
+  outline: none;
+  width: 100%;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related form .form_email_name input:focus {
+  border: 1px solid #dcf836;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related form .form__control label {
+  display: inline-block;
+  color: #abb7c4;
+  margin-bottom: 15px;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related form .form__control textarea {
+  outline: none;
+  display: block;
+  border: 1px solid #405266;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  background-color: transparent;
+  width: 100%;
+  color: #abb7c4;
+  margin-bottom: 30px;
+  padding: 20px 15px;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related form .form__control textarea:focus {
+  border: 1px solid #dcf836;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related form .custom-btn {
+  width: 140px;
+  height: 42px;
+  padding: 0;
+  background-color: #dd003f;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 30px;
+  font-family: "Dosis", sans-serif;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  margin-top: 10px;
+  font-size: 14px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#news__blog #blog__detail .blog__about .consult__comment__related form .custom-btn:hover {
+  background-color: #dcf836;
+  color: black;
+}
+
+#news__blog #blog__detail .right-sidebar .search {
+  margin-bottom: 30px;
+}
+
+#news__blog #blog__detail .right-sidebar .search h4 {
+  font-family: "Dosis", sans-serif;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 24px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #405266;
+}
+
+#news__blog #blog__detail .right-sidebar .search form input {
+  font-family: "Nunito", sans-serif;
+  outline: none;
+  border: 1px solid transparent;
+  background-color: #071829;
+  padding: 10px 15px;
+  border-radius: 3px;
+  color: #abb7c4;
+  font-size: 12px;
+  font-weight: 300;
+  width: 100%;
+}
+
+#news__blog #blog__detail .right-sidebar .search form input::-webkit-input-placeholder {
+  font-size: 14px;
+  color: #abb7c4;
+}
+
+#news__blog #blog__detail .right-sidebar .search form input:-ms-input-placeholder {
+  font-size: 14px;
+  color: #abb7c4;
+}
+
+#news__blog #blog__detail .right-sidebar .search form input::-ms-input-placeholder {
+  font-size: 14px;
+  color: #abb7c4;
+}
+
+#news__blog #blog__detail .right-sidebar .search form input::placeholder {
+  font-size: 14px;
+  color: #abb7c4;
+}
+
+#news__blog #blog__detail .right-sidebar .search form input:focus {
+  border: 1px solid #dcf836;
+}
+
+#news__blog #blog__detail .right-sidebar .categories {
+  margin-bottom: 30px;
+}
+
+#news__blog #blog__detail .right-sidebar .categories h4 {
+  font-family: "Dosis", sans-serif;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 24px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #405266;
+}
+
+#news__blog #blog__detail .right-sidebar .categories ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#news__blog #blog__detail .right-sidebar .categories ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5px;
+}
+
+#news__blog #blog__detail .right-sidebar .categories ul li:hover a {
+  color: #dcf836;
+}
+
+#news__blog #blog__detail .right-sidebar .categories ul li span {
+  font-family: "Dosis", sans-serif;
+  font-size: 48px;
+  color: #abb7c4;
+  font-weight: 300;
+  text-transform: none;
+  width: 20%;
+}
+
+#news__blog #blog__detail .right-sidebar .categories ul li a {
+  font-family: "Dosis", sans-serif;
+  color: #4280bf;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 28px;
+  font-size: 14px;
+  font-weight: 700;
+  width: 80%;
+  margin-left: 10px;
+}
+
+#news__blog #blog__detail .right-sidebar .tags h4 {
+  font-family: "Dosis", sans-serif;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 24px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #405266;
+}
+
+#news__blog #blog__detail .right-sidebar .tags .tag-list ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#news__blog #blog__detail .right-sidebar .tags .tag-list ul li a {
+  background-color: #152a3e;
+  font-family: "Nunito", sans-serif;
+  color: #abb7c4;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 28px;
+  font-size: 14px;
+  padding: 5px 10px;
+  margin-right: 5px;
+  margin-bottom: 3px;
+}
+
+#news__blog #blog__detail .right-sidebar .tags .tag-list ul li a:hover {
+  color: #dcf836;
+}
+
+.banner1-bg-img {
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 10;
+  background-image: url("../../assets/images/actorsingle-bg.jpg") !important;
+}
+
+.banner1-bg-img::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 600px;
+  top: 0;
+  left: 0;
+  background-color: rgba(2, 13, 24, 0.8);
+}
+
+#celebritieInfo {
+  padding: 100px 20px;
+  position: relative;
+  margin-top: -400px;
+  z-index: 99;
+}
+
+#celebritieInfo > .container > .row {
+  padding: 0 30px;
+}
+
+#celebritieInfo .celebritie__detail__image {
+  text-align: center;
+}
+
+#celebritieInfo .celebritie__detail__image img {
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+#celebritieInfo .celebritie__content h2 {
+  font-size: 36px;
+  line-height: 42px;
+  margin-bottom: 20px;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 15px;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-title > ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-title > ul > li {
+  line-height: 24px;
+  margin: 15px 0;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-title > ul > li > a {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: #abb7c4;
+  font-size: 18px;
+  display: inline-block;
+  text-transform: uppercase;
+  margin-right: 30px;
+  border-bottom: 3px solid transparent;
+  padding: 15px 0;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-title > ul > li > a.active {
+  color: #dcf836;
+  border-bottom-color: #dcf836;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-title > ul > li > a:hover {
+  color: #dcf836;
+  border-bottom-color: #dcf836;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content {
+  margin-top: 10px;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .biography {
+  display: none;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .biography.show {
+  display: block;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .filmography {
+  display: none;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .filmography.show {
+  display: block;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .filmography .celebritie__film {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .filmography .celebritie__film .celebritie__film__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .filmography .celebritie__film .celebritie__film__main .celebritie__film__img img {
+  border-radius: 3px;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .filmography .celebritie__film .celebritie__film__main .celebritie__film__title {
+  margin-left: 15px;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .filmography .celebritie__film .celebritie__film__main .celebritie__film__title h4 a {
+  font-size: 16px;
+  color: #4280bf;
+  font-weight: 400;
+  text-transform: capitalize;
+  text-decoration: none;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .filmography .celebritie__film .celebritie__film__main .celebritie__film__title h4 a:hover {
+  color: #dcf836;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .filmography .celebritie__film .celebritie__createdDate p {
+  position: relative;
+  padding-left: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #abb7c4;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .filmography .celebritie__film .celebritie__createdDate p::before {
+  content: "...";
+  position: absolute;
+  bottom: 0;
+  left: -2px;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .celebritie__tabs-content-left .subtitle h6 {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #abb7c4;
+  margin: 20px 0;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .celebritie__tabs-content-left .subtitle h4 {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: #4280bf;
+  margin: 20px 0;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .celebritie__tabs-content-left p {
+  color: #abb7c4;
+  line-height: 28px;
+  font-size: 14px;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .celebritie__tabs-content-right {
+  padding-left: 30px;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .celebritie__tabs-content-right .overview__clb {
+  margin-bottom: 15px;
+  width: 100px;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .celebritie__tabs-content-right .overview__clb h6 {
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: #abb7c4;
+  margin: 15px 0;
+}
+
+#celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .celebritie__tabs-content-right .overview__clb p {
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 28px;
+}
+
+.banner-bg-color {
+  height: 450px;
+  position: relative;
+  z-index: 10;
+}
+
+.banner-bg-color::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 450px;
+  top: 0;
+  left: 0;
+  background-color: #0c2238;
+}
+
+#myaccount {
+  padding: 100px 0;
+  background-color: #020d18;
+}
+
+#myaccount .user-info-tab {
+  position: relative;
+  z-index: 99;
+  border: 3px solid #071829;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #020d18;
+  border-radius: 5px;
+  max-width: 255px;
+  margin-left: auto;
+  margin-top: -340px;
+}
+
+#myaccount .user-info-tab .user-img {
+  margin-bottom: 10px;
+}
+
+#myaccount .user-info-tab .user-img img {
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+#myaccount .user-info-tab .user-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#myaccount .user-info-tab .user-content ul li {
+  line-height: 24px;
+}
+
+#myaccount .user-info-tab .user-content ul li a {
+  text-decoration: none;
+  color: #999;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+#myaccount .user-info-tab .user-content ul li a:hover {
+  color: #dcf836;
+}
+
+#myaccount .user-info-tab .user-content ul li a.active {
+  color: #dcf836;
+}
+
+@media screen and (min-width: 992px) and (max-width: 2032px) {
+  .btn-collapse {
+    display: none !important;
+  }
+  .menu-collapse {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 992px) {
+  .movie-generes .movies-G .movies-G-card {
+    margin-bottom: 15px;
+  }
+  .menu-flex-box .btn-collapse {
+    display: block !important;
+    text-align: end;
+    width: 100%;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  .menu-flex-box .btn-collapse i {
+    color: #fff;
+    border: 1px solid white;
+    padding: 5px;
+  }
+  .menu-flex-box .menu-collapse {
+    visibility: hidden;
+    z-index: 999;
+    padding: 15px 25px 25px 30px;
+    text-align: left;
+    background-color: #071829;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    top: 100%;
+    right: 0;
+    height: 0;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+  }
+  .menu-flex-box .menu-collapse.show {
+    visibility: visible;
+    height: 240px;
+  }
+  .menu-flex-box .menu-collapse .collapse-left-menu ul {
+    margin-bottom: 0;
+    list-style-type: none !important;
+  }
+  .menu-flex-box .menu-collapse .collapse-left-menu ul li {
+    font-family: "Nunito", sans-serif;
+    cursor: pointer;
+  }
+  .menu-flex-box .menu-collapse .collapse-left-menu ul li a {
+    margin-bottom: 10px;
+    color: #abb7c4;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    text-decoration: none !important;
+  }
+  .menu-flex-box .menu-collapse .collapse-left-menu ul li a:hover {
+    color: #dcf836;
+  }
+  .menu-flex-box .menu-collapse .collapse-right-menu ul {
+    list-style-type: none !important;
+    margin-bottom: 0;
+  }
+  .menu-flex-box .menu-collapse .collapse-right-menu ul li {
+    font-family: "Nunito", sans-serif;
+    cursor: pointer;
+  }
+  .menu-flex-box .menu-collapse .collapse-right-menu ul li a {
+    color: #abb7c4;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none !important;
+  }
+  .menu-flex-box .menu-collapse .collapse-right-menu ul li:nth-of-type(1) a {
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+  }
+  .menu-flex-box .menu-collapse .collapse-right-menu ul li:nth-of-type(1) a:hover {
+    color: #dcf836;
+  }
+  .menu-flex-box .menu-collapse .collapse-right-menu ul li:nth-of-type(2) a {
+    margin-top: 5px;
+    background-color: #dd003f;
+    border-radius: 20px;
+    padding: 10px 40px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .theme-wrap-nav-menu {
+    display: none !important;
+  }
+  .youtube-iframe {
+    width: 100% !important;
+  }
+  .youtube-iframe iframe {
+    width: 100% !important;
+  }
+  #movies #movies-list .movies-abouts .movie__about .movie__about__info .movie__about__desc {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+  }
+  #movies #movies-list .movies-abouts .movie__about .movie__about__info .movie__about__desc p {
+    font-size: 14px;
+  }
+  #movies #movies-list .movies-abouts .movie__about .movie__about__info .movie__details span {
+    font-size: 14px;
+  }
+  #movies #movies-list .movies-abouts .movie__about .movie__about__info .mv-director span {
+    font-size: 14px;
+  }
+  #movies #movies-list .movies-abouts .movie__about .movie__about__info .mv-stars span {
+    font-size: 14px;
+  }
+  #blog .blog__list .blog__about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #blog .blog__list .blog__about .blog__about__image {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  .banner1-bg-img {
+    z-index: 0;
+  }
+  #celebritieInfo {
+    z-index: 19;
+  }
+  #celebritieInfo .celebritie__detail__image {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  #celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .celebritie__tabs-content-right {
+    margin-top: 20px;
+  }
+  .breadcrumb {
+    -ms-flex-wrap: nowrap !important;
+        flex-wrap: nowrap !important;
+  }
+  #right-reserved .back-top {
+    text-align: left !important;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 776px) {
+  #movie-details .movie__detail__content .movie__detail__rating {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 120px !important;
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important;
+  }
+  #movie-details .movie__detail__content .movie__detail__rating .left-field {
+    border: none !important;
+  }
+  #movie-details .movie__detail__content .movie__detail__rating .right-field {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-left: 0 !important;
+  }
+  #movie-details .movie__detail__content .movie__detail__rating .right-field .rate-title {
+    -ms-flex-item-align: start !important;
+        align-self: flex-start !important;
+  }
+  #movie-details .movie__detail__content .movie__detail__rating .right-field .rate-stars span {
+    margin: 0 -1px !important;
+    font-size: 0 !important;
+  }
+  #movie-details .movie__detail__content .movie__detail__rating .right-field .rate-stars span i {
+    font-size: 15px !important;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .theme-wrap-nav-menu {
+    display: none !important;
+  }
+  .theme-menu-box .menu-flex-box {
+    padding: 0px 20px;
+  }
+  .theme-menu-box .menu-flex-box .btn-collapse {
+    display: block !important;
+    text-align: end;
+    width: 100%;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .theme-menu-box .menu-flex-box .btn-collapse i {
+    color: #fff;
+    border: 1px solid white;
+    padding: 5px;
+  }
+  .theme-menu-box .menu-flex-box .menu-collapse {
+    visibility: hidden;
+    z-index: 999;
+    padding: 15px 25px 25px 30px;
+    text-align: left;
+    background-color: #071829;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    top: 100%;
+    right: 0;
+    height: 0;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+  }
+  .theme-menu-box .menu-flex-box .menu-collapse.show {
+    visibility: visible;
+    height: 260px;
+  }
+  .theme-menu-box .menu-flex-box .menu-collapse .collapse-left-menu ul {
+    padding: 0;
+    margin-bottom: 0;
+    list-style-type: none !important;
+  }
+  .theme-menu-box .menu-flex-box .menu-collapse .collapse-left-menu ul li {
+    cursor: pointer;
+  }
+  .theme-menu-box .menu-flex-box .menu-collapse .collapse-left-menu ul li a {
+    margin-bottom: 15px;
+    color: #abb7c4;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    text-decoration: none !important;
+  }
+  .theme-menu-box .menu-flex-box .menu-collapse .collapse-left-menu ul li a:hover {
+    color: #dcf836;
+  }
+  .theme-menu-box .menu-flex-box .menu-collapse .collapse-right-menu ul {
+    padding: 0;
+    list-style-type: none !important;
+    margin-bottom: 0;
+  }
+  .theme-menu-box .menu-flex-box .menu-collapse .collapse-right-menu ul li {
+    cursor: pointer;
+  }
+  .theme-menu-box .menu-flex-box .menu-collapse .collapse-right-menu ul li a {
+    color: #abb7c4;
+    font-family: "Nunito", sans-serif;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none !important;
+  }
+  .theme-menu-box .menu-flex-box .menu-collapse .collapse-right-menu ul li:nth-of-type(1) a {
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+  }
+  .theme-menu-box .menu-flex-box .menu-collapse .collapse-right-menu ul li:nth-of-type(1) a:hover {
+    color: #dcf836;
+  }
+  .theme-menu-box .menu-flex-box .menu-collapse .collapse-right-menu ul li:nth-of-type(2) a {
+    margin-top: 10px;
+    background-color: #dd003f;
+    border-radius: 20px;
+    padding: 10px 40px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .theme-menu-box form select {
+    font-size: 13px !important;
+  }
+  .see-all-movies-news .see-all-movies-news-header .blockbuster-rightside-header {
+    text-align: left !important;
+    padding-top: 0 !important;
+  }
+  .youtube-iframe {
+    width: 100% !important;
+  }
+  .youtube-iframe iframe {
+    width: 100% !important;
+  }
+  .latest-news-movie-info h2 {
+    margin-bottom: 0 !important;
+  }
+  .latest-news-movie-info h2 a {
+    font-size: 15px !important;
+    line-height: 22px !important;
+  }
+  .latest-news-movie-info .description {
+    margin-top: 10px !important;
+  }
+  .latest-news-movie-info .description p {
+    font-size: 13px !important;
+    line-height: 20px !important;
+  }
+  #movies #movies-list .movies-abouts .movie__about .movie__about__info .movie__about__desc {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+  }
+  #movies #movies-list .movies-abouts .movie__about .movie__about__info .movie__about__desc p {
+    font-size: 14px;
+  }
+  #movies #movies-list .movies-abouts .movie__about .movie__about__info .movie__details span {
+    font-size: 14px;
+  }
+  #movies #movies-list .movies-abouts .movie__about .movie__about__info .mv-director span {
+    font-size: 14px;
+  }
+  #movies #movies-list .movies-abouts .movie__about .movie__about__info .mv-stars span {
+    font-size: 14px;
+  }
+  #celebrities .celebrities__list .celebritie__about .celebritie__content .celebritie-detail {
+    font-size: 11px;
+  }
+  #blog .blog__list .blog__about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #blog .blog__list .blog__about .blog__about__image {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  #myaccount .user-info-tab {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 350px;
+  }
+  .banner1-bg-img {
+    z-index: 0;
+  }
+  #celebritieInfo {
+    z-index: 19;
+  }
+  #celebritieInfo .celebritie__detail__image {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  #celebritieInfo .celebritie__content .celebritie__tabs .celebritie__tabs-content .celebritie__tabs-content-right {
+    margin-top: 20px;
+    padding-left: 0;
+  }
+  #news__blog #blog__detail .blog__about {
+    margin-bottom: 30px;
+  }
+  .breadcrumb {
+    -ms-flex-wrap: nowrap !important;
+        flex-wrap: nowrap !important;
+  }
+  #movie-details .movie__detail__content .movie__detail__rating {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 120px !important;
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important;
+  }
+  #movie-details .movie__detail__content .movie__detail__rating .left-field {
+    border: none !important;
+  }
+  #movie-details .movie__detail__content .movie__detail__rating .right-field {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-left: 0 !important;
+  }
+  #movie-details .movie__detail__content .movie__detail__rating .right-field .rate-title {
+    -ms-flex-item-align: start !important;
+        align-self: flex-start !important;
+  }
+  #movie-details .movie__detail__content .movie__detail__rating .right-field .rate-stars span {
+    margin: 0 -1px !important;
+    font-size: 0 !important;
+  }
+  #movie-details .movie__detail__content .movie__detail__rating .right-field .rate-stars span i {
+    font-size: 15px !important;
+  }
+  #right-reserved .back-top {
+    text-align: left !important;
+  }
+}
+/*# sourceMappingURL=style.css.map */

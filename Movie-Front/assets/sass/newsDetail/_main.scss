@@ -1,0 +1,360 @@
+#news__blog {
+  background-color: #020d18;
+  #blog__detail {
+    padding: 100px 0;
+    .blog__about {
+      h2 {
+        margin-bottom: 15px;
+        font-family: "Dosis", sans-serif;
+        font-size: 36px;
+        color: #ffffff;
+        font-weight: 700;
+        text-transform: none;
+        line-height: 42px;
+      }
+      span {
+        display: block;
+        margin: 15px 0;
+        font-family: "Nunito", sans-serif;
+        font-weight: 300;
+        color: #abb7c4;
+        font-size: 14px;
+      }
+      .blog__about__image {
+        margin-bottom: 30px;
+        img {
+          max-width: 100%;
+        }
+      }
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 28px;
+        color: #abb7c4;
+        margin: 15px 0;
+      }
+      .blog__inner__single {
+        display: flex;
+        .blog__inner__single__text {
+          width: 55%;
+          margin-right: 30px;
+        }
+        .blog__inner__single__image {
+          width: 35%;
+          margin-top: 20px;
+          img {
+            max-width: 100%;
+          }
+        }
+      }
+      .blog__tags {
+        margin: 30px 0;
+        ul {
+          list-style-type: none;
+          padding: 0;
+          li {
+            display: inline-block;
+            a {
+              text-decoration: none;
+              color: #428bca;
+              transition: all 0.3s linear;
+              font-size: 14px;
+              &:hover {
+                color: #dcf836;
+              }
+            }
+          }
+        }
+      }
+      .consult__comment__related {
+        margin-top: 30px;
+        padding-top: 30px;
+        .wrapped__comment__form {
+          margin-top: 30px;
+          padding-top: 30px;
+          border-top: 1px solid #405266;
+        }
+        .consult__title {
+          h3 {
+            font-family: "Dosis", sans-serif;
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin-bottom: 50px;
+          }
+        }
+        .consult__comments {
+          display: flex;
+          margin-left: 30px;
+          margin-bottom: 50px;
+          .comment__user__image {
+            margin-right: 30px;
+            img {
+            }
+          }
+          .comment__content {
+            .comment__date {
+              & > .author__name {
+                display: inline-block;
+                margin: 0;
+                font-size: 14px;
+                font-family: "Dosis", sans-serif;
+                color: #ffffff;
+                margin-right: 15px;
+                font-weight: bold;
+              }
+              & > p {
+                display: inline-block;
+                margin: 0;
+                font-family: "Dosis", sans-serif;
+                font-size: 12px;
+                color: #abb7c4;
+                font-weight: 400;
+                text-transform: capitalize;
+                margin-right: 15px;
+              }
+            }
+            .comment__text {
+              p {
+                margin: 15px 0;
+              }
+            }
+            .comment__reply {
+              a {
+                text-decoration: none;
+                font-size: 12px;
+                color: #abb7c4;
+                font-weight: 400;
+                text-transform: uppercase;
+                margin-right: 15px;
+                transition: all 0.2s linear;
+                &:hover {
+                  color: #dcf836;
+                }
+              }
+            }
+          }
+        }
+        h3 {
+          font-family: "Dosis", sans-serif;
+          font-size: 18px;
+          color: #ffffff;
+          font-weight: 700;
+          text-transform: none;
+          margin-bottom: 30px;
+          margin-top: 15px;
+          small {
+            a {
+              display: none;
+              text-decoration: none;
+              color: #428bca;
+              font-size: 13px;
+              &.clicked {
+                display: inline-block;
+              }
+            }
+          }
+        }
+        form {
+          .form_email_name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            & > .form__control {
+              width: 45%;
+            }
+            input {
+              border: 1px solid #405266;
+              transition: all 0.2s linear;
+              height: 40px;
+              width: 100%;
+              margin-top: 10px;
+              background-color: #020d18;
+              padding: 10px;
+              color: #abb7c4;
+              outline: none;
+              width: 100%;
+              &:focus {
+                border: 1px solid #dcf836;
+              }
+            }
+          }
+          .form__control {
+            label {
+              display: inline-block;
+              color: #abb7c4;
+              margin-bottom: 15px;
+            }
+            textarea {
+              outline: none;
+              display: block;
+              border: 1px solid #405266;
+              transition: all 0.2s linear;
+              background-color: transparent;
+              width: 100%;
+              color: #abb7c4;
+              margin-bottom: 30px;
+              padding: 20px 15px;
+              &:focus {
+                border: 1px solid #dcf836;
+              }
+            }
+          }
+          .custom-btn {
+            width: 140px;
+            height: 42px;
+            padding: 0;
+            background-color: #dd003f;
+            color: #ffffff;
+            font-weight: bold;
+            border-radius: 30px;
+            font-family: "Dosis", sans-serif;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            margin-top: 10px;
+            font-size: 14px;
+            transition: all 0.2s linear;
+            &:hover {
+              background-color: #dcf836;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+    .right-sidebar {
+      .search {
+        margin-bottom: 30px;
+        h4 {
+          font-family: "Dosis", sans-serif;
+          color: #ffffff;
+          font-size: 18px;
+          font-weight: 700;
+          text-transform: uppercase;
+          line-height: 24px;
+          padding-bottom: 10px;
+          margin-bottom: 30px;
+          border-bottom: 1px solid #405266;
+        }
+        form {
+          input {
+            font-family: "Nunito", sans-serif;
+
+            outline: none;
+            border: 1px solid transparent;
+            background-color: #071829;
+            padding: 10px 15px;
+            border-radius: 3px;
+            color: #abb7c4;
+
+            font-size: 12px;
+            font-weight: 300;
+            width: 100%;
+            &::placeholder {
+              font-size: 14px;
+              color: #abb7c4;
+            }
+            &:focus {
+              border: 1px solid #dcf836;
+            }
+          }
+        }
+      }
+      .categories {
+        margin-bottom: 30px;
+        h4 {
+          font-family: "Dosis", sans-serif;
+          color: #ffffff;
+          font-size: 18px;
+          font-weight: 700;
+          text-transform: uppercase;
+          line-height: 24px;
+          padding-bottom: 10px;
+          margin-bottom: 30px;
+          border-bottom: 1px solid #405266;
+        }
+        ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            &:hover {
+              a {
+                color: #dcf836;
+              }
+            }
+            span {
+              font-family: "Dosis", sans-serif;
+              font-size: 48px;
+              color: #abb7c4;
+              font-weight: 300;
+              text-transform: none;
+              // width: 60px;
+              width: 20%;
+            }
+            a {
+              font-family: "Dosis", sans-serif;
+              color: #4280bf;
+              transition: all 0.3s linear;
+              text-decoration: none;
+              display: inline-block;
+              line-height: 28px;
+              font-size: 14px;
+              font-weight: 700;
+              width: 80%;
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+      .tags {
+        h4 {
+          font-family: "Dosis", sans-serif;
+          color: #ffffff;
+          font-size: 18px;
+          font-weight: 700;
+          text-transform: uppercase;
+          line-height: 24px;
+          padding-bottom: 10px;
+          margin-bottom: 30px;
+          border-bottom: 1px solid #405266;
+        }
+        .tag-list {
+          ul {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            li {
+              a {
+                background-color: #152a3e;
+                font-family: "Nunito", sans-serif;
+                color: #abb7c4;
+                transition: all 0.3s linear;
+                text-decoration: none;
+                display: inline-block;
+                line-height: 28px;
+                font-size: 14px;
+                padding: 5px 10px;
+                margin-right: 5px;
+                margin-bottom: 3px;
+                //   width: 80%;
+                //   margin-left: 10px;
+                &:hover {
+                  color: #dcf836;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
