@@ -1,0 +1,532 @@
+@media screen and (min-width: 992px) and (max-width: 2032px) {
+  .btn-collapse {
+    display: none !important;
+  }
+  .menu-collapse {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 992px) {
+  .movie-generes {
+    .movies-G {
+      .movies-G-card {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  .menu-flex-box {
+    .btn-collapse {
+      display: block !important;
+      text-align: end;
+      width: 100%;
+      font-size: 25px;
+      cursor: pointer;
+      i {
+        color: #fff;
+        border: 1px solid white;
+        padding: 5px;
+      }
+    }
+    .menu-collapse {
+      visibility: hidden;
+      z-index: 999;
+      // display: none !important;
+      padding: 15px 25px 25px 30px;
+      text-align: left;
+      background-color: #071829;
+      position: absolute;
+      overflow: hidden;
+      width: 100%;
+      top: 100%;
+      right: 0;
+      height: 0;
+      transition: all 0.3s linear;
+      &.show {
+        // animation: shown 0.3s linear forwards;
+        // display: block !important;
+        visibility: visible;
+        height: 240px;
+      }
+      .collapse-left-menu {
+        ul {
+          margin-bottom: 0;
+          list-style-type: none !important;
+          li {
+            font-family: "Nunito", sans-serif;
+            cursor: pointer;
+            a {
+              margin-bottom: 10px;
+              color: #abb7c4;
+              display: inline-block;
+              text-transform: uppercase;
+              font-size: 14px;
+              font-weight: 600;
+              transition: all 0.2s linear;
+              text-decoration: none !important;
+              &:hover {
+                color: #dcf836;
+              }
+            }
+          }
+        }
+      }
+      .collapse-right-menu {
+        ul {
+          list-style-type: none !important;
+          margin-bottom: 0;
+          li {
+            font-family: "Nunito", sans-serif;
+            cursor: pointer;
+            a {
+              color: #abb7c4;
+              display: inline-block;
+              text-transform: uppercase;
+              font-size: 14px;
+              font-weight: 600;
+              text-decoration: none !important;
+            }
+            &:nth-of-type(1) {
+              a {
+                transition: all 0.2s linear;
+                &:hover {
+                  color: #dcf836;
+                }
+              }
+            }
+            &:nth-of-type(2) {
+              a {
+                margin-top: 5px;
+                background-color: #dd003f;
+                border-radius: 20px;
+                padding: 10px 40px;
+                color: #ffffff;
+                font-weight: 600;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .theme-wrap-nav-menu {
+    display: none !important;
+  }
+  .youtube-iframe {
+    width: 100% !important;
+    iframe {
+      width: 100% !important;
+    }
+  }
+
+  #movies {
+    #movies-list {
+      .movies-abouts {
+        .movie__about {
+          .movie__about__image {
+          }
+          .movie__about__info {
+            h6 {
+              a {
+              }
+            }
+            .movie__about__desc {
+              margin-bottom: 5px;
+              padding-bottom: 5px;
+              p {
+                font-size: 14px;
+              }
+            }
+            .movie__details {
+              span {
+                font-size: 14px;
+              }
+            }
+            .mv-director {
+              span {
+                font-size: 14px;
+              }
+            }
+            .mv-stars {
+              span {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  #blog {
+    .blog__list {
+      .blog__about {
+        flex-direction: column;
+        .blog__about__image {
+          align-self: flex-start;
+        }
+        .blog__about__content {
+          h2 {
+            a {
+            }
+          }
+          .posted_date {
+          }
+          .description {
+            p {
+            }
+          }
+        }
+      }
+    }
+  }
+  .banner1-bg-img {
+    z-index: 0;
+  }
+
+  #celebritieInfo {
+    z-index: 19;
+    .celebritie__detail__image {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .celebritie__content {
+      .celebritie__tabs {
+        .celebritie__tabs-content {
+          .celebritie__tabs-content-right {
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+  }
+  .breadcrumb {
+    flex-wrap: nowrap !important;
+  }
+  #right-reserved {
+    .back-top {
+      text-align: left !important;
+    }
+  }
+  .single__image__wrapper {
+    padding-left: 50px !important;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 776px) {
+  #movie-details {
+    .movie__detail__content {
+      .movie__detail__rating {
+        flex-direction: column;
+        height: 120px !important;
+        align-items: flex-start !important;
+        .left-field {
+          border: none !important;
+        }
+        .right-field {
+          flex-direction: column;
+          padding-left: 0 !important;
+          .rate-title {
+            align-self: flex-start !important;
+          }
+          .rate-stars {
+            span {
+              margin: 0 -1px !important;
+              font-size: 0 !important;
+              i {
+                font-size: 15px !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 576px) {
+  .theme-wrap-nav-menu {
+    display: none !important;
+  }
+  .theme-menu-box {
+    .menu-flex-box {
+      padding: 0px 20px;
+      .btn-collapse {
+        display: block !important;
+        text-align: end;
+        width: 100%;
+        font-size: 18px;
+        cursor: pointer;
+        i {
+          color: #fff;
+          border: 1px solid white;
+          padding: 5px;
+        }
+      }
+      .menu-collapse {
+        visibility: hidden;
+        z-index: 999;
+        // display: none !important;
+        padding: 15px 25px 25px 30px;
+        text-align: left;
+        background-color: #071829;
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+        top: 100%;
+        right: 0;
+        height: 0;
+        transition: all 0.3s linear;
+        &.show {
+          // animation: shown 0.3s linear forwards;
+          // display: block !important;
+          visibility: visible;
+          height: 260px;
+        }
+        .collapse-left-menu {
+          ul {
+            padding: 0;
+            margin-bottom: 0;
+            list-style-type: none !important;
+            li {
+              cursor: pointer;
+              a {
+                margin-bottom: 15px;
+                color: #abb7c4;
+                display: inline-block;
+                text-transform: uppercase;
+                font-size: 13px;
+                font-family: "Nunito", sans-serif;
+                font-weight: 700;
+                transition: all 0.2s linear;
+                text-decoration: none !important;
+                &:hover {
+                  color: #dcf836;
+                }
+              }
+            }
+          }
+        }
+        .collapse-right-menu {
+          ul {
+            padding: 0;
+            list-style-type: none !important;
+            margin-bottom: 0;
+            li {
+              cursor: pointer;
+              a {
+                color: #abb7c4;
+                font-family: "Nunito", sans-serif;
+                display: inline-block;
+                text-transform: uppercase;
+                font-size: 13px;
+                font-weight: 600;
+                text-decoration: none !important;
+              }
+              &:nth-of-type(1) {
+                a {
+                  transition: all 0.2s linear;
+                  &:hover {
+                    color: #dcf836;
+                  }
+                }
+              }
+              &:nth-of-type(2) {
+                a {
+                  margin-top: 10px;
+                  background-color: #dd003f;
+                  border-radius: 20px;
+                  padding: 10px 40px;
+                  color: #ffffff;
+                  font-weight: 600;
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    form {
+      select {
+        font-size: 13px !important;
+      }
+    }
+  }
+  .see-all-movies-news {
+    .see-all-movies-news-header {
+      .blockbuster-rightside-header {
+        text-align: left !important;
+        padding-top: 0 !important;
+      }
+    }
+  }
+  .youtube-iframe {
+    width: 100% !important;
+    iframe {
+      width: 100% !important;
+    }
+  }
+  .latest-news-movie-info {
+    h2 {
+      margin-bottom: 0 !important;
+      a {
+        font-size: 15px !important;
+        line-height: 22px !important;
+      }
+    }
+
+    .description {
+      margin-top: 10px !important;
+      p {
+        font-size: 13px !important;
+        line-height: 20px !important;
+      }
+    }
+  }
+  #movies {
+    #movies-list {
+      .movies-abouts {
+        .movie__about {
+          .movie__about__image {
+          }
+          .movie__about__info {
+            h6 {
+              a {
+              }
+            }
+            .movie__about__desc {
+              margin-bottom: 5px;
+              padding-bottom: 5px;
+              p {
+                font-size: 14px;
+              }
+            }
+            .movie__details {
+              span {
+                font-size: 14px;
+              }
+            }
+            .mv-director {
+              span {
+                font-size: 14px;
+              }
+            }
+            .mv-stars {
+              span {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  #celebrities {
+    .celebrities__list {
+      .celebritie__about {
+        .celebritie__content {
+          .celebritie-name {
+            a {
+            }
+          }
+          .celebritie-detail {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+  #blog {
+    .blog__list {
+      .blog__about {
+        flex-direction: column;
+        .blog__about__image {
+          align-self: flex-start;
+        }
+        .blog__about__content {
+          h2 {
+            a {
+            }
+          }
+          .posted_date {
+          }
+          .description {
+            p {
+            }
+          }
+        }
+      }
+    }
+  }
+  #myaccount {
+    .user-info-tab {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 350px;
+    }
+  }
+  .banner1-bg-img {
+    z-index: 0;
+  }
+  #celebritieInfo {
+    z-index: 19;
+    .celebritie__detail__image {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .celebritie__content {
+      .celebritie__tabs {
+        .celebritie__tabs-content {
+          .celebritie__tabs-content-right {
+            margin-top: 20px;
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+  #news__blog {
+    #blog__detail {
+      .blog__about {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .breadcrumb {
+    flex-wrap: nowrap !important;
+  }
+  #movie-details {
+    .movie__detail__content {
+      .movie__detail__rating {
+        flex-direction: column;
+        height: 120px !important;
+        align-items: flex-start !important;
+        .left-field {
+          border: none !important;
+        }
+        .right-field {
+          flex-direction: column;
+          padding-left: 0 !important;
+          .rate-title {
+            align-self: flex-start !important;
+          }
+          .rate-stars {
+            span {
+              margin: 0 -1px !important;
+              font-size: 0 !important;
+              i {
+                font-size: 15px !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  #right-reserved {
+    .back-top {
+      text-align: left !important;
+    }
+  }
+  .single__image__wrapper {
+    padding-left: 50px !important;
+  }
+}

@@ -1,0 +1,163 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<main id="movies">
+    <section id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>MOVIE LIST</h1>
+                    <div class="bread"
+                         style="--bs-breadcrumb-divider: '>'"
+                         aria-label="breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a asp-controller="Home" asp-action="Index" style="color: #428bca">HOMEPAGE</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                MOVIE LIST
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="movies-list">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="topbar-filters">
+                        <div class="result-count">
+                            <span>Found 15 movies in total</span>
+                        </div>
+                        <div class="sorted-by">
+                            <span>Sort by:</span>
+                            <form action="">
+                                <select name="" id="">
+                                    <option value="0">Default</option>
+                                    <option value="1">Title</option>
+                                    <option value="2">Rating</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="movies-abouts">
+                        <div class="movie__about">
+                            <div class="movie__about__image">
+                                <a asp-controller="Movie" asp-action="Detail">
+                                    <img src="~/assets/images/poster7-683x1024-1-280x395.jpg"
+                                         alt="" />
+                                </a>
+                            </div>
+                            <div class="movie__about__info">
+                                <h6><a href="#">Shazam!</a></h6>
+
+                                <div class="movie__details">
+                                    <span>Run time: nullm</span><span>Release: 2019-04-03</span>
+                                </div>
+                                <p class="mv-director">
+                                    Director: <span>David F. Sandberg</span>
+                                </p>
+                                <p class="mv-stars">Stars: <span>Asher Angel</span></p>
+                            </div>
+                        </div>
+                        <div class="movie__about">
+                            <div class="movie__about__image">
+                                <a asp-controller="Movie" asp-action="Detail">
+                                    <img src="~/assets/images/poster13-200x300-1.jpg" alt="" />
+                                </a>
+                            </div>
+                            <div class="movie__about__info">
+                                <h6><a href="#">Shazam!</a></h6>
+                                <div class="movie__about__desc">
+                                    <p>
+                                        A boy is given the ability to become an adult superhero
+                                        in times of need with a single magic word.
+                                    </p>
+                                </div>
+                                <div class="movie__details">
+                                    <span>Run time: nullm</span><span>Tagline: Just Say The Magic Word</span><span>Release: 2019-04-03</span>
+                                </div>
+                                <p class="mv-director">
+                                    Director: <span>David F. Sandberg</span>
+                                </p>
+                                <p class="mv-stars">Stars: <span>Asher Angel</span></p>
+                            </div>
+                        </div>
+                        <div class="movie__about">
+                            <div class="movie__about__image">
+                                <a asp-controller="Movie" asp-action="Detail">
+                                    <img src="~/assets/images/poster8-200x300-1.jpg" alt="" />
+                                </a>
+                            </div>
+                            <div class="movie__about__info">
+                                <h6><a href="#">Shazam!</a></h6>
+                                <div class="movie__about__desc">
+                                    <p>
+                                        A boy is given the ability to become an adult superhero
+                                        in times of need with a single magic word.
+                                    </p>
+                                </div>
+                                <div class="movie__details">
+                                    <span>Run time: nullm</span><span>Tagline: Just Say The Magic Word</span><span>Release: 2019-04-03</span>
+                                </div>
+                                <p class="mv-director">
+                                    Director: <span>David F. Sandberg</span>
+                                </p>
+                                <p class="mv-stars">Stars: <span>Asher Angel</span></p>
+                            </div>
+                        </div>
+                        <div class="movie__about">
+                            <div class="movie__about__image">
+                                <a href="#">
+                                    <img src="~/assets/images/poster15-200x300-1.jpg" alt="" />
+                                </a>
+                            </div>
+                            <div class="movie__about__info">
+                                <h6><a href="#">Shazam!</a></h6>
+                                <div class="movie__about__desc">
+                                    <p>
+                                        A boy is given the ability to become an adult superhero
+                                        in times of need with a single magic word.
+                                    </p>
+                                </div>
+                                <div class="movie__details">
+                                    <span>Run time: nullm</span><span>Tagline: Just Say The Magic Word</span><span>Release: 2019-04-03</span>
+                                </div>
+                                <p class="mv-director">
+                                    Director: <span>David F. Sandberg</span>
+                                </p>
+                                <p class="mv-stars">Stars: <span>Asher Angel</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottombar-pagination">
+                        <div class="result-count">
+                            <span>Movies per page: 5 movies</span>
+                        </div>
+                        <div class="rightside-pagination">
+                            <div class="pagination-text">
+                                <span>Page 1 of 3:</span>
+                            </div>
+                            <div class="pagination-number">
+                                <ul>
+                                    <li><a class="active" href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li>
+                                        <a href="#"><i class="fas fa-chevron-right"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
