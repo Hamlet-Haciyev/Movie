@@ -1,4 +1,4 @@
-﻿
+﻿@model VmCelebritie
 @{
     ViewData["Title"] = "Index";
 }
@@ -30,96 +30,26 @@
             <div class="row">
                 <div class="col-md-9">
                     <div class="celebrities__list">
-                        <div class="celebritie__about">
-                            <div class="celebritie__image">
-                                <a asp-controller="Celebritie" asp-action="Detail">
-                                    <img src="assets/images/celebrities-1.png" alt="" />
-                                </a>
-                            </div>
-                            <div class="celebritie__content">
-                                <h4 class="celebritie-name">
-                                    <a href="#">Anthony Hopkins</a>
-                                </h4>
-                                <p class="celebritie-detail">
-                                    AMMANFORD, CARMARTHENSHIRE, WALES, UNITED KINGDOM
-                                </p>
-                            </div>
-                        </div>
-                        <div class="celebritie__about">
-                            <div class="celebritie__image">
-                                <a asp-controller="Celebritie" asp-action="Detail">
-                                    <img src="assets/images/celebrities-2.png" alt="" />
-                                </a>
-                            </div>
-                            <div class="celebritie__content">
-                                <h4 class="celebritie-name">
-                                    <a href="#">Alfre Woodard</a>
-                                </h4>
-                                <p class="celebritie-detail">
-                                    AMMANFORD, CARMARTHENSHIRE, WALES, UNITED KINGDOM
-                                </p>
-                            </div>
-                        </div>
-                        <div class="celebritie__about">
-                            <div class="celebritie__image">
-                                <a asp-controller="Celebritie" asp-action="Detail">
-                                    <img src="assets/images/celebrities-3.png" alt="" />
-                                </a>
-                            </div>
-                            <div class="celebritie__content">
-                                <h4 class="celebritie-name">
-                                    <a href="#">Amber Rose Revah</a>
-                                </h4>
-                                <p class="celebritie-detail">
-                                    AMMANFORD, CARMARTHENSHIRE, WALES, UNITED KINGDOM
-                                </p>
-                            </div>
-                        </div>
-                        <div class="celebritie__about">
-                            <div class="celebritie__image">
-                                <a href="celebritiesDetail.html">
-                                    <img src="assets/images/celebrities-4.png" alt="" />
-                                </a>
-                            </div>
-                            <div class="celebritie__content">
-                                <h4 class="celebritie-name">
-                                    <a href="#">Alec Baldwin</a>
-                                </h4>
-                                <p class="celebritie-detail">
-                                    AMMANFORD, CARMARTHENSHIRE, WALES, UNITED KINGDOM
-                                </p>
-                            </div>
-                        </div>
-                        <div class="celebritie__about">
-                            <div class="celebritie__image">
-                                <a href="#">
-                                    <img src="assets/images/celebrities-5.png" alt="" />
-                                </a>
-                            </div>
-                            <div class="celebritie__content">
-                                <h4 class="celebritie-name">
-                                    <a href="#"> Abby Ryder Fortson</a>
-                                </h4>
-                                <p class="celebritie-detail">
-                                    AMMANFORD, CARMARTHENSHIRE, WALES, UNITED KINGDOM
-                                </p>
-                            </div>
-                        </div>
-                        <div class="celebritie__about">
-                            <div class="celebritie__image">
-                                <a href="#">
-                                    <img src="assets/images/celebrities-6.png" alt="" />
-                                </a>
-                            </div>
-                            <div class="celebritie__content">
-                                <h4 class="celebritie-name">
-                                    <a href="#">Amber Heard</a>
-                                </h4>
-                                <p class="celebritie-detail">
-                                    AMMANFORD, CARMARTHENSHIRE, WALES, UNITED KINGDOM
-                                </p>
-                            </div>
-                        </div>
+                        @{
+                            foreach (var item in Model.Casts)
+                            {
+                                <div class="celebritie__about">
+                                    <div class="celebritie__image">
+                                        <a asp-controller="Celebritie" asp-action="Detail" asp-route-id="@item.Id">
+                                            <img src="~/Uploads/@item.Image" alt="no image" style="width: 100.6px; object-fit: cover; object-position: 50% 50%; height: 100%; " />
+                                        </a>
+                                    </div>
+                                    <div class="celebritie__content">
+                                        <h4 class="celebritie-name">
+                                            <a asp-controller="Celebritie" asp-action="Detail" asp-route-id="@item.Id">@item.Name</a>
+                                        </h4>
+                                        <p class="celebritie-detail">
+                                            @item.BirthPlace
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                        }
                     </div>
                     <div class="celebrities-pagination">
                         <div class="page-text"><span>Page 1 of 2:</span></div>

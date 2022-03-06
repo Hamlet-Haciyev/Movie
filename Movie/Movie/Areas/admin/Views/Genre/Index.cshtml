@@ -150,7 +150,7 @@
 
                                                     </span>
                                                 </a>
-                                                <a class="btn btn-sm btn-default btn-text-primary btn-hover-primary btn-icon" title="Delete" asp-area="admin" asp-controller="Genre" asp-action="Delete" asp-route-id="@genre?.Id" onclick="return confirm('Are your sure?')">
+                                                <a class="btn btn-sm btn-default btn-text-primary btn-hover-primary btn-icon delete" title="Delete" asp-area="admin" asp-controller="Genre" asp-action="Delete" asp-route-id="@genre?.Id">
                                                     <span class="svg-icon svg-icon-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -180,3 +180,36 @@
 </div>
 
 
+@section Scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $('.delete').on('click', function (e) {
+            e.preventDefault();
+            let url = $(this).attr('href');
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        fetch(url).then(response => response.json()).then(data => {
+                            if (data.code == 204) {
+                                swal(data.message, {
+                                    icon: "success",
+                                });
+                                window.location.reload();
+                            } else {
+                                swal(data.message, {
+                                    icon: "error",
+                                });
+                            }
+                        })
+                    } else {
+                        swal("Item wasn't deleted", { icon: "error" });
+                    }
+                });
+        })</script>
+}

@@ -35,6 +35,7 @@ namespace Movie.Data
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Writer> Writers { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
     }
 }

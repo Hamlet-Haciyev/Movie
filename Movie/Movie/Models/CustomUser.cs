@@ -11,6 +11,10 @@ namespace Movie.Models
 {
     public class CustomUser : IdentityUser
     {
+        [MaxLength(30)]
+        public string FirstName { get; set; }
+        [MaxLength(30)]
+        public string LastName { get; set; }
         [MaxLength(250)]
         public string Image { get; set; }
         [NotMapped]
@@ -18,5 +22,9 @@ namespace Movie.Models
         [MaxLength(30)]
         public string Phone { get; set; }
         public DateTime CreatedDate { get; set; }
+        [NotMapped]
+        public string RoleId { get; set; }
+        [NotMapped]
+        public string Token { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿@{
+﻿@inject  SignInManager<IdentityUser> SignInManager
+@inject  UserManager<IdentityUser> UserManager
+@{
     string controller = this.ViewContext.RouteData.Values["controller"].ToString().ToLower();
 }
 <!DOCTYPE html>
@@ -10,8 +12,10 @@
     <title>
         Blockter - Movie database WordPress Theme Preview - ThemeForest
     </title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           rel="stylesheet" />
+
     <link rel="stylesheet"
           href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700&display=swap"
@@ -22,9 +26,13 @@
           href="~/Plugin/owlCarousel/dist/assets/owl.carousel.min.css" />
     <link rel="stylesheet"
           href="~/Plugin/owlCarousel/dist/assets/owl.theme.default.min.css" />
+    <link href="~/Plugin/toastr-master/build/toastr.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Plugin/MaginicPopup/dist/magnific-popup.css" />
+    <link rel="icon" type="image/png" href="~/assets/images/favicon.ico" />
+    @RenderSection("choosePhoto", required: false)
 
     <link rel="stylesheet" href="~/assets/css/style.css" />
+
 </head>
 <body>
     <div class="preloader">
@@ -34,79 +42,41 @@
             <div class="element__2"></div>
         </div>
     </div>
-    <div class="overlay-form">
-        <div class="wrapped-form">
-            <div class="custom-form">
-                <h3>Login</h3>
-                <form action="">
-                    <div class="username-email">
-                        <label for="">UserName or Email Address</label>
-                        <input type="text" id="email" />
-                    </div>
-                    <div class="user-password">
-                        <label for="">Password</label>
-                        <input type="password" id="password" />
-                    </div>
-                    <div class="remember-me">
-                        <div class="check-remember">
-                            <input type="checkbox" id="remember-me" /><label for="remember-me">Remember me</label>
-                        </div>
-                        <a href="#" class="sign-up">Sign Up</a>
-                    </div>
-                    <button type="submit" id="btn">Log in</button>
-                </form>
-                <div class="close-btn">
-                    <a href="#" data-close><i class="fas fa-times"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="overlay-form-signUp">
-        <div class="overlay-form-signUp__wrapped">
-            <div class="c__form__signUp">
-                <h3>Sign Up</h3>
-                <form action="">
-                    <div class="username-email">
-                        <label for="">UserName or Email Address</label>
-                        <input type="text" id="email" />
-                    </div>
-                    <div class="user-password">
-                        <label for="">Password</label>
-                        <input type="password" id="password" />
-                    </div>
-                    <div class="remember-me">
-                        <div class="check-remember">
-                            <input type="checkbox" id="remember-me" /><label for="remember-me">Remember me</label>
-                        </div>
-                    </div>
-                    <button type="submit" id="btn">Sign Up</button>
-                </form>
-                <div class="close-btn">
-                    <a href="#" data-close-signup><i class="fas fa-times"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <partial name="_SignIn" >
+    <partial name="_SignUp">
+    <partial name="_ForgetPassword">
     <header>
         <div class="theme-menu-box">
             <div class="container">
                 <div class="menu-flex-box">
                     <h1>
-                        <a href="#"><img src="~/assets/images/logo.png" alt="" /></a>
+                        <a href="#"><img src="~/Uploads/@Model.Setting.Logo" alt="" /></a>
                     </h1>
                     <div class="theme-wrap-nav-menu">
                         <div class="theme-nav-list-menu">
                             <ul>
                                 <li><a asp-controller="Home" asp-action="Index" class="@(controller == "home"?"active":"")">Home</a></li>
-                                <li><a asp-controller="Movie" asp-action="Index"class="@(controller == "movie"?"active":"")">Movies</a></li>
+                                <li><a asp-controller="Movie" asp-action="Index" class="@(controller == "movie"?"active":"")">Movies</a></li>
                                 <li><a asp-controller="Celebritie" asp-action="Index" class="@(controller == "celebritie"?"active":"")">Celebrities</a></li>
-                                <li><a asp-controller="Blog" asp-action="Index"class=" @(controller == "blog"?"active":"")">News</a></li>
+                                <li><a asp-controller="Blog" asp-action="Index" class=" @(controller == "blog"?"active":"")">News</a></li>
+                                <li><a asp-controller="Contact" asp-action="Index" class=" @(controller == "contact"?"active":"")">Contact</a></li>
                             </ul>
                         </div>
                         <div class="theme-nav-btn-menu">
                             <ul>
-                                <li><a href="myaccount.html">My account</a></li>
-                                <li><a href="#" id="login" class="login">Log in</a></li>
+                                <li><a asp-controller="Profile" asp-action="Index" class="@(controller == "profile"?"active":"")">My account</a></li>
+                                @{
+
+                                    @if (SignInManager.IsSignedIn(User))
+                                    {
+                                        //logout
+                                        <li><a asp-controller="Account" asp-action="Logout" class=" login">Log Out</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="#" id="login" class="login">Log in</a></li>
+                                    }
+                                }
                             </ul>
                         </div>
                     </div>
@@ -124,7 +94,7 @@
                         </div>
                         <div class="collapse-right-menu">
                             <ul>
-                                <li><a href="#">My account</a></li>
+                                <li><a asp-controller="Profile" asp-action="Index">My account</a></li>
                                 <li><a href="#">Log in</a></li>
                             </ul>
                         </div>
@@ -132,11 +102,11 @@
                 </div>
                 @if (ViewBag.Page == "Home" || ViewBag.Page == "Movie")
                 {
-                    <form>
+                    <form asp-controller="Movie" asp-action="Index">
                         <select name="" id="">
                             <option value="0">Movie</option>
                         </select>
-                        <input type="text" required placeholder="Search for Movie" />
+                        <input type="text" required placeholder="Search for Movie" name="searchMovie" />
                     </form>
                 }
             </div>
@@ -150,11 +120,11 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="company-address">
                             <div class="footer-logo">
-                                <img src="~/assets/images/logo.png" alt="" />
+                                <img src="~/Uploads/@Model.Setting.Logo" alt="" />
                             </div>
 
-                            <p>5th Avenue st, manhattan New York, NY 10001</p>
-                            <p>Call us: <a href="#"> (+01) 202 342 6789</a></p>
+                            <p>@Model.Setting.Address</p>
+                            <p>Call us: <a href="#">@Model.Setting.Phone</a></p>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12">
@@ -197,12 +167,19 @@
                                 Subscribe to our newsletter system now to get latest news from
                                 us
                             </p>
-                            <form>
+                            <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-7" asp-controller="home" asp-action="Subscribe" method="post">
                                 <input required
-                                       type="email"
-                                       placeholder="Enter your email" /><i class="far fa-envelope"></i>
+                                        type="email" name="email"
+                                        placeholder="Your email..." /><i class="far fa-envelope"></i>
+                                <a href="" class="submit" id="submitBtn">SUBSCRIBE NOW </a>
+                                <div class="mc4wp-form-fields">
+                                    <p>
+                                        <div class="alert alert-success" style="display:none"></div>
+                                        <div class="alert alert-warning" style="display:none"></div>
+                                    </p>
+                                </div>
+                                <div class="mc4wp-response"></div>
                             </form>
-                            <a href="">SUBSCRIBE NOW <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -230,9 +207,17 @@
         </section>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    @*<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>*@
+    <script src="~/Plugin/toastr-master/toastr.js"></script>
     <script src="~/Plugin/MaginicPopup/dist/jquery.magnific-popup.js"></script>
     <script src="~/Plugin/owlCarousel/dist/owl.carousel.min.js"></script>
+    <script src="~/assets/scripts/Subscribe.js"></script>
+    @RenderSection("ContactScript", required: false)
+    @RenderSection("Scirpts", required: false)
+    @RenderSection("ModalScript", required: false)
+    @RenderSection("choosePhotoScript", required: false)
     <script src="~/assets/scripts/script.js"></script>
+    <script src="~/assets/scripts/sweetAlert.js"></script>
     <script src="~/assets/scripts/plugin.js"></script>
 </body>
 </html>

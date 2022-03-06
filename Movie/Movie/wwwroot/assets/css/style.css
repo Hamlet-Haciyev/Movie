@@ -52,15 +52,20 @@
   outline: none;
   width: 100%;
 }
+.overlay-form-signUp  form .username-email input::placeholder {
+    color: black !important;
+    opacity: 0.5;
+    font-size: 12px !important;
+}
 
 * .overlay-form .wrapped-form .custom-form form .username-email label, * .overlay-form .wrapped-form .custom-form form .user-password label, * .overlay-form-signUp .overlay-form-signUp__wrapped .c__form__signUp form .username-email label, * .overlay-form-signUp .overlay-form-signUp__wrapped .c__form__signUp form .user-password label {
-  display: block;
-  width: 100%;
-  font-family: "Dosis", sans-serif;
-  font-size: 14px;
-  color: #222222;
-  font-weight: 700;
-  text-transform: uppercase;
+    display: block;
+    width: 100%;
+    font-family: "Dosis", sans-serif;
+    font-size: 14px;
+    color: #222222;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 * .overlay-form .wrapped-form .custom-form h3, * .overlay-form-signUp .overlay-form-signUp__wrapped .c__form__signUp h3 {
@@ -743,7 +748,6 @@ main #movie-list .movie-card .movie-info ul {
   margin: 0;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between;
   margin-bottom: 7px;
 }
 
@@ -854,16 +858,16 @@ main #generes-celebrities .movie-generes .movie-G-List ul li a.active {
 }
 
 main #generes-celebrities .movie-generes .movies-G {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap:wrap;
 }
 
 main #generes-celebrities .movie-generes .movies-G .movies-G-card {
   height: 300px;
   position: relative;
+  margin-bottom:20px;
 }
 
 main #generes-celebrities .movie-generes .movies-G .movies-G-card .image {
@@ -948,7 +952,7 @@ main #generes-celebrities .movie-generes .movie-pagination ul {
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between;
+         /* justify-content: space-between;*/
   max-width: 150px;
   margin-top: 30px;
   margin-left: 15px;
@@ -2765,7 +2769,6 @@ main #generes-celebrities .spotlight__celebrities .spotlight__celebritie:hover .
 }
 
 #movie-single #movie-details .movie__detail__content .movie-tab .movie__tabs__content .movie__tabs__content__related__movies .movie__about .movie__about__image a img {
-  max-width: 100%;
   opacity: 0.8;
   border-radius: 5px;
 }
@@ -3237,6 +3240,7 @@ main #generes-celebrities .spotlight__celebrities .spotlight__celebritie:hover .
   margin-right: 15px;
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
+  cursor:pointer;
 }
 
 #news__blog #blog__detail .blog__about .consult__comment__related .consult__comments .comment__content .comment__reply a:hover {
@@ -4189,4 +4193,571 @@ main #generes-celebrities .spotlight__celebrities .spotlight__celebritie:hover .
     padding-left: 50px !important;
   }
 }
+
+
+.overlay-form-forgetPassword {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    visibility: hidden;
+    transform: translateY(-600px);
+    transition: all 0.3s linear;
+}
+
+.overlay-form-forgetPassword.open {
+        visibility: visible;
+        transform: translateY(0);
+}
+
+.overlay-form-forgetPassword .overlay-form-forgetPassword__wrapped {
+    background-color: #ffffff;
+}
+
+.overlay-form-forgetPassword .overlay-form-forgetPassword__wrapped .c__form_forgetPassword {
+    padding: 50px 30px;
+    position: relative;
+}
+.overlay-form-forgetPassword .overlay-form-forgetPassword__wrapped .c__form_forgetPassword h3 {
+    font-family: "Dosis", sans-serif;
+    font-size: 36px;
+    color: #020d18;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 430px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.overlay-form-forgetPassword .overlay-form-forgetPassword__wrapped .c__form_forgetPassword form {
+    width: 330px;
+    height: auto;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+.overlay-form-forgetPassword .overlay-form-forgetPassword__wrapped .c__form_forgetPassword form .user-email {
+    margin-bottom: 20px;
+}
+
+.overlay-form-forgetPassword .overlay-form-forgetPassword__wrapped .c__form_forgetPassword form .send__email {
+    margin: 10px 0;
+    background-color: #dd003f;
+    display: block;
+    border: none;
+    font-family: "Dosis", sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    height: 42px;
+    width: 100%;
+    cursor: pointer;
+}
+.overlay-form-forgetPassword .overlay-form-forgetPassword__wrapped .c__form_forgetPassword form .username-email label {
+    display: block;
+    width: 100%;
+    font-family: "Dosis", sans-serif;
+    font-size: 14px;
+    color: #222222;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.overlay-form-forgetPassword .overlay-form-forgetPassword__wrapped .c__form_forgetPassword form .username-email input {
+    font-family: "Dosis", sans-serif;
+    font-size: 14px;
+    color: #222222;
+    font-weight: 700;
+    text-transform: none;
+    margin-top: 10px;
+    height: 42px;
+    border: 1px solid #e1e1e1;
+    padding: 0 15px;
+    outline: none;
+    width: 100%;
+}
+
+.overlay-form-forgetPassword .overlay-form-forgetPassword__wrapped .c__form_forgetPassword .close-btn a {
+    text-decoration: none;
+}
+.overlay-form-forgetPassword .overlay-form-forgetPassword__wrapped .c__form_forgetPassword .close-btn a i {
+    font-size: 18px;
+    color: #ffffff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: -15px;
+    margin-right: -15px;
+    width: 30px;
+    height: 30px;
+    background-color: #dd003f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.forgetPassword-btnWrapped {
+    text-align: center;
+}
+.overlay-form .wrapped-form .custom-form form .forgetPassword-Btn {
+    margin-top: 15px;
+    text-decoration: none;
+    color: #428bca;
+}
+.overlay-form .wrapped-form .custom-form form .forgetPassword-Btn:hover {
+    text-decoration: underline;
+}
+
+#contact-us{
+
+}
+
+main #trial {
+    padding: 100px 0;
+}
+
+main #trial .full-trial {
+    -webkit-box-shadow: 0 10px 35px 5px rgba(137, 173, 255, 0.15);
+    box-shadow: 0 10px 35px 5px rgba(137, 173, 255, 0.15);
+    padding: 50px 30px;
+    /*background: white;*/
+}
+
+main #trial .full-trial .p7 {
+    padding: 0 7px;
+}
+
+main #trial .full-trial .reasons {
+    padding-right: 15px;
+    border-right: 1px solid #eee;
+}
+
+main #trial .full-trial .reasons h3 {
+    margin-bottom: 12px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #aeaaaa;
+}
+
+main #trial .full-trial .reasons p {
+    color: #aeaaaa;
+    line-height: 1.8;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+main #trial .full-trial .reasons ul {
+    padding-left: 0;
+    list-style-type: none;
+    margin-top: 25px;
+    margin-bottom: 0;
+}
+
+main #trial .full-trial .reasons ul li {
+    color: #aeaaaa;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+}
+
+main #trial .full-trial .reasons ul li i {
+    color: #13c4a1;
+    position: absolute;
+    left: 0;
+    top: 4px;
+}
+
+main #trial .full-trial .trial-form {
+-webkit-transition: all 0.5s linear;
+transition: all 0.5s linear;
+}
+
+main #trial .full-trial .trial-form h3 {
+    margin-bottom: 25px;
+    font-size: 32px;
+    font-weight: 500;
+    color: #aeaaaa;
+}
+
+main #trial .full-trial .trial-form .trialForm .form-group {
+margin-bottom: 15px;
+}
+
+main #trial .full-trial .trial-form .trialForm .form-group input {
+    height: 48px;
+    padding: 0 15px;
+    color: #aeaaaa;
+    font-size: 14px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #121117 !important;
+}
+
+main #trial .full-trial .trial-form .trialForm .form-group input:focus {
+    border-color: #13c4a1;
+}
+
+main #trial .full-trial .trial-form .trialForm .form-group .trialError {
+    display: none;
+    color: red;
+    font-size: 15px;
+}
+
+main #trial .full-trial .trial-form .trialForm .form-group .trialError2 {
+    display: none;
+    color: red;
+    font-size: 15px;
+}
+
+main #trial .full-trial .trial-form .trialForm .form-group .trialErrorSubmit {
+    display: none;
+    color: red;
+    font-size: 22px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+    main #trial .full-trial .trial-form .trialForm .form-group textarea {
+        resize: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background-color: #121117 !important;
+        color: #aeaaaa;
+    }
+
+main #trial .full-trial .trial-form .trialForm .form-group textarea:focus {
+    border-color: #13c4a1;
+}
+
+main #trial .full-trial .trial-form .trialForm .form-group #trialBtn {
+    -webkit-box-shadow: 0 5px 28.5px 1.5px rgba(255, 97, 47, 0.3);
+    box-shadow: 0 5px 28.5px 1.5px rgba(80, 26, 86, 0.3);
+    background-color: rgb(80 75 86);
+    border: none;
+    color: white;
+    /*background-color: #ff612f;*/
+    padding: 13px 25px 13px 50px;
+}
+
+main #trial .full-trial .trial-form .trialForm .form-group #trialBtn i {
+    color: #080a3c;
+    font-size: 15px;
+    font-weight: 900;
+    right: 73%;
+    bottom: 10px;
+}
+
+main #trial .full-trial .trial-form .trialForm .form-group #trialBtn:hover {
+    background-color: #294858;
+    -webkit-box-shadow: 0 5px 28.5px 1.5px rgba(19, 196, 161, 0.3);
+    box-shadow: 0 5px 28.5px 1.5px rgba(19, 196, 161, 0.3);
+}
+
+main #trial .full-trial .trial-form .trialForm .form-group .submitSuccess {
+    display: none;
+    color: green;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+main #trial .full-trial .trial-form .trialForm .form-group .submitSuccessAnim {
+    -webkit-animation: submitSuccessAnimation 0.3s linear 5;
+    animation: submitSuccessAnimation 0.3s linear 5;
+}
+
+@-webkit-keyframes submitSuccessAnimation {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    25% {
+        -webkit-transform: rotate(5deg);
+        transform: rotate(5deg);
+    }
+
+    50% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    75% {
+        -webkit-transform: rotate(-5deg);
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes submitSuccessAnimation {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    25% {
+        -webkit-transform: rotate(5deg);
+        transform: rotate(5deg);
+    }
+
+    50% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    75% {
+        -webkit-transform: rotate(-5deg);
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}
+
+main #trial .full-trial .animatedTrial {
+    -webkit-animation: trialErrorAnimation 0.2s linear 5;
+    animation: trialErrorAnimation 0.2s linear 5;
+}
+
+@-webkit-keyframes trialErrorAnimation {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    25% {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+
+    50% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    75% {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+
+    50% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes trialErrorAnimation {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    25% {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+
+    50% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    75% {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+
+    50% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+main #trial .full-trial .contact-with-us-full {
+    text-align: center;
+    margin-top: 50px;
+}
+
+    main #trial .full-trial .contact-with-us-full .contact-with-us h3 {
+        margin-bottom: 15px;
+        font-size: 22px;
+        font-weight: 500;
+        color: #aeaaaa;
+    }
+
+main #trial .full-trial .contact-with-us-full .contact-with-us .num-mail {
+    margin-bottom: 0;
+    font-size: 40px;
+    font-weight: 500;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+main #trial .full-trial .contact-with-us-full .contact-with-us .num-mail .phoneA {
+    color: #13c4a1;
+    text-decoration: none;
+}
+
+main #trial .full-trial .contact-with-us-full .contact-with-us .num-mail .phoneA:hover {
+    color: #ff612f;
+}
+
+main #trial .full-trial .contact-with-us-full .contact-with-us .num-mail span {
+    color: #4a6f8a;
+    margin-top: 7px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+main #trial .full-trial .contact-with-us-full .contact-with-us .num-mail .mailA {
+    text-decoration: none;
+    color: #ff612f;
+}
+
+main #trial .full-trial .contact-with-us-full .contact-with-us .num-mail .mailA:hover {
+    color: #13c4a1;
+}
+
+main #trial .full-trial .contact-with-us-full .contact-with-us .trial-socials {
+    margin: 25px 0 0 0;
+    padding: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+main #trial .full-trial .contact-with-us-full .contact-with-us .trial-socials li {
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    font-size: 18px;
+    border: 1px solid #dadada;
+    border-radius: 50%;
+    margin: 0 2px;
+    width: 40px;
+    height: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+main #trial .full-trial .contact-with-us-full .contact-with-us .trial-socials li a {
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    color: #aba5a5;
+    text-decoration: none;
+}
+
+main #trial .full-trial .contact-with-us-full .contact-with-us .trial-socials li:hover {
+    background-color: #13c4a1;
+    border-color: #13c4a1;
+}
+
+main #trial .full-trial .contact-with-us-full .contact-with-us .trial-socials li:hover a {
+    color: white;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    main #trial {
+        padding: 80px 0 !important;
+    }
+}
+
+.showCancel{
+    display: inline-block !important;
+}
+
+.tab-content {
+    position: relative;
+    padding: 30px;
+    width: 100%;
+    margin-top: -340px;
+    position: relative;
+    z-index: 99;
+    border: 3px solid #071829;
+    background-color: #020d18;
+    border-radius: 5px;
+}
+.tab-content .tab-pane {
+    display: block;
+    max-width: 100%;
+}
+.tab-content .tab-pane .myaccount-form {
+    padding: 30px;
+    border-radius: 0;
+    border: 3px solid #071829;
+}
+.tab-content .tab-pane .myaccount-form .myaccount-form-inner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: -20px;
+}
+
+.myaccount-form .myaccount-form-inner .single-input, .myaccount-form-boxed .myaccount-form-inner .single-input {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 20px;
+}
+.myaccount-form .myaccount-form-inner .single-input.single-input-half {
+    flex: 0 0 calc(50% - 15px);
+    max-width: calc(50% - 15px);
+    margin-top: 20px;
+}
+.myaccount-form .myaccount-form-inner .single-input label {
+    margin-bottom: 8px;
+    color: #1d9fc0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    display: block;
+}
+.myaccount-form .myaccount-form-inner .single-input input {
+    padding: 0 15px;
+    border: 1px solid #0a2036;
+    height: 40px;
+    width: 100%;
+    outline: none;
+    background-color: #1d3c5b;
+}
+
 /*# sourceMappingURL=style.css.map */

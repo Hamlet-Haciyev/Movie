@@ -12,11 +12,11 @@ namespace Movie.Models
     {
         [Key]
         public int Id { get; set; }
-        [MaxLength(30),Required]
+        [MaxLength(30),Required(ErrorMessage ="This field required")]
         public string Name { get; set; }
-        [MaxLength(50),Required]
+        [MaxLength(50),Required(ErrorMessage = "This field required")]
         public string Email { get; set; }
-        [MaxLength(2000),Required]
+        [MaxLength(2000),Required(ErrorMessage = "This field required")]
         public string Text { get; set; }
         public DateTime CreatedDate { get; set; }
 

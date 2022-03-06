@@ -76,9 +76,24 @@ namespace Movie.Areas.admin.Controllers
 
             if (genre != null)
             {
-                _appDbContext.Genres.Remove(genre);
-                _appDbContext.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    _appDbContext.Genres.Remove(genre);
+                    _appDbContext.SaveChanges();
+                    return Json(new
+                    {
+                        code = 204,
+                        message = "Item has been deleted successfully!"
+                    });
+                }
+                catch (Exception)
+                {
+                    return Json(new
+                    {
+                        code = 500,
+                        message = "Something went wrong!"
+                    });
+                }
             }
 
             return View();

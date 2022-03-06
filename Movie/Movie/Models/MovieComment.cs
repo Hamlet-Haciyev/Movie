@@ -12,11 +12,11 @@ namespace Movie.Models
     {
         [Key]
         public int Id { get; set; }
-        [MaxLength(30),Required]
+        [MaxLength(30),Required(ErrorMessage = "Enter your name")]
         public string Name { get; set; }
-        [MaxLength(50),Required]
+        [MaxLength(50),Required(ErrorMessage = "Enter your email")]
         public string Email { get; set; }
-        [MaxLength(2000),Required]
+        [MaxLength(2000),Required(ErrorMessage = "Enter your message")]
         public string Text { get; set; }
         [Required]
         public byte Rating { get; set; }

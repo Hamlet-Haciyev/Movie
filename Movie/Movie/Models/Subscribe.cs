@@ -10,7 +10,8 @@ namespace Movie.Models
     {
         [Key]
         public int Id { get; set; }
-        [MaxLength(50)]
+        [MaxLength(50),Required(ErrorMessage ="Please enter email address")]
         public string Mail { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

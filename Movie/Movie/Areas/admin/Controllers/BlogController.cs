@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,7 @@ namespace Movie.Areas.admin.Controllers
             _appDbContext = appDbContext;
             _webHostEnvironment = webHostEnvironment;
         }
+        [Authorize(Roles ="Admin")]
         public IActionResult Index()
         {
             return View(_appDbContext.Blogs.Include(b=>b.BlogToTags).ThenInclude(bt=>bt.Tag).ToList());
@@ -32,6 +34,7 @@ namespace Movie.Areas.admin.Controllers
             ViewBag.Tags = _appDbContext.Tags.ToList();
             return View();
         }
+        [Authorize(Roles ="Admin")]
         [HttpPost]
         public IActionResult Create(Blog blog)
         {
@@ -102,6 +105,7 @@ namespace Movie.Areas.admin.Controllers
 
             return View(blog);
         }
+        [Authorize(Roles ="Admin")]
         public IActionResult Update(int? id)
         {
             Blog blog = null;
@@ -136,6 +140,7 @@ namespace Movie.Areas.admin.Controllers
             }
             return View(blog);
         }
+        [Authorize(Roles ="Admin")]
         [HttpPost]
         public IActionResult Update(Blog blog)
         {

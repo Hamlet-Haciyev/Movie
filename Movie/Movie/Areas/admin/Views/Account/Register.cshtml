@@ -1,0 +1,101 @@
+﻿@model VmRegister 
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src= '../../../../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-5FS8GGP');</script>
+    <meta charset="utf-8" />
+    <title>Sign Up | Keenthemes</title>
+    <meta name="description" content="Singin page example" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="canonical" href="https://keenthemes.com/metronic" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <link href="~/Area/css/pages/login/login-45883.css?v=7.2.9" rel="stylesheet" type="text/css" />
+    <link href="~/Area/plugins/global/plugins.bundle5883.css?v=7.2.9" rel="stylesheet" type="text/css" />
+    <link href="~/Area/plugins/custom/prismjs/prismjs.bundle5883.css?v=7.2.9" rel="stylesheet" type="text/css" />
+    <link href="~/Area/css/style.bundle5883.css?v=7.2.9" rel="stylesheet" type="text/css" />
+    <link href="~/Area/css/themes/layout/header/base/light5883.css?v=7.2.9" rel="stylesheet" type="text/css" />
+    <link href="~/Area/css/themes/layout/header/menu/light5883.css?v=7.2.9" rel="stylesheet" type="text/css" />
+    <link href="~/Area/css/themes/layout/brand/dark5883.css?v=7.2.9" rel="stylesheet" type="text/css" />
+    <link href="~/Area/css/themes/layout/aside/dark5883.css?v=7.2.9" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/logos/favicon.ico" />
+    <script>(function(h,o,t,j,a,r){ h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)}; h._hjSettings={hjid:1070954,hjsv:6}; a=o.getElementsByTagName('head')[0]; r=o.createElement('script');r.async=1; r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv; a.appendChild(r); })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');</script>
+</head>
+<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FS8GGP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <div class="d-flex flex-column flex-root">
+        <div class="login login-4 wizard d-flex flex-column flex-lg-row flex-column-fluid wizard" id="kt_login">
+            <div class="login-container d-flex flex-center flex-row flex-row-fluid order-2 order-lg-1 flex-row-fluid bg-white py-lg-0 pb-lg-0 pt-15 pb-12">
+                <div class="login-content login-content-signup d-flex flex-column">
+                    <div class="d-flex flex-column-auto flex-column px-10">
+                        <a href="#" class="login-logo pb-lg-4 pb-10">
+                            <img src="~/Area/media/logos/logo-4.png" class="max-h-70px" alt="" />
+                        </a>
+                    </div>
+                    <div class="login-form pt-5">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <form class="form px-10" novalidate="novalidate" asp-area="admin" asp-controller="account" asp-action="register" method="post"  >
+                            <div class="" data-wizard-type="step-content" data-wizard-state="current">
+                                <div class="pb-10 pb-lg-12">
+                                    <h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Create Account</h3>
+                                    <div class="text-muted font-weight-bold font-size-h4">
+                                        Already have an Account ?
+                                        <a asp-area="admin" asp-controller="account" asp-action="login" class="text-primary font-weight-bolder">Sign In</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="@Model.Email" class="font-size-h6 font-weight-bolder text-dark">Email</label>
+                                    <input asp-for="@Model.Email" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" placeholder="Email"  />
+                                    <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="@Model.Password" class="font-size-h6 font-weight-bolder text-dark">Password</label>
+                                    <input asp-for="@Model.Password" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" />
+                                    <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between pt-7">
+                                <div>
+                                    <button type="submit" class="btn btn-primary font-weight-bolder font-size-h6 pl-8 pr-4 py-4 my-3" data-wizard-type="action-next">
+                                        Submit
+                                        <span class="svg-icon svg-icon-md ml-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                                    <rect fill="#000000" opacity="0.3" transform="translate(8.500000, 12.000000) rotate(-90.000000) translate(-8.500000, -12.000000)" x="7.5" y="7.5" width="2" height="9" rx="1" />
+                                                    <path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
+                                                </g>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="login-aside order-1 order-lg-2 bgi-no-repeat bgi-position-x-right">
+                <div class="login-conteiner bgi-no-repeat bgi-position-x-right bgi-position-y-bottom" style="background-image: url(https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/illustrations/login-visual-4.svg);">
+                    <h3 class="pt-lg-40 pl-lg-20 pb-lg-0 pl-10 py-20 m-0 d-flex justify-content-lg-start font-weight-boldest display5 display1-lg text-white">
+                        We Got
+                        <br />A Surprise
+                        <br />For You
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
+    <script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };</script>
+    <script src="~/Area/plugins/global/plugins.bundle5883.js?v=7.2.9"></script>
+    <script src="~/Area/plugins/custom/prismjs/prismjs.bundle5883.js?v=7.2.9"></script>
+    <script src="~/Area/js/scripts.bundle5883.js?v=7.2.9"></script>
+    <script src="~/Area/js/engage_code.js"></script>
+    <script src="~/Area/js/pages/custom/login/login-45883.js?v=7.2.9"></script>
+</body>
+</html>

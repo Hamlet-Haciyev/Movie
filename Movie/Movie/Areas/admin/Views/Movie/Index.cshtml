@@ -116,7 +116,7 @@
                                 <th data-field="Title" class="datatable-cell datatable-cell-sort"><span style="width: 90px;">Title</span></th>
                                 <th data-field="Description" class="datatable-cell datatable-cell-sort"><span style="width: 146px;">Description</span></th>
                                 <th data-field="Tagline" class="datatable-cell datatable-cell-sort"><span style="width: 146px;">Tagline</span></th>
-                                <th data-field="CreatedDate" class="datatable-cell datatable-cell-sort"><span style="width: 146px;">CreatedDate</span></th>
+                                <th data-field="CreatedDate" class="datatable-cell datatable-cell-sort"><span style="width: 146px;">Release Date</span></th>
                                 @*<th data-field="Social" class="datatable-cell datatable-cell-sort"><span style="width: 146px;">Social</span></th>*@
                                 <th data-field="Actions" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort"><span style="width: 130px;">Actions</span></th>
                             </tr>
@@ -150,7 +150,7 @@
 
                                         <td data-field="Description" class="datatable-cell">
                                             <span style="width: 146px;">
-                                                <div class="font-weight-bolder font-size-lg mb-0">@Html.Raw(movie?.Description != null ? movie.Description.Length > 100 ? movie.Description.Substring(0, 100) + " ..." : movie.Description : "")</div>
+                                                <div class="font-weight-bolder font-size-lg mb-0">@Html.Raw(movie?.Description != null ? movie.Description.Length > 250 ? movie.Description.Substring(0, 250) + " ..." : movie.Description : "")</div>
                                             </span>
                                         </td>
 
@@ -168,18 +168,18 @@
 
 
                                         @*<td data-field="Social" class="datatable-cell">
-                                            <span style="width: 146px;">
-                                                @{
-                                                    if (cast != null)
-                                                    {
-                                                        @foreach (var item in movie.CastToSocials)
+                                                <span style="width: 146px;">
+                                                    @{
+                                                        if (cast != null)
                                                         {
-                                                            <div class="font-weight-bolder font-size-lg mb-0">@item?.SocialMedia.Name</div>
+                                                            @foreach (var item in movie.CastToSocials)
+                                                            {
+                                                                <div class="font-weight-bolder font-size-lg mb-0">@item?.SocialMedia.Name</div>
+                                                            }
                                                         }
                                                     }
-                                                }
-                                            </span>
-                                        </td>*@
+                                                </span>
+                                            </td>*@
 
 
                                         <td data-field="Actions" data-autohide-disabled="false" aria-label="null" class="datatable-cell">
@@ -197,7 +197,7 @@
 
                                                     </span>
                                                 </a>
-                                                <a class="btn btn-sm btn-default btn-text-primary btn-hover-primary btn-icon" title="Delete" asp-area="admin" asp-controller="Movie" asp-action="Delete" asp-route-id="@movie?.Id" onclick="return confirm('Are your sure?')">
+                                                <a class="btn btn-sm btn-default btn-text-primary btn-hover-primary btn-icon  delete" title="Delete" asp-area="admin" asp-controller="Movie" asp-action="Delete" asp-route-id="@movie?.Id">
                                                     <span class="svg-icon svg-icon-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -227,3 +227,36 @@
 </div>
 
 
+@section Scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $('.delete').on('click', function (e) {
+            e.preventDefault();
+            let url = $(this).attr('href');
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        fetch(url).then(response => response.json()).then(data => {
+                            if (data.code == 204) {
+                                swal(data.message, {
+                                    icon: "success",
+                                });
+                                window.location.reload();
+                            } else {
+                                swal(data.message, {
+                                    icon: "error",
+                                });
+                            }
+                        })
+                    } else {
+                        swal("Item wasn't deleted", { icon: "error" });
+                    }
+                });
+        })</script>
+}

@@ -20,5 +20,6 @@ namespace Movie.Models
         public Cast Cast { get; set; }
         [MaxLength(250), Required]
         public string Link { get; set; }
+     
     }
 }

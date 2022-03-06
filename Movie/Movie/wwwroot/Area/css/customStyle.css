@@ -26,6 +26,20 @@
     padding: 3px;
 }
 
-    .select2-container .select2-selection .select2-search__field {
-        width: 0 !important;
-    }
+.select2-container .select2-selection .select2-search__field {
+    width: 0 !important;
+}
+
+.bg-video {
+    width: 90% !important;
+}
+
+.custom-pl-none {
+    padding-left: 0 !important;
+}
+
+.bg-image-movie {
+    width: 350px !important;
+    height: 250px !important;
+    max-width: 100% !important;
+}

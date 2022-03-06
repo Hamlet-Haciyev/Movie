@@ -1,0 +1,104 @@
+﻿@model VmLayout
+
+@{ if (TempData["open"] != null)
+    {
+        <div class="overlay-form open @(TempData["bool"] != null? "open":"")">
+            <div class="wrapped-form">
+                <div class="custom-form">
+                    <h3>Login</h3>
+                    <form  id="loginForm" asp-controller="Account" asp-action="Login" method="post">
+                        <div id="result" class="text-danger"></div>
+                        @if (TempData["FailedLogin"] != null)
+                        {
+                            <div class="col-lg-12">
+                                <p class="alert alert-danger mb-5" style="font-weight: 500 !important; text-align: center !important;">@(TempData["FailedLogin"] as string)</p>
+                            </div>
+                            TempData["FailedLogin"] = null;
+                        }
+                        @if (TempData["SuccessLogin"] != null)
+                        {
+                            <div class="col-lg-12">
+                                <p class="alert alert-success mb-5" style="font-weight: 500 !important; text-align: center !important;">@(TempData["SuccessLogin"] as string)</p>
+                            </div>
+                            TempData["SuccessLogin"] = null;
+                        }
+                        <div class="username-email">
+                            <label asp-for="@Model.VmLogin.Email">UserName or Email Address</label>
+                            <input asp-for="@Model.VmLogin.Email" />
+                            <span asp-validation-for="@Model.VmLogin.Email"></span>
+                        </div>
+                        <div class="user-password">
+                            <label asp-for="@Model.VmLogin.Password">Password</label>
+                            <input asp-for="@Model.VmLogin.Password" />
+                            <span asp-validation-for="@Model.VmLogin.Password"></span>
+                        </div>
+                        <div class="remember-me">
+                            <div class="check-remember">
+                                <input asp-for="@Model.VmLogin.RememberMe"/><label asp-for="@Model.VmLogin.RememberMe">Remember me</label>
+                            </div>
+                            <a href="#" class="sign-up">Sign Up</a>
+                        </div>
+                        <button type="submit" id="btn" class="login-btn">Log in</button>
+                    </form>
+                    <div class="close-btn">
+                        <a href="#" data-close><i class="fas fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        TempData["open"] = null;
+    }
+else
+{
+    <div class="overlay-form @(TempData["bool"] != null? "open":"")">
+        <div class="wrapped-form">
+            <div class="custom-form">
+                <h3>Login</h3>
+                <div id="result" class="text-danger"></div>
+
+                <form id="loginForm" asp-controller="Account" asp-action="Login" method="post">
+                    @if (TempData["FailedLogin"] != null)
+                    {
+                        <div class="col-lg-12">
+                            <p class="alert alert-danger mb-5" style="font-weight: 500 !important; text-align: center !important;">@(TempData["FailedLogin"] as string)</p>
+                        </div>
+                        TempData["FailedLogin"] = null;
+                    }
+                    @if (TempData["SuccessLogin"] != null)
+                    {
+                        <div class="col-lg-12">
+                            <p class="alert alert-success mb-5" style="font-weight: 500 !important; text-align: center !important;">@(TempData["SuccessLogin"] as string)</p>
+                        </div>
+                        TempData["SuccessLogin"] = null;
+                    }
+                    <div class="username-email">
+                        <label asp-for="@Model.VmLogin.Email">UserName or Email Address</label>
+                        <input asp-for="@Model.VmLogin.Email" required />
+                        <span asp-validation-for="@Model.VmLogin.Email"></span>
+                    </div>
+                    <div class="user-password">
+                        <label asp-for="@Model.VmLogin.Password">Password</label>
+                        <input asp-for="@Model.VmLogin.Password" required />
+                        <span asp-validation-for="@Model.VmLogin.Password"></span>
+                    </div>
+                    <div class="remember-me">
+                        <div class="check-remember">
+                            <input asp-for="@Model.VmLogin.RememberMe" /><label asp-for="@Model.VmLogin.RememberMe">Remember me</label>
+                        </div>
+                        <a href="#" class="sign-up">Sign Up</a>
+                    </div>
+                    
+                    <button type="submit" id="btn" class="login-btn">Log in</button>
+                    <div class="forgetPassword-btnWrapped">
+                        <a href="#" class="forgetPassword-Btn">Forget Password?</a>
+                    </div>
+                </form>
+                <div class="close-btn">
+                    <a href="#" data-close><i class="fas fa-times"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    TempData["open"] = null;
+}
+}

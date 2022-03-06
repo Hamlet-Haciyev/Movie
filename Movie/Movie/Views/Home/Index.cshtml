@@ -1,133 +1,58 @@
-﻿<main>
+﻿@model VmHome 
+
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main>
     <section id="movie-list">
         <div class="container">
             <div class="row">
                 <div class="owl-carousel owl-theme">
-                    <div class="col-lg-3">
-                        <div class="movie-card">
-                            <div class="image">
-                                <a href="">
-                                    <img src="~/assets/images/poster10-683x1024-1-300x450.jpg"
-                                         alt="" />
-                                </a>
-                                <span class="readmore-btn">
-                                    READ MORE <i class="fas fa-caret-right"></i>
-                                </span>
-                            </div>
-                            <div class="movie-info">
-                                <ul>
-                                    <li><a href="">ACAO</a></li>
-                                    <li><a href="">ADVENTURE</a></li>
-                                    <li><a href="">SCIENCE FINTION</a></li>
-                                </ul>
-                                <h6><a href="#">IRON MAN 2</a></h6>
-                                <div class="vote">
-                                    <p>7/10</p>
+                    @{
+                        int bgColorCount = Model.BgColors.Count;
+                        @foreach (var item in Model.MoviesDescOrder)
+                        {
+                            var sum = 0;
+                            <div class="col-lg-3">
+                                <div class="movie-card">
+                                    <div class="image">
+                                        <a asp-controller="Movie" asp-action="Detail" asp-route-id="@item.Id">
+                                            <img src="~/Uploads/@item.Image"
+                                                 alt="" />
+                                        </a>
+                                        <span class="readmore-btn">
+                                            READ MORE <i class="fas fa-caret-right"></i>
+                                        </span>
+                                    </div>
+                                    <div class="movie-info">
+                                        <ul>
+                                            @for (int i = 0; i < item.MovieToGenres.Count; i++)
+                                            {
+
+                                                <li><a href="" style="background-color:@(bgColorCount > i ? Model.BgColors[i] : "#dd003f");">@item.MovieToGenres[i].Genre.Name</a></li>
+                                            }
+                                        </ul>
+                                        <h6><a asp-controller="Movie" asp-action="Detail" asp-route-id="@item.Id" style="font-weight:bold;">@item.Title</a></h6>
+                                        <div class="vote">
+                                            <p>
+                                                @for (int i = 0; i < item.MovieComments.Count; i++)
+                                                {
+                                                    sum += item.MovieComments[i].Rating;
+                                                }
+                                                @(item.MovieComments.Count > 0 ? sum / item.MovieComments.Count : 0) / 10
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="movie-card">
-                            <div class="image">
-                                <a href="">
-                                    <img src="~/assets/images/poster19-200x300-2-200x300.jpg"
-                                         alt="" />
-                                </a>
-                                <span class="readmore-btn">
-                                    READ MORE <i class="fas fa-caret-right"></i>
-                                </span>
-                            </div>
-                            <div class="movie-info">
-                                <ul>
-                                    <li><a href="">ACAO</a></li>
-                                    <li><a href="">ADVENTURE</a></li>
-                                    <li><a href="">SCIENCE FINTION</a></li>
-                                </ul>
-                                <h6><a href="#">IRON MAN 2</a></h6>
-                                <div class="vote">
-                                    <p>7/10</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="movie-card">
-                            <div class="image">
-                                <a href="">
-                                    <img src="~/assets/images/rWQVj6Z8kPdsbt7XPjVBCltxq90-300x450.jpg"
-                                         alt="" />
-                                </a>
-                                <span class="readmore-btn">
-                                    READ MORE <i class="fas fa-caret-right"></i>
-                                </span>
-                            </div>
-                            <div class="movie-info">
-                                <ul>
-                                    <li><a href="">ACAO</a></li>
-                                    <li><a href="">ADVENTURE</a></li>
-                                    <li><a href="">SCIENCE FINTION</a></li>
-                                </ul>
-                                <h6><a href="#">IRON MAN 2</a></h6>
-                                <div class="vote">
-                                    <p>7/10</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="movie-card">
-                            <div class="image">
-                                <a href="">
-                                    <img src="~/assets/images/9-2-1.jpg" alt="" />
-                                </a>
-                                <span class="readmore-btn">
-                                    READ MORE <i class="fas fa-caret-right"></i>
-                                </span>
-                            </div>
-                            <div class="movie-info">
-                                <ul>
-                                    <li><a href="">ACAO</a></li>
-                                    <li><a href="">ADVENTURE</a></li>
-                                    <li><a href="">SCIENCE FINTION</a></li>
-                                </ul>
-                                <h6><a href="#">IRON MAN 2</a></h6>
-                                <div class="vote">
-                                    <p>7/10</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="movie-card">
-                            <div class="image">
-                                <a href="">
-                                    <img src="~/assets/images/poster6-200x300-1-300x450.png"
-                                         alt="" />
-                                </a>
-                                <span class="readmore-btn">
-                                    READ MORE <i class="fas fa-caret-right"></i>
-                                </span>
-                            </div>
-                            <div class="movie-info">
-                                <ul>
-                                    <li><a href="">ACAO</a></li>
-                                    <li><a href="">ADVENTURE</a></li>
-                                    <li><a href="">SCIENCE FINTION</a></li>
-                                </ul>
-                                <h6><a href="#">IRON MAN 2</a></h6>
-                                <div class="vote">
-                                    <p>7/10</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
             </div>
         </div>
         <div class="overlay"></div>
     </section>
-    <section id="generes-celebrities">
+    <section id="generes-celebrities" style="padding-top: 20px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -138,90 +63,55 @@
                         </div>
                         <div class="movie-G-List">
                             <ul>
-                                <li><a class="active" href="#">#All</a></li>
-                                <li><a href="#">#Action</a></li>
-                                <li><a href="#">#Action-Adventure</a></li>
-                                <li><a href="#">#Adventure</a></li>
-                                <li><a href="#">#Animation</a></li>
-                                <li><a href="#">#History</a></li>
+                                @{
+                                    <li><a class="active" asp-controller="Home" asp-action="Index" asp-route-allGenre="all" >#All</a></li>
+                                    foreach (var item in Model.Genres)
+                                    {
+                                        <li><a asp-controller="Home" asp-action="Index" asp-route-GenreId="@item.Id">#@item.Name</a></li>
+                                    }
+                                }
                             </ul>
                         </div>
                         <div class="movies-G">
-                            <div class="movies-G-card">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="~/assets/images/poster7-683x1024-1-280x395.jpg"
-                                             alt="" />
-                                    </a>
-                                    <span class="movie-G-readmore-btn">
-                                        READ MORE <i class="fas fa-caret-right"></i>
-                                    </span>
-                                </div>
-                                <div class="movies-G-info">
-                                    <h6><a href="#">IRON MAN 2</a></h6>
-                                    <div class="movies-G-vote">
-                                        <p>7/10</p>
+                            @{
+                                foreach (var item in Model.Movies)
+                                {
+                                    var sum = 0;
+                                    <div class="movies-G-card">
+                                        <div class="image">
+                                            <a asp-controller="Movie" asp-action="Detail" asp-route-id="@item.Id" style="position: relative;">
+                                                <img src="~/Uploads/@item.Image"
+                                                        alt="" />
+
+                                                <span class="movie-G-readmore-btn">
+                                                    READ MORE <i class="fas fa-caret-right"></i>
+                                                </span>
+                                                <div class="movies-G-info">
+                                                    <h6><a asp-controller="Movie" asp-action="Detail" asp-route-id="@item.Id">@item.Title</a></h6>
+                                                    <div class="movies-G-vote">
+                                                        <p>
+                                                            @for (int i = 0; i < item.MovieComments.Count; i++)
+                                                            {
+                                                                sum += item.MovieComments[i].Rating;
+                                                            }
+                                                            @(item.MovieComments.Count > 0 ? sum / item.MovieComments.Count : 0) / 10
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="movies-G-card">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="~/assets/images/poster13-200x300-1.jpg"
-                                             alt="" />
-                                    </a>
-                                    <span class="movie-G-readmore-btn">
-                                        READ MORE <i class="fas fa-caret-right"></i>
-                                    </span>
-                                </div>
-                                <div class="movies-G-info">
-                                    <h6><a href="#">IRON MAN 2</a></h6>
-                                    <div class="movies-G-vote">
-                                        <p>7/10</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="movies-G-card">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="~/assets/images/poster8-200x300-1.jpg" alt="" />
-                                    </a>
-                                    <span class="movie-G-readmore-btn">
-                                        READ MORE <i class="fas fa-caret-right"></i>
-                                    </span>
-                                </div>
-                                <div class="movies-G-info">
-                                    <h6><a href="#">IRON MAN 2</a></h6>
-                                    <div class="movies-G-vote">
-                                        <p>7/10</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="movies-G-card">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="~/assets/images/poster15-200x300-1.jpg"
-                                             alt="" />
-                                    </a>
-                                    <span class="movie-G-readmore-btn">
-                                        READ MORE <i class="fas fa-caret-right"></i>
-                                    </span>
-                                </div>
-                                <div class="movies-G-info">
-                                    <h6><a href="#">IRON MAN 2</a></h6>
-                                    <div class="movies-G-vote">
-                                        <p>7/10</p>
-                                    </div>
-                                </div>
-                            </div>
+                                }
+                            }
                         </div>
                         <div class="movie-pagination">
                             <ul>
-                                <li><a class="active" href="">1</a></li>
-                                <li><a href="">2</a></li>
-                                <li><a href="">3</a></li>
-                                <li><a href="">4</a></li>
-                                <li><a href="">Next</a></li>
+                                <li style="display:@(ViewBag.PageField==1?"none":"");margin-right: 10px;"><a asp-controller="home" asp-action="index" asp-route-page="@(ViewBag.PageField-1)">Prev</a></li>
+                                @for (int i = 0; i < ViewBag.PageCount; i++)
+                                {
+                                    <li style="margin: 0 10px;"><a class="@(ViewBag.PageField == (i+1)? "active":"")" asp-controller="home" asp-action="index" asp-route-page="@(i+1)">@(i+1)</a></li>
+                                }
+                                <li style="display:@(ViewBag.PageField==ViewBag.PageCount?"none":"");margin: 0 10px;"><a asp-controller="home" asp-action="index" asp-route-page="@(ViewBag.PageField+1)">Next</a></li>
                             </ul>
                         </div>
                     </div>
@@ -230,13 +120,14 @@
                             <h2>In theater</h2>
                         </div>
                         <div class="youtube-iframe">
-                            <iframe title="Trailer My Dear Loser รักไม่เอาถ่าน ตอน Edge of 17"
+                            <iframe style="max-width: 100%;" title="Trailer My Dear Loser รักไม่เอาถ่าน ตอน Edge of 17"
                                     width="870"
                                     height="491"
                                     src="https://www.youtube.com/embed/0ZYUDwkIEc4?feature=oembed"
                                     frameborder="0"
                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen></iframe>
+
                         </div>
                     </div>
                     <div class="latest-news">
@@ -244,31 +135,64 @@
                             <h2>LATEST NEWS</h2>
                         </div>
 
-                        <div class="latest-news-movie">
-                            <div class="latest-news-movie-image">
-                                <a href="#">
-                                    <img src="~/assets/images/tranthanh_mphs_xoow-320x180.jpg"
-                                         alt="" />
-                                </a>
-                            </div>
-                            <div class="latest-news-movie-info">
-                                <h2>
-                                    <a href="#">
-                                        Godzilla: King Of The Monsters Adds O’Shea Jackson Jr
-                                        O’Shea Jackson Jr O’Shea Jackson Jr
+                       @{ 
+                            <div class="latest-news-movie">
+                                <div class="latest-news-movie-image">
+                                    <a asp-controller="Blog" asp-action="Detail" asp-route-id="@Model.Blog.Id">
+                                        <img src="~/Uploads/@Model.Blog.Image"
+                                            alt="" />
                                     </a>
-                                </h2>
-                                <p>4 years ago</p>
-                                <div class="description">
+                                </div>
+                                <div class="latest-news-movie-info">
+                                    <h2>
+                                        <a asp-controller="Blog" asp-action="Detail" asp-route-id="@Model.Blog.Id">
+                                           @Model.Blog.Title
+                                        </a>
+                                    </h2>
                                     <p>
-                                        Joss Whedon has a little bit of a history with superhero
-                                        movies, and for creating layered female characters.
-                                        After his documented frustrations with Wonder Woman,
-                                        he’s getting
+                                        @if (((DateTime.Now - @Model.Blog.CreatedDate).TotalSeconds / 60 / 60 / 24 / 30 / 12) >= 1)
+                                        {
+                                            @((((DateTime.Now - @Model.Blog.CreatedDate).TotalSeconds / 60 / 60 / 24 / 30 / 12).ToString("##") + " year ago").ToString());
+                                        }
+                                        else
+                                        {
+                                            @if (((DateTime.Now - @Model.Blog.CreatedDate).TotalSeconds / 60 / 60 / 24 / 30) >= 1)
+                                            {
+                                                @((((DateTime.Now - @Model.Blog.CreatedDate).TotalSeconds / 60 / 60 / 24 / 30).ToString("##") + " month ago").ToString());
+                                            }
+                                            else
+                                            {
+                                                if (((DateTime.Now - @Model.Blog.CreatedDate).TotalSeconds / 60 / 60 / 24) >= 1)
+                                                {
+                                                    @((((DateTime.Now - @Model.Blog.CreatedDate).TotalSeconds / 60 / 60 / 24).ToString("##") + " day ago").ToString());
+                                                }
+                                                else
+                                                {
+                                                    if (((DateTime.Now - @Model.Blog.CreatedDate).TotalSeconds / 60 / 60) >= 1)
+                                                    {
+                                                        @((((DateTime.Now - @Model.Blog.CreatedDate).TotalSeconds / 60/60).ToString("##") + " hour ago").ToString());
+                                                    }
+                                                    else
+                                                    {
+                                                        @if (((DateTime.Now - @Model.Blog.CreatedDate).TotalSeconds / 60) >= 1)
+                                                        {
+                                                            @((((DateTime.Now - @Model.Blog.CreatedDate).TotalSeconds / 60).ToString("##") + " minutes ago").ToString());
+                                                        }
+                                                        else
+                                                        {
+                                                            @((((DateTime.Now - @Model.Blog.CreatedDate).TotalSeconds).ToString("##") + " seconds ago").ToString());
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
                                     </p>
+                                    <div class="description">
+                                        @Html.Raw(Model.Blog.Description.Length > 400 ? Model.Blog.Description.Substring(0,400) +" ...": Model.Blog.Description)
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                       }
 
                         <div class="see-all-movies-news">
                             <div class="see-all-movies-news-header">
@@ -287,50 +211,57 @@
                             </div>
                             <div class="movies-news-list">
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="news-item">
-                                            <h2>
-                                                <a href="">
-                                                    Godzilla: King Of The Monsters Adds O’Shea
-                                                    Jackson Jr O’Shea Jackson Jr O’Shea Jackson Jr
-                                                </a>
-                                            </h2>
-                                            <p>4 years ago</p>
+                                    @foreach (var item in Model.Blogs)
+                                    {
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="news-item">
+                                                <h2>
+                                                    <a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">
+                                                        @item.Title
+                                                    </a>
+                                                </h2>
+                                                <p>
+                                                    @if (((DateTime.Now - item.CreatedDate).TotalSeconds / 60 / 60 / 24 / 30 / 12) >= 1)
+                                                    {
+                                                        @((((DateTime.Now - item.CreatedDate).TotalSeconds / 60 / 60 / 24 / 30 / 12).ToString("##") + " year ago").ToString());
+                                                    }
+                                                    else
+                                                    {
+                                                        @if (((DateTime.Now - item.CreatedDate).TotalSeconds / 60 / 60 / 24 / 30) >= 1)
+                                                        {
+                                                            @((((DateTime.Now - item.CreatedDate).TotalSeconds / 60 / 60 / 24 / 30).ToString("##") + " month ago").ToString());
+                                                        }
+                                                        else
+                                                        {
+                                                            if (((DateTime.Now - item.CreatedDate).TotalSeconds / 60 / 60 / 24) >= 1)
+                                                            {
+                                                                @((((DateTime.Now - item.CreatedDate).TotalSeconds / 60 / 60 / 24).ToString("##") + " day ago").ToString());
+                                                            }
+                                                            else
+                                                            {
+                                                                if (((DateTime.Now - item.CreatedDate).TotalSeconds / 60 / 60) >= 1)
+                                                                {
+                                                                    @((((DateTime.Now - item.CreatedDate).TotalSeconds / 60/60).ToString("##") + " hour ago").ToString());
+                                                                }
+                                                                else
+                                                                {
+                                                                    @if (((DateTime.Now - item.CreatedDate).TotalSeconds / 60) >= 1)
+                                                                    {
+                                                                        @((((DateTime.Now - item.CreatedDate).TotalSeconds / 60).ToString("##") + " minutes ago").ToString());
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @((((DateTime.Now - item.CreatedDate).TotalSeconds).ToString("##") + " seconds ago").ToString());
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="news-item">
-                                            <h2>
-                                                <a href="">
-                                                    Magnolia Nabs ‘Lucky’ Starring Harry Dean
-                                                    Stanton
-                                                </a>
-                                            </h2>
-                                            <p>4 years ago</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="news-item">
-                                            <h2>
-                                                <a href="">
-                                                    ‘Going in Style’ Tops ‘Smurfs: The Lost Village’
-                                                    at Thursday Box Office
-                                                </a>
-                                            </h2>
-                                            <p>4 years ago</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="news-item">
-                                            <h2>
-                                                <a href="">
-                                                    India’s National Film Awards: ‘Kaasav’ Wins Best
-                                                    Picture
-                                                </a>
-                                            </h2>
-                                            <p>4 years ago</p>
-                                        </div>
-                                    </div>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -388,7 +319,9 @@
                             </div>
                         </div>
                     </div>
-                    <div id="instagram-feed-demo" class="instagram_feed"></div>
+                    <div id="instagram-feed-demo" class="instagram_feed">
+                        <h3 style="padding-left:48px; color: white; font-size: 26px; font-weight: 600; margin-bottom: 20px;">Instagram</h3>
+                    </div>
                 </div>
             </div>
         </div>

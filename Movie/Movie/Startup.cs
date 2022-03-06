@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Movie.Data;
+using Movie.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,11 @@ namespace Movie
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("Movie")));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>(option => option.SignIn.RequireConfirmedAccount = true)
+                        .AddEntityFrameworkStores<AppDbContext>()
+                        .AddDefaultTokenProviders();
+            services.Configure<DataProtectionTokenProviderOptions>(opt =>
+                                                                opt.TokenLifespan = TimeSpan.FromMinutes(5));
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +66,8 @@ namespace Movie
                 endpoints.MapAreaControllerRoute(
                     name: "Areas",
                     areaName: "admin",
-                    pattern: "admin/{controller=Home}/{action=Index}/{id?}");
+                    pattern: "admin/{controller=Account}/{action=Login}/{id?}");
+                       
 
                 endpoints.MapControllerRoute(
                     name: "default",

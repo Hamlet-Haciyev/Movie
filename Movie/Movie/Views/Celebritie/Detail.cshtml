@@ -1,4 +1,4 @@
-﻿
+﻿@model VmCelebritie 
 @{
     ViewData["Title"] = "Detail";
 }
@@ -10,12 +10,12 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="celebritie__detail__image">
-                        <img src="~/assets/images/celebrities-1.png" alt="" />
+                        <img src="~/Uploads/@Model.Cast.Image" alt="no image" style="width: 100%; object-fit: cover; object-position: 50% 50%; height: 450px; "/>
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="celebritie__content">
-                        <h2>Anthony Hopkins</h2>
+                        <h2>@Model.Cast.Name</h2>
                         <div class="celebritie__tabs">
                             <div class="celebritie__tabs-title">
                                 <ul>
@@ -30,19 +30,10 @@
                                             <div class="celebritie__tabs-content-left">
                                                 <div class="subtitle">
                                                     <h6>Biography of</h6>
-                                                    <h4>Anthony Hopkins</h4>
+                                                    <h4>@Model.Cast.Name</h4>
                                                 </div>
                                                 <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit, sed do eiusmod tempor incididunt ut labore
-                                                    et dolore magna aliqua. Ut enim ad minim veniam,
-                                                    quis nostrud exercitation ullamco laboris nisi ut
-                                                    aliquip ex ea commodo consequat. Duis aute irure
-                                                    dolor in reprehenderit in voluptate velit esse
-                                                    cillum dolore eu fugiat nulla pariatur. Excepteur
-                                                    sint occaecat cupidatat non proident, sunt in
-                                                    culpa qui officia deserunt mollit anim id est
-                                                    laborum.
+                                                    @Model.Cast.About
                                                 </p>
                                             </div>
                                         </div>
@@ -50,17 +41,16 @@
                                             <div class="celebritie__tabs-content-right">
                                                 <div class="overview__clb">
                                                     <h6>Date of Birth:</h6>
-                                                    <p>17/10/1994</p>
+                                                    <p>@Model.Cast.BirthDay.ToString("dd/MM/yyyy")</p>
                                                 </div>
                                                 <div class="overview__clb">
                                                     <h6>Gender:</h6>
-                                                    <p>male</p>
+                                                    <p>@Model.Cast.Gender.Name</p>
                                                 </div>
                                                 <div class="overview__clb">
                                                     <h6>Country of Birth:</h6>
                                                     <p>
-                                                        Ammanford, Carmarthenshire, Wales, United
-                                                        Kingdom
+                                                        @Model.Cast.BirthPlace
                                                     </p>
                                                 </div>
                                             </div>
@@ -68,32 +58,23 @@
                                     </div>
                                 </div>
                                 <div class="filmography">
-                                    <div class="celebritie__film">
-                                        <div class="celebritie__film__main">
-                                            <div class="celebritie__film__img">
-                                                <img src="~/assets/images/filmography1.jpg" alt="" />
+                                    @foreach (var item in Model.PlayListMovie)
+                                    {
+                                        <div class="celebritie__film">
+                                            <div class="celebritie__film__main">
+                                                <div class="celebritie__film__img">
+                                                    <img src="~/Uploads/@item.Image" alt="" height="60" width="80" class="img-fluid" />
+                                                </div>
+                                                <div class="celebritie__film__title">
+                                                    <h4><a asp-controller="Movie" asp-action="Detail" asp-route-id="@item.Id">@item.Title</a></h4>
+                                                </div>
                                             </div>
-                                            <div class="celebritie__film__title">
-                                                <h4><a href="#">Westworld</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="celebritie__createdDate">
-                                            <p>2016-10-02</p>
-                                        </div>
-                                    </div>
-                                    <div class="celebritie__film">
-                                        <div class="celebritie__film__main">
-                                            <div class="celebritie__film__img">
-                                                <img src="~/assets/images/filmography2.jpg" alt="" />
-                                            </div>
-                                            <div class="celebritie__film__title">
-                                                <h4><a href="#">Thor</a></h4>
+                                            <div class="celebritie__createdDate">
+                                                <p>@item.CreatedDate.ToString("yyyy-MM-dd")</p>
                                             </div>
                                         </div>
-                                        <div class="celebritie__createdDate">
-                                            <p>2011-04-21</p>
-                                        </div>
-                                    </div>
+
+                                    }
                                 </div>
                             </div>
                         </div>

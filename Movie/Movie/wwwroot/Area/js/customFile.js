@@ -1,20 +1,89 @@
-﻿$(document).ready(function () {
+﻿//const { error } = require("jquery");
+//const { Url } = require("../plugins/custom/uppy/uppy.bundle5883");
+
+$(document).ready(function () {
     $('.select2').select2();
     $('#Description').summernote(
         {
             height: 300
         }
     );
+    $(".deleteMovie").click(function (e) {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Cancelled',
+                    'Your imaginary file is safe :)',
+                    'error'
+                )
+            }
+        })
+    })
+
+    //let loginBtn = $("#loginbtn");
+
+    //loginBtn.click(function (e) {
+    //    e.preventDefault();
+    //    let email = $("#Email");
+    //    let password = $("#Password");
+    //    let warning = $("[data-ajax-password]");
+    //    warning.css("display", "none");
+
+    //    $.ajax({
+    //        url: "/Areas/admin/Controller/Account/EndUserLogin",
+    //        type: "post",
+    //        dataType: "json",
+    //        data: {
+    //            email: email.val(),
+    //            password: password.val()
+    //        },
+    //        success: function (response) {
+    //            if (response.status == true) {
+    //                success.css("display","block")
+    //            } else {
+    //                warning.css("display", "block");
+    //                warning.text(response.message);
+    //            }
+    //        },
+    //        error: function (error) {
+    //            console.log(error)
+    //        }
+    //    })
+    //})
 });
 
 let logoFile = document.getElementById("LogoFile");
 let imageInputWrapper = document.querySelector(".image-input-wrapper")
 let Dataremove = document.querySelector("[data-action='remove']")
-let imgFile = document.getElementById("ImageFile"); 
+let imgFile = document.getElementById("ImageFile");
 let videoFile = document.getElementById("VideoFile");
 let blogBgImage = document.querySelector(".blog-bg-image");
-let iframeVideoCheck = document.querySelector(".iframe-video-check");
-
+let bgImageMovie = document.querySelector(".bg-image-movie");
 if (logoFile) {
     logoFile.addEventListener("change", (e) => {
         logoChange();
@@ -52,7 +121,7 @@ if (imgFile) {
         fr.readAsDataURL(imagefile);
 
         fr.onloadend = () => {
-            blogBgImage.style.backgroundImage = "url(" + fr.result + ")";
+            bgImageMovie.style.backgroundImage = "url(" + fr.result + ")";
         }
         Dataremove.style.display = "block !important";
     }

@@ -50,5 +50,7 @@ namespace Movie.Models
         public List<int> GenresIds { get; set; }
         [NotMapped]
         public List<int> CastIds { get; set; }
+        [NotMapped]
+        public int DirectorId { get; set; }
     }
 }

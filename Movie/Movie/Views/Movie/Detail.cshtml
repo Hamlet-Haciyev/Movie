@@ -1,4 +1,7 @@
-﻿@{
+﻿@model VmMovie
+@inject UserManager<IdentityUser> _userManager
+@inject SignInManager<IdentityUser> _signManager
+@{
     ViewData["Title"] = "Detail";
 }
 
@@ -10,20 +13,39 @@
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="movie-poster">
                         <div class="movie__detail__image">
-                            <img src="~/assets/images/poster13-200x300-1.jpg" alt="" />
+                            <img src="~/Uploads/@Model?.Movie.Image" alt="" style="max-height: 350px !important; height: 350px !important;" />
                         </div>
                         <div class="btn-transform-wrapped">
                             <div class="btn-transform">
-                                <div class="movie__detail__trailer__btn">
-                                    <a href="#" class="item item-1">
-                                        <i class="fas fa-play"></i>
-                                        Watch Trailer
-                                    </a>
+                                <div class="movie__detail__trailer__btn video">
+                                    @if (_signManager.IsSignedIn(User))
+                                    {
+                                        <a href="~/Trailer/@Model.Movie.Trailer" class="item item-1 vidplay ">
+                                            <i class="fas fa-play"></i>
+                                            Watch Trailer
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-controller="Movie" asp-action="Detail" asp-route-id="@Model.Movie.Id" asp-route-rgsbool="1" class="item item-1">
+                                            <i class="fas fa-play"></i>
+                                            Watch Trailer
+                                        </a>
+                                    }
                                 </div>
-                                <div class="movie__detail__trailer__btn-play">
-                                    <a href="#" class="item item-2">
-                                        <i class="fas fa-play"></i>
-                                    </a>
+                                <div class="movie__detail__trailer__btn-play video">
+                                    @if (_signManager.IsSignedIn(User))
+                                    {
+                                        <a href="~/Trailer/@Model.Movie.Trailer" class="item item-2 vidplay ">
+                                            <i class="fas fa-play"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-controller="Movie" asp-action="Detail" asp-route-id="@Model.Movie.Id" asp-route-rgsbool="1" class="item item-2">
+                                            <i class="fas fa-play"></i>
+                                        </a>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -31,17 +53,17 @@
                 </div>
                 <div class="col-lg-8 col-md-12 col-sm-12">
                     <div class="movie__detail__content">
-                        <h2>The Iron Lady</h2>
+                        <h2>@Model.Movie.Title</h2>
                         <div class="movie__detail__rating">
                             <div class="left-field">
                                 <span><i class="fas fa-star"></i></span>
                                 <div class="rating-star">
                                     <div class="rate-num">
-                                        <span>6</span>
+                                        <span>@(ViewBag.AvgRate > 0 ? ViewBag.AvgRate : 0)</span>
                                         <span>/</span>
                                         <span>10</span>
                                     </div>
-                                    <span class="rv">1 Review</span>
+                                    <span class="rv">@(Model.MovieComments.Count) Review</span>
                                 </div>
                             </div>
 
@@ -50,16 +72,10 @@
                                     <span>Rate This Movie:</span>
                                 </div>
                                 <div class="rate-stars">
-                                    <span><i class="fas fa-star voted"></i></span>
-                                    <span><i class="fas fa-star voted"></i></span>
-                                    <span><i class="fas fa-star voted"></i></span>
-                                    <span><i class="fas fa-star voted"></i></span>
-                                    <span><i class="fas fa-star voted"></i></span>
-                                    <span><i class="fas fa-star voted"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
+                                    @for (int i = 0; i < 10; i++)
+                                    {
+                                        <span><i class="fas fa-star @(ViewBag.AvgRate > i ? "voted" : "")"></i></span>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -73,11 +89,7 @@
                                 <div class="movie__tabs__content__overview show">
                                     <div class="row">
                                         <div class="col-lg-8 pt-30px">
-                                            <p>
-                                                A look at the life of Margaret Thatcher, the former
-                                                Prime Minister of the United Kingdom, with a focus
-                                                on the price she paid for power.
-                                            </p>
+                                            @Html.Raw(Model.Movie.Description)
                                             <div class="movie__media">
                                                 <div class="movie__media__title">
                                                     <h4>MEDIA</h4>
@@ -86,7 +98,7 @@
                                                 <div class="movie__media__video">
                                                     <div class="video">
                                                         <a class="vidplay"
-                                                           href="https://www.youtube.com/watch?v=cO-h7sRxHRc">
+                                                           href="~/Videos/@Model.Movie.Video">
                                                             <img src="~/assets/images/movie-picture.jpg"
                                                                  alt="" />
                                                             <i class="fas fa-play"></i>
@@ -99,24 +111,17 @@
                                                     <h4>CAST</h4>
                                                 </div>
                                                 <div class="movie__actors">
-                                                    <div class="mv__actor">
-                                                        <div class="mv__actor__img">
-                                                            <img src="~/assets/images/actor1.png" alt="" />
-                                                        </div>
-                                                        <a href="#">Anthony Stewart Head</a>
-                                                    </div>
-                                                    <div class="mv__actor">
-                                                        <div class="mv__actor__img">
-                                                            <img src="~/assets/images/actor2.png" alt="" />
-                                                        </div>
-                                                        <a href="#">Alice da Cunha</a>
-                                                    </div>
-                                                    <div class="mv__actor">
-                                                        <div class="mv__actor__img">
-                                                            <img src="~/assets/images/actor3.png" alt="" />
-                                                        </div>
-                                                        <a href="#"> Alexandra Roach</a>
-                                                    </div>
+                                                    @{
+                                                        foreach (var item in Model.Movie.MovieToCasts)
+                                                        {
+                                                            <div class="mv__actor">
+                                                                <div class="mv__actor__img">
+                                                                    <img src="~/Uploads/@item.Cast.Image" alt="no image" style="height:50px;max-height:60px;" />
+                                                                </div>
+                                                                <a asp-controller="Celebritie" asp-action="Detail" asp-route-id="@item.Cast.Id">@item.Cast.Name</a>
+                                                            </div>
+                                                        }
+                                                    }
                                                 </div>
                                             </div>
                                             <div class="movie__reviews">
@@ -124,238 +129,215 @@
                                                     <h4>REVIEW</h4>
                                                     <a href="#">View all reviews</a>
                                                 </div>
-                                                <ul class="movie__review__comments">
-                                                    <li>
-                                                        <div class="user__did__comment">
-                                                            <div class="movie__comment__image">
-                                                                <img src="~/assets/images/avatar.png"
-                                                                     alt="" />
-                                                            </div>
-                                                            <div class="movie__comment__rate">
-                                                                <span>cedori</span>
-                                                                <a href="#">- 31 October 2019 at 10:55 pm</a>
-                                                                <div class="comment__movieRate">
-                                                                    <span>
-                                                                        <i class="fas fa-star voted"></i>
-                                                                    </span>
-                                                                    <span>
-                                                                        <i class="fas fa-star voted"></i>
-                                                                    </span>
-                                                                    <span>
-                                                                        <i class="fas fa-star voted"></i>
-                                                                    </span>
-                                                                    <span>
-                                                                        <i class="fas fa-star voted"></i>
-                                                                    </span>
-                                                                    <span>
-                                                                        <i class="fas fa-star voted"></i>
-                                                                    </span>
-                                                                    <span>
-                                                                        <i class="fas fa-star voted"></i>
-                                                                    </span>
-                                                                    <span><i class="fas fa-star"></i></span>
-                                                                    <span><i class="fas fa-star"></i></span>
-                                                                    <span><i class="fas fa-star"></i></span>
-                                                                    <span><i class="fas fa-star"></i></span>
+                                                <ul class="movie__review__comments" style="flex-direction:column;">
+                                                    @foreach (var item in Model.MovieComments)
+                                                    {
+                                                        <li>
+                                                            <div class="user__did__comment">
+                                                                <div class="movie__comment__image">
+                                                                    <img src="~/assets/images/avatar.png"
+                                                                         alt="" />
+                                                                </div>
+                                                                <div class="movie__comment__rate">
+                                                                    <span>@item.Name</span>
+                                                                    <a href="#">- @item.CreatedDate.ToString("dd MMMM yyyy a't' hh:mm p'm'")</a>
+                                                                    <div class="comment__movieRate">
+                                                                        @for (int i = 0; i < 10; i++)
+                                                                        {
+                                                                            <span><i class="fas fa-star @(item.Rating > i ? "voted":"")"></i></span>
+                                                                        }
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="user__did__text">
-                                                            <p>not bad</p>
-                                                        </div>
-                                                    </li>
+                                                            <div class="user__did__text">
+                                                                <p>@item.Text</p>
+                                                            </div>
+                                                        </li>
+                                                    }
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="overview-mv">
                                                 <h6>Director:</h6>
-                                                <span class="white-text">Phyllida Lloyd</span>
-                                            </div>
-                                            <div class="overview-mv">
-                                                <h6>Writer:</h6>
-                                                <span class="white-text">Abi Morgan</span>
-                                            </div>
-                                            <div class="overview-mv">
-                                                <h6>Release Date:</h6>
-                                                <span class="white-text">2011-12-30</span>
-                                            </div>
-                                            <div class="overview-mv">
-                                                <h6>Run Time:</h6>
-                                                <span class="white-text">105m</span>
-                                            </div>
-                                            <div class="overview-mv">
-                                                <h6>Tagline:</h6>
-                                                <span class="white-text">Never Compromise</span>
-                                            </div>
-                                            <div class="overview-mv">
-                                                <h6>Genres:</h6>
-                                                <a href="">Drama</a>
-                                            </div>
+                                                <span class="white-text">
+                                                    @{
+                                                        foreach (var item in Model.Movie.MovieToDirectors)
+                                                        {
+                                                            @item.Director.Name;
+                                                        }
+                                                }
+                                            </span>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="movie__tabs__content__media">
-                                    <div class="movie__media">
-                                        <div class="movie__media__title">
-                                            <h4>VIDEOS</h4>
-                                        </div>
-                                        <div class="movie__media__video">
-                                            <div class="video">
-                                                <a class="vidplay"
-                                                   href="https://www.youtube.com/watch?v=cO-h7sRxHRc">
-                                                    <img src="~/assets/images/movie-picture.jpg"
-                                                         alt="" />
-                                                    <i class="fas fa-play"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        <div class="overview-mv">
+                                            <h6>Writer:</h6>
 
-                                <div class="movie__tabs__content__related__movies">
-                                    <div class="mv-subtitle">
-                                        <h6>Related Movies To</h6>
-                                        <h4>Shazam!</h4>
+                                            @{
+                                                foreach (var item in Model.Movie.MovieToWriters)
+                                                {
+                                                    <span class="white-text">
+                                                        @(item.Writer.Name + " ")
+                                                    </span>
+                                                }
+                                            }
+                                        </div>
+                                        <div class="overview-mv">
+                                            <h6>Release Date:</h6>
+                                            <span class="white-text">@Model.Movie.CreatedDate.ToString("dd-MM-yyyy")</span>
+                                        </div>
+                                        <div class="overview-mv">
+                                            <h6>Run Time:</h6>
+                                            <span class="white-text">105m</span>
+                                        </div>
+                                        <div class="overview-mv">
+                                            <h6>Tagline:</h6>
+                                            <span class="white-text">@Model.Movie.Tagline</span>
+                                        </div>
+                                        <div class="overview-mv">
+                                            <h6>Genres:</h6>
+                                            @{
+                                                foreach (var item in Model.Movie.MovieToGenres)
+                                                {
+                                                    <a href="">
+                                                        @(item.Genre.Name + " ")
+                                                    </a>
+                                                }
+                                            }
+                                        </div>
                                     </div>
-                                    <div class="movie__about">
-                                        <div class="movie__about__image">
-                                            <a href="movieDetails.html">
-                                                <img src="~/assets/images/poster13-200x300-1.jpg"
+                                </div>
+                            </div>
+                            <div class="movie__tabs__content__media">
+                                <div class="movie__media">
+                                    <div class="movie__media__title">
+                                        <h4>VIDEOS</h4>
+                                    </div>
+                                    <div class="movie__media__video">
+                                        <div class="video">
+                                            <a class="vidplay"
+                                               href="~/Videos/@Model.Movie.Video">
+                                                <img src="~/assets/images/movie-picture.jpg"
                                                      alt="" />
+                                                <i class="fas fa-play"></i>
                                             </a>
                                         </div>
-                                        <div class="movie__about__info">
-                                            <h6><a href="#">Shazam!</a></h6>
-                                            <div class="movie__about__desc">
-                                                <p>
-                                                    A boy is given the ability to become an adult
-                                                    superhero in times of need with a single magic
-                                                    word.
-                                                </p>
-                                            </div>
-                                            <div class="movie__details">
-                                                <span>Run time: nullm</span><span>Tagline: Just Say The Magic Word</span><span>Release: 2019-04-03</span>
-                                            </div>
-                                            <p class="mv-director">
-                                                Director: <span>David F. Sandberg</span>
-                                            </p>
-                                            <p class="mv-stars">
-                                                Stars: <span>Asher Angel</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="movie__about">
-                                        <div class="movie__about__image">
-                                            <a href="movieDetails.html">
-                                                <img src="~/assets/images/movie-picture1.jpg"
-                                                     alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="movie__about__info">
-                                            <h6><a href="#">Shazam!</a></h6>
-                                            <div class="movie__about__desc">
-                                                <p>
-                                                    A boy is given the ability to become an adult
-                                                    superhero in times of need with a single magic
-                                                    word.
-                                                </p>
-                                            </div>
-                                            <div class="movie__details">
-                                                <span>Run time: nullm</span><span>Tagline: Just Say The Magic Word</span><span>Release: 2019-04-03</span>
-                                            </div>
-                                            <p class="mv-director">
-                                                Director: <span>David F. Sandberg</span>
-                                            </p>
-                                            <p class="mv-stars">
-                                                Stars: <span>Asher Angel</span>
-                                            </p>
-                                        </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="movie__tabs__content__all__reviews">
-                                    <div class="sub__mv__title">
-                                        <h6>Reviews for</h6>
-                                        <h4>The Iron Lady</h4>
+                            <div class="movie__tabs__content__related__movies">
+                                <div class="mv-subtitle">
+                                    <h6>Related Movies To</h6>
+                                    <h4>Shazam!</h4>
+                                </div>
+                                @foreach (var item in Model.RelatedMovies)
+                                {
+                            <div class="movie__about"> 
+                                <div class="movie__about__image" style="margin-right: 30px; width: 170px; ">
+                                    <a asp-controller="Movie" asp-action="Detail" asp-route-id="@item.Id">
+                                        <img src="~/Uploads/@item.Image"
+                                             alt="" height="260" width="170"/>
+                                    </a> 
+                                </div>    
+                                <div class="movie__about__info">
+                                    <h6><a href="#">@item.Title</a></h6>
+                                    <div class="movie__about__desc">
+                                        <p>
+                                            @Html.Raw(item.Description)
+                                        </p>
                                     </div>
-                                    <div class="all__reviews__comment">
-                                        <ul class="movie__review__comments">
+                                    <div class="movie__details">
+                                        <span>Run time: nullm</span><span>Tagline: @item.Tagline</span><span>Release: @item.CreatedDate.ToString("yyyy MMM dd")</span>
+                                    </div>
+                                    <p class="mv-director">
+                                        Director: <span>David F. Sandberg</span>
+                                    </p>
+                                    <p class="mv-stars">
+                                        Stars: <span>Asher Angel</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                                }
+                            </div>
+
+                            <div class="movie__tabs__content__all__reviews">
+                                <div class="sub__mv__title">
+                                    <h6>Reviews for</h6>
+                                    <h4>@Model.Movie.Title</h4>
+                                </div>
+                                <div class="all__reviews__comment">
+                                    <ul class="movie__review__comments" style="flex-direction: column;">
+                                        @foreach (var item in Model.MovieComments)
+                                        {
                                             <li>
                                                 <div class="user__did__comment">
                                                     <div class="movie__comment__image">
                                                         <img src="~/assets/images/avatar.png" alt="" />
                                                     </div>
                                                     <div class="movie__comment__rate">
-                                                        <span>cedori</span>
-                                                        <a href="#">- 31 October 2019 at 10:55 pm</a>
+                                                        <span>@item.Name</span>
+                                                        <a href="#">- @item.CreatedDate.ToString("dd MMMM yyyy a't' hh:mm p'm'")</a>
                                                         <div class="comment__movieRate">
-                                                            <span><i class="fas fa-star voted"></i></span>
-                                                            <span><i class="fas fa-star voted"></i></span>
-                                                            <span><i class="fas fa-star voted"></i></span>
-                                                            <span><i class="fas fa-star voted"></i></span>
-                                                            <span><i class="fas fa-star voted"></i></span>
-                                                            <span><i class="fas fa-star voted"></i></span>
-                                                            <span><i class="fas fa-star"></i></span>
-                                                            <span><i class="fas fa-star"></i></span>
-                                                            <span><i class="fas fa-star"></i></span>
-                                                            <span><i class="fas fa-star"></i></span>
+                                                            @for (int i = 0; i < 10; i++)
+                                                            {
+                                                                <span><i class="fas fa-star @(item.Rating > i ? "voted":"")"></i></span>
+                                                            }
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="user__did__text">
-                                                    <p>not bad</p>
+                                                    <p>@item.Text</p>
                                                 </div>
                                             </li>
-                                        </ul>
-                                        <h3>Leave a Review</h3>
-                                        <form>
-                                            <p>
-                                                Your email address will not be published. Required
-                                                fields are marked *
-                                            </p>
-                                            <div class="cm__text">
-                                                <label for="text">Review</label>
-                                                <textarea name="text"
-                                                          id="text"
-                                                          rows="10"></textarea>
-                                            </div>
-                                            <div class="cm__fullname">
-                                                <label for="fullname">Name *</label>
-                                                <input type="text"
-                                                       id="fullname"
-                                                       name="fullname"
-                                                       required />
-                                            </div>
-                                            <div class="cm__email">
-                                                <label for="mail">Email *</label>
-                                                <input type="email"
-                                                       id="mail"
-                                                       name="mail"
-                                                       required />
-                                            </div>
 
-                                            <div class="cm__rating">
-                                                <label for="">Rating <span class="required-rt">*</span></label>
-                                                <div class="cm__rating__stars">
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                </div>
+                                        }
+                                    </ul>
+                                    <h3>Leave a Review</h3>
+                                    <form asp-controller="Movie" asp-action="Comment" method="post">
+                                        <p>
+                                            Your email address will not be published. Required
+                                            fields are marked *
+                                        </p>
+                                        <div class="cm__text">
+                                            <label for="text">Review</label>
+                                            <textarea asp-for="@Model.MovieComment.Text"
+                                                      rows="10"></textarea>
+                                            <span asp-validation-for="@Model.MovieComment.Text" class="text-danger"></span>
+                                        </div>
+                                        <div class="cm__fullname">
+                                            <label asp-for="@Model.MovieComment.Name">Name *</label>
+                                            <input asp-for="@Model.MovieComment.Name"
+                                                   required />
+                                            <span asp-validation-for="@Model.MovieComment.Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="cm__email">
+                                            <label asp-for="@Model.MovieComment.Email">Email *</label>
+                                            <input asp-for="@Model.MovieComment.Email" type="email"
+                                                   required />
+                                            <span asp-validation-for="@Model.MovieComment.Email" class="text-danger"></span>
+                                        </div>
+                                        <div class="cm__rating">
+                                            <label for="">Rating <span class="required-rt">*</span></label>
+                                            <div class="cm__rating__stars">
+                                                <span data-vote="1" class="fa fa-star"></span>
+                                                <span data-vote="2" class="fa fa-star"></span>
+                                                <span data-vote="3" class="fa fa-star"></span>
+                                                <span data-vote="4" class="fa fa-star"></span>
+                                                <span data-vote="5" class="fa fa-star"></span>
+                                                <span data-vote="6" class="fa fa-star"></span>
+                                                <span data-vote="7" class="fa fa-star"></span>
+                                                <span data-vote="8" class="fa fa-star"></span>
+                                                <span data-vote="9" class="fa fa-star"></span>
+                                                <span data-vote="10" class="fa fa-star"></span>
                                             </div>
-
-                                            <button class="post-btn" type="submit">
-                                                Post Review
-                                            </button>
-                                        </form>
-                                    </div>
+                                        </div>
+                                        <input type="hidden" asp-for="@Model.MovieComment.MovieId" value="@Model.Movie.Id" />
+                                        <input type="hidden" asp-for="@Model.MovieComment.Rating" value="0" />
+                                        <button class="post-btn" type="submit">
+                                            Post Review
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -363,6 +345,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 </main>
 

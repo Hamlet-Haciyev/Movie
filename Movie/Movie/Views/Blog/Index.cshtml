@@ -1,4 +1,5 @@
-﻿@{
+﻿@model VmBlog
+@{
     ViewData["Title"] = "Index";
 }
 
@@ -24,116 +25,54 @@
             </div>
         </div>
     </section>
+    
     <section id="blog">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-md-12">
                     <div class="blog__list">
-                        <div class="blog__about">
-                            <div class="blog__about__image">
-                                <a asp-controller="Blog" asp-action="Detail">
-                                    <img src="~/assets/images/posted_image1.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="blog__about__content">
-                                <h2>
-                                    <a href="#">
-                                        Godzilla: King Of The Monsters Adds O’Shea Jackson Jr
-                                        O’Shea Jackson Jr O’Shea Jackson Jr
-                                    </a>
-                                </h2>
-                                <div class="posted_date">
-                                    <p>October 9, 2017</p>
+                        @{
+                            foreach (var item in Model.Blogs)
+                            {
+                                <div class="blog__about">
+                                    <div class="blog__about__image">
+                                        <a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">
+                                            <img src="~/Uploads/@item.Image" alt="no image" style="width:260px;height:146px;" />
+                                        </a>
+                                    </div>
+                                    <div class="blog__about__content">
+                                        <h2>
+                                            <a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">
+                                                @item.Title
+                                            </a>
+                                        </h2>
+                                        <div class="posted_date">
+                                            <p>@item.CreatedDate.ToString("MMMM dd, yyyy")</p>
+                                        </div>
+                                        <div class="description">
+                                            <p>
+                                                Joss Whedon has a little bit of a history with superhero
+                                                movies, and for creating layered female characters.
+                                                After his documented frustrations with Wonder Woman,
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="description">
-                                    <p>
-                                        Joss Whedon has a little bit of a history with superhero
-                                        movies, and for creating layered female characters.
-                                        After his documented frustrations with Wonder Woman,
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog__about">
-                            <div class="blog__about__image">
-                                <a asp-controller="Blog" asp-action="Detail">
-                                    <img src="~/assets/images/posted_image2.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="blog__about__content">
-                                <h2>
-                                    <a href="#">Magnolia Nabs ‘Lucky’ Starring Harry Dean Stanton</a>
-                                </h2>
-                                <div class="posted_date">
-                                    <p>October 9, 2017</p>
-                                </div>
-                                <div class="description">
-                                    <p>
-                                        Joss Whedon has a little bit of a history with superhero
-                                        movies, and for creating layered female characters.
-                                        After his documented frustrations with Wonder Woman,
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog__about">
-                            <div class="blog__about__image">
-                                <a asp-controller="Blog" asp-action="Detail">
-                                    <img src="~/assets/images/posted_image3.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="blog__about__content">
-                                <h2>
-                                    <a href="#">
-                                        Godzilla: King Of The Monsters Adds O’Shea Jackson Jr
-                                        O’Shea Jackson Jr O’Shea Jackson Jr
-                                    </a>
-                                </h2>
-                                <div class="posted_date">
-                                    <p>October 9, 2017</p>
-                                </div>
-                                <div class="description">
-                                    <p>
-                                        Joss Whedon has a little bit of a history with superhero
-                                        movies, and for creating layered female characters.
-                                        After his documented frustrations with Wonder Woman,
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog__about">
-                            <div class="blog__about__image">
-                                <a href="#">
-                                    <img src="~/assets/images/posted_image4.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="blog__about__content">
-                                <h2>
-                                    <a href="#">
-                                        Godzilla: King Of The Monsters Adds O’Shea Jackson Jr
-                                        O’Shea Jackson Jr O’Shea Jackson Jr
-                                    </a>
-                                </h2>
-                                <div class="posted_date">
-                                    <p>October 9, 2017</p>
-                                </div>
-                                <div class="description">
-                                    <p>
-                                        Joss Whedon has a little bit of a history with superhero
-                                        movies, and for creating layered female characters.
-                                        After his documented frustrations with Wonder Woman,
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                            }
+                        }
                     </div>
                     <div class="blog__pagination">
                         <ul>
-                            <li><a class="active" href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li>
-                                <a href="#"><i class="fa fa-chevron-right"></i></a>
+                            <li class="page-item @(ViewBag.PageField==1?"disabled":"")">
+                                <a asp-controller="blog" asp-action="index" asp-route-page="@(ViewBag.PageField-1)"><i class="fa fa-chevron-left"></i></a>
                             </li>
+                            @for (int i = 0; i < ViewBag.PageCount; i++)
+                            {
+                                <li><a class="@(ViewBag.PageField == (i+1)? "active":"")" asp-controller="blog" asp-action="index" asp-route-page="@(i+1)">@(i+1)</a></li>
+                            }
+                        <li class="page-item " style="display:@(ViewBag.PageField==ViewBag.PageCount?"none":"");">
+                            <a asp-controller="blog" asp-action="index" asp-route-page="@(ViewBag.PageField+1)"><i class="fa fa-chevron-right"></i></a>
+                        </li>
                         </ul>
                     </div>
                 </div>
@@ -141,33 +80,26 @@
                     <div class="right-sidebar">
                         <div class="search">
                             <h4>SEARCH</h4>
-                            <form action="">
-                                <input type="text" placeholder="Enter Keyword" required />
+                            <form asp-controller="Blog" asp-action="Index" method="get">
+                                <input type="text" name="searchBlog" placeholder="Enter Keyword" required />
                             </form>
                         </div>
                         <div class="categories">
                             <h4>MOST POPULAR</h4>
                             <ul>
-                                <li>
-                                    <span>01</span>
-                                    <a href="#">
-                                        Godzilla: King Of The Monsters Adds O’Shea Jackson Jr
-                                        O’Shea Jackson Jr O’Shea Jackson Jr
-                                    </a>
-                                </li>
-                                <li>
-                                    <span>02</span>
-                                    <a href="#">
-                                        Magnolia Nabs ‘Lucky’ Starring Harry Dean Stanton
-                                    </a>
-                                </li>
-                                <li>
-                                    <span>03</span>
-                                    <a href="#">
-                                        ‘Going in Style’ Tops ‘Smurfs: The Lost Village’ at
-                                        Thursday Box Office
-                                    </a>
-                                </li>
+                                @{ 
+                                    int p = 1;
+                                    @foreach (var item in Model.PopularBlogs)
+                                    {
+                                        <li>
+                                            <span>0@(p)</span>
+                                            <a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">
+                                                @item.Title
+                                            </a>
+                                        </li>
+                                        p++;
+                                    }
+                                }
                             </ul>
                         </div>
                         <div class="tags">
