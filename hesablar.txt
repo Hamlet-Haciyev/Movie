@@ -1,0 +1,6 @@
+hamilet75@gmail.com ---- Hamlet1234567@  --- Role : User
+hamlet405@gmail.com ---- Hamlet123@	 --- Role : SuperAdmin
+hamlet600@gmail.com ---- Hamlet123@      --- Role : Moderator
+
+	
+Roles {   SuperAdmin ; Admin ; Moderator ; User    }
