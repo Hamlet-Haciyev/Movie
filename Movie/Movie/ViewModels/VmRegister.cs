@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,6 +23,8 @@ namespace Movie.ViewModels
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        [NotMapped]
+        public string RoleId { get; set; }
         //public bool isUser = true;
     }
 }

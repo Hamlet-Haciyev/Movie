@@ -44,180 +44,196 @@
     </div>
     <partial name="_SignIn" >
     <partial name="_SignUp">
-    <partial name="_ForgetPassword">
-    <header>
-        <div class="theme-menu-box">
-            <div class="container">
-                <div class="menu-flex-box">
-                    <h1>
-                        <a href="#"><img src="~/Uploads/@Model.Setting.Logo" alt="" /></a>
-                    </h1>
-                    <div class="theme-wrap-nav-menu">
-                        <div class="theme-nav-list-menu">
-                            <ul>
-                                <li><a asp-controller="Home" asp-action="Index" class="@(controller == "home"?"active":"")">Home</a></li>
-                                <li><a asp-controller="Movie" asp-action="Index" class="@(controller == "movie"?"active":"")">Movies</a></li>
-                                <li><a asp-controller="Celebritie" asp-action="Index" class="@(controller == "celebritie"?"active":"")">Celebrities</a></li>
-                                <li><a asp-controller="Blog" asp-action="Index" class=" @(controller == "blog"?"active":"")">News</a></li>
-                                <li><a asp-controller="Contact" asp-action="Index" class=" @(controller == "contact"?"active":"")">Contact</a></li>
-                            </ul>
-                        </div>
-                        <div class="theme-nav-btn-menu">
-                            <ul>
-                                <li><a asp-controller="Profile" asp-action="Index" class="@(controller == "profile"?"active":"")">My account</a></li>
-                                @{
+        <partial name="_ForgetPassword">
+            <header>
+                <div class="theme-menu-box">
+                    <div class="container">
+                        <div class="menu-flex-box">
+                            <h1>
+                                <a href="#"><img src="~/Uploads/@Model.Setting.Logo" alt="" /></a>
+                            </h1>
+                            <div class="theme-wrap-nav-menu">
+                                <div class="theme-nav-list-menu">
+                                    <ul>
+                                        <li><a asp-controller="Home" asp-action="Index" class="@(controller == "home"?"active":"")">Home</a></li>
+                                        <li><a asp-controller="Movie" asp-action="Index" class="@(controller == "movie"?"active":"")">Movies</a></li>
+                                        <li><a asp-controller="Celebritie" asp-action="Index" class="@(controller == "celebritie"?"active":"")">Celebrities</a></li>
+                                        <li><a asp-controller="Blog" asp-action="Index" class=" @(controller == "blog"?"active":"")">News</a></li>
+                                        <li><a asp-controller="Contact" asp-action="Index" class=" @(controller == "contact"?"active":"")">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="theme-nav-btn-menu">
+                                    <ul>
+                                        <li><a asp-controller="Profile" asp-action="Index" class="@(controller == "profile"?"active":"")">My account</a></li>
+                                        @{
 
-                                    @if (SignInManager.IsSignedIn(User))
-                                    {
-                                        //logout
-                                        <li><a asp-controller="Account" asp-action="Logout" class=" login">Log Out</a></li>
-                                    }
-                                    else
-                                    {
-                                        <li><a href="#" id="login" class="login">Log in</a></li>
-                                    }
-                                }
-                            </ul>
+                                            @if (SignInManager.IsSignedIn(User))
+                                            {
+                                                //logout
+                                                <li><a asp-controller="Account" asp-action="Logout" class=" login">Log Out</a></li>
+                                            }
+                                            else
+                                            {
+                                                <li><a href="#" id="login" class="login">Log in</a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btn-collapse">
+                                <i class="fas fa-bars"></i>
+                            </div>
+                            <div class="menu-collapse">
+                                <div class="collapse-left-menu">
+                                    <ul>
+                                        <li><a class="active" asp-controller="Home" asp-action="Index">Home</a></li>
+                                        <li><a asp-controller="Movie" asp-action="Index">Movies</a></li>
+                                        <li><a asp-controller="Celebritie" asp-action="Index">Celebrities</a></li>
+                                        <li><a asp-controller="Blog" asp-action="Index">News</a></li>
+                                    </ul>
+                                </div>
+                                <div class="collapse-right-menu">
+                                    <ul>
+                                        <li><a asp-controller="Profile" asp-action="Index">My account</a></li>
+                                        <li><a href="#">Log in</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="btn-collapse">
-                        <i class="fas fa-bars"></i>
-                    </div>
-                    <div class="menu-collapse">
-                        <div class="collapse-left-menu">
-                            <ul>
-                                <li><a class="active" asp-controller="Home" asp-action="Index">Home</a></li>
-                                <li><a asp-controller="Movie" asp-action="Index">Movies</a></li>
-                                <li><a asp-controller="Celebritie" asp-action="Index">Celebrities</a></li>
-                                <li><a asp-controller="Blog" asp-action="Index">News</a></li>
-                            </ul>
-                        </div>
-                        <div class="collapse-right-menu">
-                            <ul>
-                                <li><a asp-controller="Profile" asp-action="Index">My account</a></li>
-                                <li><a href="#">Log in</a></li>
-                            </ul>
-                        </div>
+                        @if (ViewBag.Page == "Home" || ViewBag.Page == "Movie")
+                        {
+                            <form asp-controller="Movie" asp-action="Index">
+                                <select name="" id="">
+                                    <option value="0">Movie</option>
+                                </select>
+                                <input type="text" required placeholder="Search for Movie" name="searchMovie" />
+                            </form>
+                        }
                     </div>
                 </div>
-                @if (ViewBag.Page == "Home" || ViewBag.Page == "Movie")
-                {
-                    <form asp-controller="Movie" asp-action="Index">
-                        <select name="" id="">
-                            <option value="0">Movie</option>
-                        </select>
-                        <input type="text" required placeholder="Search for Movie" name="searchMovie" />
-                    </form>
-                }
-            </div>
-        </div>
-    </header>
-    @RenderBody()
-    <footer id="footer">
-        <section id="footer-contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="company-address">
-                            <div class="footer-logo">
-                                <img src="~/Uploads/@Model.Setting.Logo" alt="" />
-                            </div>
+            </header>
+            @RenderBody()
+            <footer id="footer">
+                <section id="footer-contact">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="company-address">
+                                    <div class="footer-logo">
+                                        <img src="~/Uploads/@Model.Setting.Logo" alt="" />
+                                    </div>
 
-                            <p>@Model.Setting.Address</p>
-                            <p>Call us: <a href="#">@Model.Setting.Phone</a></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12">
-                        <div class="footer-resources">
-                            <h4>Resources</h4>
-                            <ul>
-                                <li><a href="#">About Block Buster</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Forums</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Help Center</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12">
-                        <div class="footer-resources">
-                            <h4>Account</h4>
-                            <ul>
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="#">WatchList</a></li>
-                                <li><a href="#">Collections</a></li>
-                                <li><a href="#">User Guide</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12">
-                        <div class="footer-resources">
-                            <h4>Legal</h4>
-                            <ul>
-                                <li><a href="#">Terms of Use</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Security</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-12 col-sm-12">
-                        <div class="newsletter">
-                            <h4>Newsletter</h4>
-                            <p>
-                                Subscribe to our newsletter system now to get latest news from
-                                us
-                            </p>
-                            <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-7" asp-controller="home" asp-action="Subscribe" method="post">
-                                <input required
-                                        type="email" name="email"
-                                        placeholder="Your email..." /><i class="far fa-envelope"></i>
-                                <a href="" class="submit" id="submitBtn">SUBSCRIBE NOW </a>
-                                <div class="mc4wp-form-fields">
+                                    <p>@Model.Setting.Address</p>
+                                    <p>Call us: <a href="#">@Model.Setting.Phone</a></p>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-sm-12">
+                                <div class="footer-resources">
+                                    <h4>Resources</h4>
+                                    <ul>
+                                        <li><a href="#">About Block Buster</a></li>
+                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="#">Forums</a></li>
+                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="#">Help Center</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-sm-12">
+                                <div class="footer-resources">
+                                    <h4>Account</h4>
+                                    <ul>
+                                        <li><a href="#">My Account</a></li>
+                                        <li><a href="#">WatchList</a></li>
+                                        <li><a href="#">Collections</a></li>
+                                        <li><a href="#">User Guide</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-sm-12">
+                                <div class="footer-resources">
+                                    <h4>Legal</h4>
+                                    <ul>
+                                        <li><a href="#">Terms of Use</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Security</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-12 col-sm-12">
+                                <div class="newsletter">
+                                    <h4>Newsletter</h4>
                                     <p>
-                                        <div class="alert alert-success" style="display:none"></div>
-                                        <div class="alert alert-warning" style="display:none"></div>
+                                        Subscribe to our newsletter system now to get latest news from
+                                        us
+                                    </p>
+                                    @if (TempData["blankField"] != null)
+                                    {
+                                        <input type="hidden" id="blankField">
+                                        TempData["blankField"] = null;
+                                    }
+                                    @if (TempData["alrdEmail"] != null)
+                                    {
+                                        <input type="hidden" id="alrdEmail">
+                                        TempData["alrdEmail"] = null;
+                                    }
+                                    @if (TempData["succesdedSubscribe"] != null)
+                                    {
+                                        <input type="hidden" id="succesdedSubscribe">
+                                        TempData["succesdedSubscribe"] = null;
+                                    }
+                                    <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-7" asp-controller="home" asp-action="Subscribe" method="post">
+                                        <input required
+                                               type="email" name="email"
+                                               placeholder="Your email..." /><i class="far fa-envelope"></i>
+                                        <a href="" class="submit" id="submitBtn">SUBSCRIBE NOW </a>
+                                        <div class="mc4wp-form-fields">
+                                            <p>
+                                                <div class="alert alert-success" style="display:none"></div>
+                                                <div class="alert alert-warning" style="display:none"></div>
+                                            </p>
+                                        </div>
+                                        <div class="mc4wp-response"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="right-reserved">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-12">
+                                <div class="footer-blockter">
+                                    <p>
+                                        © 2018 Blockter. All Rights Reserved. Designed by<a href="#">BoostifyThemes</a>.
                                     </p>
                                 </div>
-                                <div class="mc4wp-response"></div>
-                            </form>
+                            </div>
+                            <div class="col-lg-5 col-md-12">
+                                <div class="back-top">
+                                    <a href="#" class="backtoTop">
+                                        <span>Back to top <i class="fas fa-arrow-up"></i></span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <section id="right-reserved">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 col-md-12">
-                        <div class="footer-blockter">
-                            <p>
-                                © 2018 Blockter. All Rights Reserved. Designed by<a href="#">BoostifyThemes</a>.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-12">
-                        <div class="back-top">
-                            <a href="#" class="backtoTop">
-                                <span>Back to top <i class="fas fa-arrow-up"></i></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    @*<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>*@
-    <script src="~/Plugin/toastr-master/toastr.js"></script>
-    <script src="~/Plugin/MaginicPopup/dist/jquery.magnific-popup.js"></script>
-    <script src="~/Plugin/owlCarousel/dist/owl.carousel.min.js"></script>
-    <script src="~/assets/scripts/Subscribe.js"></script>
-    @RenderSection("ContactScript", required: false)
-    @RenderSection("Scirpts", required: false)
-    @RenderSection("ModalScript", required: false)
-    @RenderSection("choosePhotoScript", required: false)
-    <script src="~/assets/scripts/script.js"></script>
-    <script src="~/assets/scripts/sweetAlert.js"></script>
-    <script src="~/assets/scripts/plugin.js"></script>
+                </section>
+            </footer>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            @*<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>*@
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script src="~/Plugin/toastr-master/toastr.js"></script>
+            <script src="~/Plugin/MaginicPopup/dist/jquery.magnific-popup.js"></script>
+            <script src="~/Plugin/owlCarousel/dist/owl.carousel.min.js"></script>
+            <script src="~/assets/scripts/Subscribe.js"></script>
+            @RenderSection("ContactScript", required: false)
+            @RenderSection("Scirpts", required: false)
+            @RenderSection("ModalScript", required: false)
+            @RenderSection("choosePhotoScript", required: false)
+            <script src="~/assets/scripts/script.js"></script>
+            <script src="~/assets/scripts/sweetAlert.js"></script>
+            <script src="~/assets/scripts/plugin.js"></script>
 </body>
 </html>

@@ -28,6 +28,12 @@ namespace Movie.Controllers
                     return RedirectToAction("Logout", "Account");
                 }
             }
+
+            if (vmSearch == null || vmSearch.page == null)
+            {
+                vmSearch.page = 1;
+            }
+
             ViewBag.Page = "Movie";
 
             if (vmSearch.TitleOrRating == null)
@@ -49,12 +55,19 @@ namespace Movie.Controllers
                                            .ToList();
             }
 
+            double itemCount = 5;
+
+            int pageCount = (int)Math.Ceiling(Convert.ToDecimal(movies.Count / itemCount));
+
+            ViewBag.PageCount = pageCount;
+            ViewBag.PageField = vmSearch.page;
+
             Setting setting = _appDbContext.Settings.FirstOrDefault();
 
             VmMovie vmMovie = new VmMovie()
             {
                 Setting= setting,
-                Movies = movies,
+                Movies = movies.Skip(((int)vmSearch.page - 1) * (int)itemCount).Take((int)itemCount).ToList(),
             };
             return View(vmMovie);
         }

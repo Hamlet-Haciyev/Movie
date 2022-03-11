@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Movie.Data;
 using Movie.Models;
 using System;
@@ -16,10 +17,13 @@ namespace Movie.Areas.admin.Controllers
         {
             _appDbContext = appDbContext;
         }
+
+        [Authorize(Roles ="SuperAdmin, Admin, Moderator")]
         public IActionResult Index()
         {
             return View(_appDbContext.Genders.ToList());
         }
+        [Authorize(Roles ="SuperAdmin, Admin")]
         public IActionResult Create()
         {
             return View();
@@ -35,6 +39,7 @@ namespace Movie.Areas.admin.Controllers
             }
             return View(gender);
         }
+        [Authorize(Roles ="SuperAdmin, Admin")]
         public IActionResult Update(int? id)
         {
             Gender gender = null;
@@ -61,6 +66,7 @@ namespace Movie.Areas.admin.Controllers
             }
             return View(gender);
         }
+        [Authorize(Roles ="SuperAdmin")]
         public IActionResult Delete(int? id)
         {
             Gender gender = null;
@@ -76,9 +82,24 @@ namespace Movie.Areas.admin.Controllers
 
             if (gender != null)
             {
-                _appDbContext.Genders.Remove(gender);
-                _appDbContext.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    _appDbContext.Genders.Remove(gender);
+                    _appDbContext.SaveChanges();
+                    return Json(new
+                    {
+                        code = 204,
+                        message = "Item has been deleted successfully!"
+                    });
+                }
+                catch (Exception)
+                {
+                    return Json(new
+                    {
+                        code = 500,
+                        message = "Something went wrong!"
+                    });
+                }
             }
 
             return View();

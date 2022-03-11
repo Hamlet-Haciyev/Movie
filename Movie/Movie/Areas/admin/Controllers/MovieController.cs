@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,7 @@ namespace Movie.Areas.admin.Controllers
             _appDbContext = appDbContext;
             _webHostEnvironment = webHostEnvironment;
         }
+        [Authorize(Roles ="SuperAdmin, Admin, Moderator")]
         public IActionResult Index()
         {
             List<Models.Movies> movies = _appDbContext.Movies
@@ -197,7 +199,6 @@ namespace Movie.Areas.admin.Controllers
             ViewBag.Casts = _appDbContext.Casts.ToList();
             ViewBag.Directors = _appDbContext.Directors.ToList();
 
-
             if (id != null)
             {
                 movie = _appDbContext.Movies.FirstOrDefault(s => s.Id == id);
@@ -208,24 +209,27 @@ namespace Movie.Areas.admin.Controllers
                 movie.DirectorId = _appDbContext.MovieToDirectors.Where(mc => mc.MovieId == id).Select(a => a.DirectorId).FirstOrDefault();
 
 
-                string path = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", movie.Image);
-                string videoFilePath = Path.Combine(_webHostEnvironment.WebRootPath, "Videos", movie.Video);
-
-                if (System.IO.File.Exists(path))
+                if (!string.IsNullOrEmpty(movie.Image))
                 {
-                    byte[] bytes = System.IO.File.ReadAllBytes(path);
+                    string path = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", movie.Image);
+                    string videoFilePath = Path.Combine(_webHostEnvironment.WebRootPath, "Videos", movie.Video);
 
-                    MemoryStream stream = new MemoryStream(bytes);
-
-                    IFormFile file = new FormFile(stream, 0, bytes.Length, "image", "image.png");
-
-                    movie.ImageFile = file;
-
-                    using (var str = new MemoryStream())
+                    if (System.IO.File.Exists(path))
                     {
-                        movie.ImageFile.CopyTo(str);
-                        var filebytes = str.ToArray();
-                        movie.ImageBase64 = Convert.ToBase64String(filebytes);
+                        byte[] bytes = System.IO.File.ReadAllBytes(path);
+
+                        MemoryStream stream = new MemoryStream(bytes);
+
+                        IFormFile file = new FormFile(stream, 0, bytes.Length, "image", "image.png");
+
+                        movie.ImageFile = file;
+
+                        using (var str = new MemoryStream())
+                        {
+                            movie.ImageFile.CopyTo(str);
+                            var filebytes = str.ToArray();
+                            movie.ImageBase64 = Convert.ToBase64String(filebytes);
+                        }
                     }
                 }
             }
@@ -529,9 +533,6 @@ namespace Movie.Areas.admin.Controllers
                         {
                             System.IO.File.Delete(oldPathFile);
                         }
-                        _appDbContext.Movies.Remove(movie);
-                        _appDbContext.SaveChanges();
-                        return RedirectToAction("Index");
                     }
 
                     _appDbContext.Movies.Remove(movie);

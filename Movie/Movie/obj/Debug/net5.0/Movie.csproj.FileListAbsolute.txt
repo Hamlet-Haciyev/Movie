@@ -373,3 +373,5 @@ C:\Users\FX505GT\Desktop\Movie\Movie\Movie\obj\Debug\net5.0\Razor\Areas\admin\Vi
 C:\Users\FX505GT\Desktop\Movie\Movie\Movie\obj\Debug\net5.0\Razor\Areas\admin\Views\Account\UpdateUser.cshtml.g.cs
 C:\Users\FX505GT\Desktop\Movie\Movie\Movie\obj\Debug\net5.0\Razor\Areas\admin\Views\Contact\Index.cshtml.g.cs
 C:\Users\FX505GT\Desktop\Movie\Movie\Movie\obj\Debug\net5.0\Razor\Areas\admin\Views\Shared\_LayoutMain.cshtml.g.cs
+C:\Users\FX505GT\Desktop\Movie\Movie\Movie\obj\Debug\net5.0\Razor\Areas\admin\Views\CastSocial\Update.cshtml.g.cs
+C:\Users\FX505GT\Desktop\Movie\Movie\Movie\obj\Debug\net5.0\Razor\Views\Account\AccessDenied.cshtml.g.cs

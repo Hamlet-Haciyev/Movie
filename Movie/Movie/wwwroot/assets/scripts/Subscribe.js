@@ -17,10 +17,14 @@
             },
             success: function (response) {
                 if (response.status == true) {
-                    success.css("display", "block");
                     success.text(response.message);
+                    if ($("#succesdedSubscribe").length > 0) {
+                        swal("Successfully subscribe!!", "You clicked the button!", "success");
+                    }
                 } else {
-                    warning.css("display", "block");
+                    if ($("#alrdEmail").length > 0) {
+                        swal("This email is already!!", "You clicked the button!", "warning");
+                    }
                     warning.text(response.message);
                 }
             },

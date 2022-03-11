@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,10 +24,12 @@ namespace Movie.Areas.admin.Controllers
             _appDbContext = appDbContext;
             _webHostEnvironment = webHostEnvironment;
         }
+        [Authorize(Roles ="SuperAdmin,Admin,Moderator")]
         public IActionResult Index()
         {
             return View(_appDbContext.Casts.Include(b => b.CastToSocials).ThenInclude(cs => cs.SocialMedia).ToList());
         }
+        [Authorize(Roles ="SuperAdmin,Admin")]
         public IActionResult Create()
         {
             ViewBag.Gender = _appDbContext.Genders.ToList();
@@ -83,6 +86,7 @@ namespace Movie.Areas.admin.Controllers
             ViewBag.Gender = _appDbContext.Genders.ToList();
             return View(cast);
         }
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public IActionResult Update(int? id)
         {
             Cast cast = null;
@@ -179,6 +183,7 @@ namespace Movie.Areas.admin.Controllers
 
             return View(cast);
         }
+        [Authorize(Roles = "SuperAdmin")]
         public IActionResult Delete(int? id)
         {
             Cast cast = null;
@@ -187,30 +192,44 @@ namespace Movie.Areas.admin.Controllers
             {
                 cast = _appDbContext.Casts.FirstOrDefault(s => s.Id == id);
             }
+            else
+            {
+                return RedirectToAction("Index", "Error");
+            }
 
             if (cast != null)
             {
-                if (!string.IsNullOrEmpty(cast.Image))
+                try
                 {
-                    string oldPathFile = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", cast.Image);
-
-                    if (System.IO.File.Exists(oldPathFile))
+                    if (!string.IsNullOrEmpty(cast.Image))
                     {
-                        System.IO.File.Delete(oldPathFile);
+                        string oldPathFile = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", cast.Image);
+
+                        if (System.IO.File.Exists(oldPathFile))
+                        {
+                            System.IO.File.Delete(oldPathFile);
+                        }
                     }
+
                     _appDbContext.Casts.Remove(cast);
                     _appDbContext.SaveChanges();
-                    return RedirectToAction("Index");
+                    return Json(new
+                    {
+                        code = 204,
+                        message = "Item has been deleted successfully!"
+                    });
                 }
-                else
+                catch (Exception)
                 {
-                    _appDbContext.Casts.Remove(cast);
-                    _appDbContext.SaveChanges();
-                    return RedirectToAction("Index");
+                    return Json(new
+                    {
+                        code = 500,
+                        message = "Something went wrong!"
+                    });
                 }
             }
 
-            ModelState.AddModelError("", "Blog is not found");
+            ModelState.AddModelError("", "Cast is not found");
             return RedirectToAction("Index");
         }
     }

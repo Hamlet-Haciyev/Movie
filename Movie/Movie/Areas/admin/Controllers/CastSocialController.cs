@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Movie.Data;
 using Movie.Models;
@@ -18,6 +19,7 @@ namespace Movie.Areas.admin.Controllers
         {
             _appDbContext = appDbContext;
         }
+        [Authorize(Roles ="SuperAdmin, Admin, Moderator")]
         public IActionResult Index()
         {
             List<CastToSocial> castToSocials = _appDbContext.CastToSocials
@@ -26,6 +28,7 @@ namespace Movie.Areas.admin.Controllers
                                                                            .ToList();
             return View(castToSocials);
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public IActionResult Create()
         {
             ViewBag.Casts = _appDbContext.Casts.ToList();
@@ -46,13 +49,21 @@ namespace Movie.Areas.admin.Controllers
             ViewBag.SocialMedia = _appDbContext.SocialMedias.ToList();
             return View(castToSocial);
         }
-        public IActionResult Update(int? id)
+        [Authorize(Roles = "SuperAdmin")]
+        public async Task<IActionResult> Update(int? id)
         {
             CastToSocial castToSocial = null;
 
             if (id != null)
             {
-                castToSocial = _appDbContext.CastToSocials.Find(id);
+                ViewBag.Casts = _appDbContext.Casts.ToList();
+                ViewBag.SocialMedia = _appDbContext.SocialMedias.ToList();
+                castToSocial =  await _appDbContext.CastToSocials
+                                                    .Include(cs=>cs.SocialMedia)
+                                                    .Include(cs=>cs.Cast)
+                                                    .FirstOrDefaultAsync(cs=>cs.Id == id);
+                castToSocial.CastId =  _appDbContext.CastToSocials.Where(cs=>cs.Id == id).Select(cs=>cs.CastId).FirstOrDefault();
+                castToSocial.SocialMediaId = _appDbContext.CastToSocials.Where(cs => cs.Id == id).Select(cs => cs.SocialMediaId).FirstOrDefault();
             }
             else
             {
@@ -73,6 +84,7 @@ namespace Movie.Areas.admin.Controllers
 
             return View(castToSocial);
         }
+        [Authorize(Roles = "SuperAdmin")]
         public IActionResult Delete(int? id)
         {
             CastToSocial castToSocial = null;
@@ -88,9 +100,24 @@ namespace Movie.Areas.admin.Controllers
 
             if (castToSocial != null)
             {
-                _appDbContext.CastToSocials.Remove(castToSocial);
-                _appDbContext.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    _appDbContext.CastToSocials.Remove(castToSocial);
+                    _appDbContext.SaveChanges();
+                    return Json(new
+                    {
+                        code = 204,
+                        message = "Item has been deleted successfully!"
+                    });
+                }
+                catch (Exception)
+                {
+                    return Json(new
+                    {
+                        code = 500,
+                        message = "Something went wrong!"
+                    });
+                }
             }
             return View();
         }

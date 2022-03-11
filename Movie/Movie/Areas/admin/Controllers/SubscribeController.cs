@@ -48,7 +48,7 @@ namespace Movie.Areas.admin.Controllers
                 smtpClient.EnableSsl = true;
                 smtpClient.Port = 587;
                 smtpClient.Credentials = new NetworkCredential("codeAcademy222@gmail.com", "!CodeAcademyP222");
-
+                TempData["sendMailSuccess"] = "successMail";
                 smtpClient.Send(mail);
             }
 

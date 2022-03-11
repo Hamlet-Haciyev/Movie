@@ -24,17 +24,17 @@ namespace Movie.Areas.admin.Controllers
             _appDbContext = appDbContext;
             _webHostEnvironment = webHostEnvironment;
         }
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles ="SuperAdmin, Admin, Moderator")]
         public IActionResult Index()
         {
             return View(_appDbContext.Blogs.Include(b=>b.BlogToTags).ThenInclude(bt=>bt.Tag).ToList());
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public IActionResult Create()
         {
             ViewBag.Tags = _appDbContext.Tags.ToList();
             return View();
         }
-        [Authorize(Roles ="Admin")]
         [HttpPost]
         public IActionResult Create(Blog blog)
         {
@@ -105,7 +105,7 @@ namespace Movie.Areas.admin.Controllers
 
             return View(blog);
         }
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public IActionResult Update(int? id)
         {
             Blog blog = null;
@@ -113,22 +113,25 @@ namespace Movie.Areas.admin.Controllers
             if (id != null)
             {
                 blog = _appDbContext.Blogs.Include(b=>b.BlogToTags).ThenInclude(bt=>bt.Tag).FirstOrDefault(s => s.Id == id);
-                string path = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", blog.Image);
-                if (System.IO.File.Exists(path))
+                if (!string.IsNullOrEmpty(blog.Image))
                 {
-                    byte[] bytes = System.IO.File.ReadAllBytes(path);
-
-                    MemoryStream stream = new MemoryStream(bytes);
-
-                    IFormFile file = new FormFile(stream, 0, bytes.Length, "image", "image.png");
-
-                    blog.ImageFile = file;
-
-                    using (var str = new MemoryStream())
+                    string path = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", blog.Image);
+                    if (System.IO.File.Exists(path))
                     {
-                        blog.ImageFile.CopyTo(str);
-                        var filebytes = str.ToArray();
-                        blog.base64 = Convert.ToBase64String(filebytes);
+                        byte[] bytes = System.IO.File.ReadAllBytes(path);
+
+                        MemoryStream stream = new MemoryStream(bytes);
+
+                        IFormFile file = new FormFile(stream, 0, bytes.Length, "image", "image.png");
+
+                        blog.ImageFile = file;
+
+                        using (var str = new MemoryStream())
+                        {
+                            blog.ImageFile.CopyTo(str);
+                            var filebytes = str.ToArray();
+                            blog.base64 = Convert.ToBase64String(filebytes);
+                        }
                     }
                 }
                 ViewBag.Tags = _appDbContext.Tags.ToList();
@@ -140,7 +143,6 @@ namespace Movie.Areas.admin.Controllers
             }
             return View(blog);
         }
-        [Authorize(Roles ="Admin")]
         [HttpPost]
         public IActionResult Update(Blog blog)
         {
@@ -152,11 +154,14 @@ namespace Movie.Areas.admin.Controllers
                     {
                         if (blog.ImageFile.Length <= 2097152)
                         {
-                            string oldPathData = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", blog.Image);
-
-                            if (System.IO.File.Exists(oldPathData))
+                            if (!string.IsNullOrEmpty(blog.Image))
                             {
-                                System.IO.File.Delete(oldPathData);
+                                string oldPathData = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", blog.Image);
+
+                                if (System.IO.File.Exists(oldPathData))
+                                {
+                                    System.IO.File.Delete(oldPathData);
+                                }
                             }
 
                             string filename = Guid.NewGuid() + "-" + DateTime.Now.ToString("yyyyMMddHHmmSS") + "-" + blog.ImageFile.FileName;
@@ -234,6 +239,7 @@ namespace Movie.Areas.admin.Controllers
 
             return View(blog);
         }
+        [Authorize(Roles ="SuperAdmin")]
         public IActionResult Delete(int? id)
         {
             Blog blog = null;
@@ -245,29 +251,38 @@ namespace Movie.Areas.admin.Controllers
 
             if (blog != null)
             {
-                if (!string.IsNullOrEmpty(blog.Image))
+                try
                 {
-                    string oldPathFile = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", blog.Image);
-
-                    if (System.IO.File.Exists(oldPathFile))
+                    if (!string.IsNullOrEmpty(blog.Image))
                     {
-                        System.IO.File.Delete(oldPathFile);
+                        string oldPathFile = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", blog.Image);
+
+                        if (System.IO.File.Exists(oldPathFile))
+                        {
+                            System.IO.File.Delete(oldPathFile);
+                        }
                     }
+
                     _appDbContext.Blogs.Remove(blog);
                     _appDbContext.SaveChanges();
-                    return RedirectToAction("Index");
+                    return Json(new
+                    {
+                        code = 204,
+                        message = "Item has been deleted successfully!"
+                    });
                 }
-                else
+                catch (Exception)
                 {
-                    _appDbContext.Blogs.Remove(blog);
-                    _appDbContext.SaveChanges();
-                    return RedirectToAction("Index");
+                    return Json(new
+                    {
+                        code = 500,
+                        message = "Something went wrong!"
+                    });
                 }
             }
 
             ModelState.AddModelError("", "Blog is not found");
             return RedirectToAction("Index");
         }
-        
     }
 }

@@ -88,6 +88,7 @@ namespace Movie.Controllers
             {
                 response.Status = false;
                 response.Message = "Subscribtion faild! You must enter your email";
+                TempData["blankField"] = "error";
                 return Json(response);
             }
 
@@ -97,6 +98,8 @@ namespace Movie.Controllers
             {
                 response.Status = false;
                 response.Message = "Your have already subscribed!";
+                TempData["alrdEmail"] = "err";
+
                 return Json(response);
             }
 
@@ -105,6 +108,7 @@ namespace Movie.Controllers
             subscribe.Mail = email;
             _appDbContext.Subscribes.Add(subscribe);
             _appDbContext.SaveChanges();
+            TempData["succesdedSubscribe"] = "scs";
 
             response.Status = true;
             response.Message = "You subscribe successfully!";

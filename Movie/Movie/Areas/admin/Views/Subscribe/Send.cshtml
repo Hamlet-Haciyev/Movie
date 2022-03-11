@@ -1,22 +1,41 @@
 ﻿
 @{
     ViewData["Title"] = "Send";
-    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutMain.cshtml";
 }
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <form asp-area="Admin" asp-controller="Subscribe" asp-action="Send" method="post">
-                <div class="form-group row mb-5">
-                    <div class="col-sm-12 mb-3">
-                        <textarea class="form-control" rows="10" name="MailText" id="Description"></textarea>
-                    </div>
+<main class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- main title -->
+            <div class="col-12">
+                <div class="main__title">
+                    <h2>Send mail message all subsribes</h2>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width:10%;">Send</button>
-                <a type="submit" class="btn btn-dark" style="width:10%;" asp-area="admin" asp-controller="Subscribe" asp-action="Index">Cancel</a>
-            </form>
+            </div>
+            <!-- end main title -->
+            <!-- form -->
+            <div class="col-12">
+                
+                <form asp-area="admin" asp-controller="Subscribe" asp-action="Send" class="form" method="post" enctype="multipart/form-data">
+                    <div class="row row--form">
+                        <div class="col-12 col-md-12 form__content">
+                            <div class="row row--form">
+                                <div class="col-12">
+                                    <textarea id="Description" class="form__textarea ckeditor" placeholder="About" name="MailText"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <button type="submit" class="form__btn">publish</button>
+                        </div>
+                        <div class="col-12 col-lg-6" style="text-align: end;">
+                            <a asp-area="admin" asp-controller="Subscribe" asp-action="Index" type="submit" class="form__btn" style="display: inline-block; line-height: 40px; text-align:center;">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- end form -->
         </div>
     </div>
-</div>
+</main>
 

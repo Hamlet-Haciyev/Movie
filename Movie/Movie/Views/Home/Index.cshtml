@@ -18,7 +18,7 @@
                                     <div class="image">
                                         <a asp-controller="Movie" asp-action="Detail" asp-route-id="@item.Id">
                                             <img src="~/Uploads/@item.Image"
-                                                 alt="" />
+                                                 alt=""  style="height: 430px; object-fit: cover;"/>
                                         </a>
                                         <span class="readmore-btn">
                                             READ MORE <i class="fas fa-caret-right"></i>
@@ -55,7 +55,7 @@
     <section id="generes-celebrities" style="padding-top: 20px;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8 col-md-8">
                     <div class="movie-generes">
                         <div class="movie-G-header">
                             <h4>IN GENERES</h4>
@@ -81,7 +81,7 @@
                                         <div class="image">
                                             <a asp-controller="Movie" asp-action="Detail" asp-route-id="@item.Id" style="position: relative;">
                                                 <img src="~/Uploads/@item.Image"
-                                                        alt="" />
+                                                        alt="" style="width: 200px; object-fit: cover;"/>
 
                                                 <span class="movie-G-readmore-btn">
                                                     READ MORE <i class="fas fa-caret-right"></i>
@@ -188,7 +188,7 @@
                                         }
                                     </p>
                                     <div class="description">
-                                        @Html.Raw(Model.Blog.Description.Length > 400 ? Model.Blog.Description.Substring(0,400) +" ...": Model.Blog.Description)
+                                        @Html.Raw(Model.Blog.Description.Length > 120 ? Model.Blog.Description.Substring(0,120) +" ...": Model.Blog.Description)
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +267,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-4">
                     <div class="single__image__wrapper">
                         <div class="single__image">
                             <img width="336"

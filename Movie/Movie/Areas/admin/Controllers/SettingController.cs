@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Movie.Data;
 using Movie.Models;
+using Movie.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,10 +24,12 @@ namespace Movie.Areas.admin.Controllers
             _appDbContext = appDbContext;
             _webHostEnvironment = webHostEnvironment;
         }
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public IActionResult Index()
         {
             return View(_appDbContext.Settings.FirstOrDefault());
         }
+        [Authorize(Roles = "SuperAdmin")]
         public IActionResult Create()
         {
             return View();
@@ -77,6 +80,7 @@ namespace Movie.Areas.admin.Controllers
 
             return View(setting);
         }
+        [Authorize(Roles ="SuperAdmin")]
         public IActionResult Update(int? id)
         {
             Setting setting = null;
@@ -84,22 +88,25 @@ namespace Movie.Areas.admin.Controllers
             if (id != null)
             {
                 setting = _appDbContext.Settings.FirstOrDefault(s => s.Id == id);
-                string path = Path.Combine(_webHostEnvironment.WebRootPath,"Uploads",setting.Logo);
-                if (System.IO.File.Exists(path))
+                if (!string.IsNullOrEmpty(setting.Logo))
                 {
-                    byte[] bytes = System.IO.File.ReadAllBytes(path);
-
-                    MemoryStream stream = new MemoryStream(bytes);
-
-                    IFormFile file = new FormFile(stream,0,bytes.Length,"image","image.png");
-
-                    setting.LogoFile = file;
-
-                    using (var str = new MemoryStream())
+                    string path = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", setting.Logo);
+                    if (System.IO.File.Exists(path))
                     {
-                        setting.LogoFile.CopyTo(str);
-                        var filebytes = str.ToArray();
-                        setting.base64 = Convert.ToBase64String(filebytes);
+                        byte[] bytes = System.IO.File.ReadAllBytes(path);
+
+                        MemoryStream stream = new MemoryStream(bytes);
+
+                        IFormFile file = new FormFile(stream, 0, bytes.Length, "image", "image.png");
+
+                        setting.LogoFile = file;
+
+                        using (var str = new MemoryStream())
+                        {
+                            setting.LogoFile.CopyTo(str);
+                            var filebytes = str.ToArray();
+                            setting.base64 = Convert.ToBase64String(filebytes);
+                        }
                     }
                 }
             }
@@ -159,6 +166,7 @@ namespace Movie.Areas.admin.Controllers
 
             return View(setting);
         }
+        [Authorize(Roles ="SuperAdmin")]
         public IActionResult Delete(int? id)
         {
             Setting setting = null;
@@ -170,17 +178,33 @@ namespace Movie.Areas.admin.Controllers
 
             if (setting != null)
             {
-                if (!string.IsNullOrEmpty(setting.Logo))
+                try
                 {
-                    string oldPathFile = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", setting.Logo);
-
-                    if (System.IO.File.Exists(oldPathFile))
+                    if (!string.IsNullOrEmpty(setting.Logo))
                     {
-                        System.IO.File.Delete(oldPathFile);
+                        string oldPathFile = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", setting.Logo);
+
+                        if (System.IO.File.Exists(oldPathFile))
+                        {
+                            System.IO.File.Delete(oldPathFile);
+                        }
                     }
+
                     _appDbContext.Settings.Remove(setting);
                     _appDbContext.SaveChanges();
-                    return RedirectToAction("Index");
+                    return Json(new
+                    {
+                        code = 204,
+                        message = "Item has been deleted successfully!"
+                    });
+                }
+                catch (Exception)
+                {
+                    return Json(new
+                    {
+                        code = 500,
+                        message = "Something went wrong!"
+                    });
                 }
             }
 

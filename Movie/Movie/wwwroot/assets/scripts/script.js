@@ -21,7 +21,7 @@ let forgetBtnn = document.querySelector(".send__email");
 let loginBtnn = document.querySelector(".login-btn");
 let postBtn = document.querySelector(".post-btn");
 let result = document.querySelector("#result");
-let commentRating = document.querySelector("#MovieComment_Rating")
+
 
 window.onload = () => {
     for (let i = 0; i < celebritieBtns.length; i++) {
@@ -88,6 +88,34 @@ window.onload = () => {
         relatedMovies.classList.remove("show");
         movieTabsMedia.classList.add("show");
     });
+    //#region Rating
+    let stars = document.querySelectorAll(".cm__rating__stars span");
+    let cmRatingElement = document.querySelector(".cm__rating__stars");
+    for (let i = 0; i <= stars.length; i++) {
+        stars[i].addEventListener("mouseover", (e) => {
+            for (let r = 0; r <= i; r++) {
+                stars[r].classList.add("over");
+            }
+        });
+        stars[i].addEventListener("mouseout", (e) => {
+            for (let r = 0; r <= i; r++) {
+                stars[r].classList.remove("over");
+            }
+        });
+
+        stars[i].addEventListener("click", (e) => {
+            let v = 0;
+            for (let b = 0; b < stars.length; b++) {
+                stars[b].classList.remove("voted");
+            }
+
+            for (let a = 0; a <= i; a++) {
+                stars[a].classList.add("voted");
+                commentRating.value = ++v;
+            }
+        });
+    }
+//#endregion
 }
 
 //$(document).ready(function () {
@@ -299,8 +327,9 @@ signUp.addEventListener("click", (e) => {
 });
 
 //#region Celebrities
+let commentRating = document.querySelector("#MovieComment_Rating")
 let celebritieBtns = document.querySelectorAll(
-  ".celebritie__tabs-title ul li a"
+    ".celebritie__tabs-title ul li a"
 );
 let biography = document.querySelector(".biography");
 let filmography = document.querySelector(".filmography");
@@ -309,17 +338,17 @@ let filmography = document.querySelector(".filmography");
 //#region Movies
 let movieBtns = document.querySelectorAll(".movie-tab ul li a");
 let movieTabsOverview = document.querySelector(
-  ".movie__tabs__content__overview"
+    ".movie__tabs__content__overview"
 );
 let movieTabsMedia = document.querySelector(".movie__tabs__content__media");
 let allReviewsBtn = document.querySelector(
-  ".movie__reviews .movie__review__title a"
+    ".movie__reviews .movie__review__title a"
 );
 let relatedMovies = document.querySelector(
-  ".movie__tabs__content__related__movies"
+    ".movie__tabs__content__related__movies"
 );
 let allreviewsContent = document.querySelector(
-  ".movie__tabs__content__all__reviews"
+    ".movie__tabs__content__all__reviews"
 );
 let viewAllMedia = document.querySelector(".view__all__media");
 //#endregion
@@ -389,32 +418,5 @@ window.addEventListener("scroll", (e) => {
   }
 });
 
-//#region Rating
-let stars = document.querySelectorAll(".cm__rating__stars span");
-let cmRatingElement = document.querySelector(".cm__rating__stars");
-for (let i = 0; i <= stars.length; i++) {
-  stars[i].addEventListener("mouseover", (e) => {
-    for (let r = 0; r <= i; r++) {
-      stars[r].classList.add("over");
-    }
-  });
-  stars[i].addEventListener("mouseout", (e) => {
-    for (let r = 0; r <= i; r++) {
-      stars[r].classList.remove("over");
-    }
-  });
 
-    stars[i].addEventListener("click", (e) => {
-    let v = 0;
-    for (let b = 0; b < stars.length; b++) {
-        stars[b].classList.remove("voted");
-    }
-
-    for (let a = 0; a <= i; a++) {
-        stars[a].classList.add("voted");
-        commentRating.value = ++v;
-    }
-  });
-}
-//#endregion
 

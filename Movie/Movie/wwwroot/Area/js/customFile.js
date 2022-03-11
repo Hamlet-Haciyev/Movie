@@ -2,12 +2,12 @@
 //const { Url } = require("../plugins/custom/uppy/uppy.bundle5883");
 
 $(document).ready(function () {
-    $('.select2').select2();
-    $('#Description').summernote(
-        {
-            height: 300
-        }
-    );
+    //$('.select2').select2();
+    //$('#Description').summernote(
+    //    {
+    //        height: 300
+    //    }
+    //);
     $(".deleteMovie").click(function (e) {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -44,114 +44,84 @@ $(document).ready(function () {
             }
         })
     })
-
-    //let loginBtn = $("#loginbtn");
-
-    //loginBtn.click(function (e) {
-    //    e.preventDefault();
-    //    let email = $("#Email");
-    //    let password = $("#Password");
-    //    let warning = $("[data-ajax-password]");
-    //    warning.css("display", "none");
-
-    //    $.ajax({
-    //        url: "/Areas/admin/Controller/Account/EndUserLogin",
-    //        type: "post",
-    //        dataType: "json",
-    //        data: {
-    //            email: email.val(),
-    //            password: password.val()
-    //        },
-    //        success: function (response) {
-    //            if (response.status == true) {
-    //                success.css("display","block")
-    //            } else {
-    //                warning.css("display", "block");
-    //                warning.text(response.message);
-    //            }
-    //        },
-    //        error: function (error) {
-    //            console.log(error)
-    //        }
-    //    })
-    //})
+   
 });
 
-let logoFile = document.getElementById("LogoFile");
-let imageInputWrapper = document.querySelector(".image-input-wrapper")
-let Dataremove = document.querySelector("[data-action='remove']")
-let imgFile = document.getElementById("ImageFile");
-let videoFile = document.getElementById("VideoFile");
-let blogBgImage = document.querySelector(".blog-bg-image");
-let bgImageMovie = document.querySelector(".bg-image-movie");
-if (logoFile) {
-    logoFile.addEventListener("change", (e) => {
-        logoChange();
-    })
-    let logoChange = () => {
-        let file = [...logoFile.files];
-        let imagefile = file[0];
+//let logoFile = document.getElementById("LogoFile");
+//let imageInputWrapper = document.querySelector(".image-input-wrapper")
+//let Dataremove = document.querySelector("[data-action='remove']")
+//let imgFile = document.getElementById("ImageFile");
+//let videoFile = document.getElementById("VideoFile");
+//let blogBgImage = document.querySelector(".blog-bg-image");
+//let bgImageMovie = document.querySelector(".bg-image-movie");
+//if (logoFile) {
+//    logoFile.addEventListener("change", (e) => {
+//        logoChange();
+//    })
+//    let logoChange = () => {
+//        let file = [...logoFile.files];
+//        let imagefile = file[0];
 
-        var fr = new FileReader();
+//        var fr = new FileReader();
 
-        fr.readAsDataURL(imagefile);
+//        fr.readAsDataURL(imagefile);
 
-        fr.onloadend = () => {
-            imageInputWrapper.style.backgroundImage = "url(" + fr.result + ")";
-        }
-        Dataremove.style.display = "block !important";
-    }
+//        fr.onloadend = () => {
+//            imageInputWrapper.style.backgroundImage = "url(" + fr.result + ")";
+//        }
+//        Dataremove.style.display = "block !important";
+//    }
 
-    Dataremove.addEventListener("click", (e) => {
-        e.preventDefault();
-        imageInputWrapper.style.backgroundImage = "none";
-    })
-}
+//    Dataremove.addEventListener("click", (e) => {
+//        e.preventDefault();
+//        imageInputWrapper.style.backgroundImage = "none";
+//    })
+//}
 
-if (imgFile) {
-    imgFile.addEventListener("change", (e) => {
-        imageChange();
-    })
-    let imageChange = () => {
-        let file = [...imgFile.files];
-        let imagefile = file[0];
+//if (imgFile) {
+//    imgFile.addEventListener("change", (e) => {
+//        imageChange();
+//    })
+//    let imageChange = () => {
+//        let file = [...imgFile.files];
+//        let imagefile = file[0];
 
-        var fr = new FileReader();
+//        var fr = new FileReader();
 
-        fr.readAsDataURL(imagefile);
+//        fr.readAsDataURL(imagefile);
 
-        fr.onloadend = () => {
-            bgImageMovie.style.backgroundImage = "url(" + fr.result + ")";
-        }
-        Dataremove.style.display = "block !important";
-    }
-    Dataremove.addEventListener("click", (e) => {
-        e.preventDefault();
-        imageInputWrapper.style.backgroundImage = "none";
-    })
-}
+//        fr.onloadend = () => {
+//            bgImageMovie.style.backgroundImage = "url(" + fr.result + ")";
+//        }
+//        Dataremove.style.display = "block !important";
+//    }
+//    Dataremove.addEventListener("click", (e) => {
+//        e.preventDefault();
+//        imageInputWrapper.style.backgroundImage = "none";
+//    })
+//}
 
 
-if (videoFile) {
-    videoFile.addEventListener("change", (e) => {
-        videoChange();
-    })
-    let videoChange = () => {
-        let file = [...videoFile.files];
-        let imagefile = file[0];
+//if (videoFile) {
+//    videoFile.addEventListener("change", (e) => {
+//        videoChange();
+//    })
+//    let videoChange = () => {
+//        let file = [...videoFile.files];
+//        let imagefile = file[0];
 
-        var fr = new FileReader();
+//        var fr = new FileReader();
 
-        fr.readAsDataURL(imagefile);
+//        fr.readAsDataURL(imagefile);
 
-        fr.onloadend = () => {
-            iframeVideoCheck.href = fr.result;
-        }
-        Dataremove.style.display = "block !important";
-    }
-    Dataremove.addEventListener("click", (e) => {
-        e.preventDefault();
-        imageInputWrapper.style.backgroundImage = "none";
-    })
-}
+//        fr.onloadend = () => {
+//            iframeVideoCheck.href = fr.result;
+//        }
+//        Dataremove.style.display = "block !important";
+//    }
+//    Dataremove.addEventListener("click", (e) => {
+//        e.preventDefault();
+//        imageInputWrapper.style.backgroundImage = "none";
+//    })
+//}
 

@@ -53,6 +53,14 @@ namespace Movie.Controllers
         {
             if (ModelState.IsValid)
             {
+                bool isExistsEmail = await _appDbContext.Users.AnyAsync(u => u.Email == vmLayout.VmRegister.Email);
+
+                if (isExistsEmail)
+                {
+                    TempData["RegisterExistError"] = "This email is already registered!";
+                    return RedirectToAction("Index","Home");
+                }
+                
                 CustomUser user = new CustomUser()
                 {
                     UserName = vmLayout.VmRegister.Email,
@@ -132,7 +140,7 @@ namespace Movie.Controllers
         #region AjaxLogin
         public IActionResult Login()
         {
-            return View();
+            return RedirectToAction("Index","Home");
         }
         [HttpPost]
         public async Task<JsonResult> Login(string email, string password)
@@ -252,7 +260,6 @@ namespace Movie.Controllers
         }
         #endregion
 
-
         #region ChangePasswordOld
         public async Task<IActionResult> ChangePassword(string Id, string token)
         {
@@ -309,6 +316,15 @@ namespace Movie.Controllers
 
             return RedirectToAction("Index","Home");
         }
+        #endregion
+
+        #region Access Denied
+        // Admin panelde muxtelif sehifelerde role lara gore idarecilik sistemi var , eger bir sehifeye kecmeye hazirki istifadecinin sexsin icazesi yoxdusa access denied sehifesine atir.
+        public IActionResult AccessDenied(string ReturnUrl)
+        {
+            return View();
+        }
+
         #endregion
     }
 }

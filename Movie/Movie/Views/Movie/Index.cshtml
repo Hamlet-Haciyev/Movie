@@ -52,13 +52,15 @@
                             <div class="movie__about">
                                 <div class="movie__about__image">
                                     <a asp-controller="Movie" asp-action="Detail" asp-route-id="@item.Id">
-                                        <img src="~/Uploads/@item.Image" alt="" />
+                                        <img src="~/Uploads/@item.Image" alt="" style="height: 250px; object-fit: cover;"/>
                                     </a>
                                 </div>
                                 <div class="movie__about__info">
                                     <h6><a asp-controller="Movie" asp-action="Detail" asp-route-id="@item.Id">@item.Title</a></h6>
                                     <div class="movie__about__desc">
-                                            @Html.Raw(item.Description)
+                                        <p>
+                                            @item.Description
+                                        </p>
                                     </div>
                                     <div class="movie__details">
                                         <span>Run time: nullm</span><span>Tagline: @item.Tagline</span><span>Release: @item.CreatedDate.ToString("dd MMM yyyy")</span>
@@ -83,15 +85,19 @@
                         </div>
                         <div class="rightside-pagination">
                             <div class="pagination-text">
-                                <span>Page 1 of 3:</span>
+                                <span>Page @ViewBag.PageField of @(ViewBag.PageCount):</span>
                             </div>
                             <div class="pagination-number">
                                 <ul>
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li>
-                                        <a href="#"><i class="fas fa-chevron-right"></i></a>
+                                    <li style="display:@(ViewBag.PageField==1?"none":"");">
+                                        <a asp-controller="movie" asp-action="index" asp-route-page="@(ViewBag.PageField-1)"><i class="fas fa-chevron-left"></i></a>
+                                    </li>
+                                    @for (int i = 0; i < ViewBag.PageCount; i++)
+                                    {
+                                        <li><a class="@(ViewBag.PageField == (i+1)? "active":"")" asp-controller="movie" asp-action="index" asp-route-page="@(i+1)">@(i+1)</a></li>
+                                    }
+                                    <li style="display:@(ViewBag.PageField==ViewBag.PageCount?"none":"");">
+                                        <a asp-controller="movie" asp-action="index" asp-route-page="@(ViewBag.PageField+1)"><i class="fas fa-chevron-right"></i></a>
                                     </li>
                                 </ul>
                             </div>

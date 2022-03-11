@@ -1,182 +1,76 @@
 ﻿@model Blog
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutMain.cshtml";
 }
 
-<div class="d-flex flex-column-fluid">
-    <!--begin::Container-->
-    <div class="container">
+
+<main class="main">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
-                <!--begin::Card-->
-                <div class="card card-custom gutter-b example example-compact">
-                    <div class="card-header">
-                        <h3 class="card-title">Create</h3>
-                        <div class="card-toolbar">
-                            <div class="example-tools justify-content-center">
-                                <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
-                                <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
+            <div class="col-12">
+                <div class="main__title">
+                    <h2>Add new item</h2>
+                </div>
+            </div>
+            <div class="col-12">
+                <form asp-area="admin" asp-controller="blog" asp-action="create" class="form" method="post" enctype="multipart/form-data">
+                    <div class="row row--form">
+                        <div class="col-12 col-md-5 form__cover">
+                            <div class="row row--form">
+                                <div class="col-12 col-sm-6 col-md-12">
+                                    <div class="form__img">
+                                        <label for="form__img-upload">Upload cover(270 x 400)</label>
+                                        <input id="form__img-upload" asp-for="@Model.ImageFile" accept=".png, .jpg, .jpeg">
+                                        <img id="form__img" src="" alt="">
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+
+                        <div class="col-12 col-md-7 form__content">
+                            <div class="row row--form">
+
+                                <div class="col-12">
+                                    <input asp-for="@Model.Title" class="form__input" placeholder="Title">
+                                    <span asp-validation-for="@Model.Title" class="text-danger" style="display: inline-block; padding-bottom: 5px;"></span>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-lg-9">
+                                    <input asp-for="@Model.CreatedDate" class="form__input" placeholder="CreatedDate">
+                                    <span asp-validation-for="@Model.CreatedDate" class="text-danger" style="display: inline-block; padding-bottom: 5px;"></span>
+                                </div>
+
+                                <div class="col-12">
+                                    <textarea id="text" asp-for="@Model.Description" class="form__textarea ckeditor" placeholder="Description"></textarea>
+                                    <span asp-validation-for="@Model.Description" class="text-danger" style="display: inline-block; padding-bottom: 5px;"></span>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group row ">
+                                        <label asp-for="@Model.TagId" class="selectTag col-3" style="color: #d1d0d0; font-size: 20px; line-height: 40px; ">Select blog tag:</label>
+                                        <div class="col-9">
+                                            <select class="js-example-basic-single" multiple="multiple" asp-for="@Model.TagId">
+                                                @foreach (var tag in ViewBag.Tags)
+                                                {
+                                                    <option value="@tag.Id">@tag.Name</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <button type="submit" class="form__btn">publish</button>
+                        </div>
+                        <div class="col-12 col-lg-6" style="text-align: end;">
+                            <a asp-area="admin" asp-controller="blog" asp-action="Index" type="submit" class="form__btn" style="display: inline-block; line-height: 40px; text-align:center;">Cancel</a>
                         </div>
                     </div>
-                    <!--begin::Form-->
-                    <form class="form" method="post" asp-area="admin" asp-controller="Blog" asp-action="Create" enctype="multipart/form-data">
-                        <div class="card-body">
-
-                            <div class="form-group row">
-                                <div class="col-lg-6 mb-2">
-                                    <label asp-for="@Model.ImageFile">Image:</label>
-                                </div>
-                                <div class="col-12">
-                                    <div class="image-input image-input-empty image-input-outline bg-image-wrapped" id="kt_user_edit_avatar">
-                                        <div class="image-input-wrapper blog-bg-image">
-                                        </div>
-                                        <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-                                            <i class="fa fa-pen icon-sm text-muted"></i>
-                                            <input asp-for="@Model.ImageFile" accept=".png, .jpg, .jpeg" />
-                                            <input type="hidden" name="profile_avatar_remove" />
-                                        </label>
-                                        <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-                                            <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                        </span>
-                                        <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" style="display:block;" data-action="remove" data-toggle="tooltip" title="Remove avatar">
-                                            <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-lg-6">
-                                    <label asp-for="@Model.Title">Title:</label>
-                                    <input asp-for="@Model.Title" class="form-control" placeholder="Enter blog title" />
-                                    <span asp-validation-for="@Model.Title" class="form-text text-danger"></span>
-                                </div>
-                                <div class="col-lg-6">
-                                    <label asp-for="@Model.TagId" class="selectTag">Select Tag:</label>
-                                    <select class="select2" multiple="multiple" asp-for="@Model.TagId">
-                                        @foreach (var tag in ViewBag.Tags)
-                                        {
-                                            <option value="@tag.Id">@tag.Name</option>
-                                        }
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-lg-12">
-                                    <label asp-for="@Model.Description">Description:</label>
-                                    <div class="input-group">
-                                        <textarea  asp-for="@Model.Description" class="form-control" placeholder="Enter blog description"></textarea>
-                                    </div>
-                                    <span class="form-text text-danger" asp-validation-for="@Model.Description"></span>
-                                </div>
-                            </div>
-
-
-                            <!-- begin: Example Code-->
-                            <div class="example-code mt-10">
-                                <ul class="example-nav nav nav-tabs nav-bold nav-tabs-line nav-tabs-line-2x">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" data-toggle="tab" href="#example_code_html">HTML</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="example_code_html" role="tabpanel">
-                                        <div class="example-highlight">
-                                            <pre style="height:400px">
-                                            <code class="language-html">
-                                                            &lt;form class="form"&gt;
-                                                             &lt;div class="card-body"&gt;
-                                                              &lt;div class="form-group row"&gt;
-                                                               &lt;div class="col-lg-6"&gt;
-                                                                &lt;label&gt;Full Name:&lt;/label&gt;
-                                                                &lt;input type="email" class="form-control" placeholder="Enter full name"/&gt;
-                                                                &lt;span class="form-text text-muted"&gt;Please enter your full name&lt;/span&gt;
-                                                               &lt;/div&gt;
-                                                               &lt;div class="col-lg-6"&gt;
-                                                                &lt;label&gt;Contact Number:&lt;/label&gt;
-                                                                &lt;input type="email" class="form-control" placeholder="Enter contact number"/&gt;
-                                                                &lt;span class="form-text text-muted"&gt;Please enter your contact number&lt;/span&gt;
-                                                               &lt;/div&gt;
-                                                              &lt;/div&gt;
-                                                              &lt;div class="form-group row"&gt;
-                                                               &lt;div class="col-lg-6"&gt;
-                                                                &lt;label&gt;Address:&lt;/label&gt;
-                                                                &lt;div class="input-group"&gt;
-                                                                 &lt;input type="text" class="form-control" placeholder="Enter your address"/&gt;
-                                                                 &lt;div class="input-group-append"&gt;&lt;span class="input-group-text"&gt;&lt;i class="la la-map-marker"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;
-                                                                &lt;/div&gt;
-                                                                &lt;span class="form-text text-muted"&gt;Please enter your address&lt;/span&gt;
-                                                               &lt;/div&gt;
-                                                               &lt;div class="col-lg-6"&gt;
-                                                                &lt;label&gt;Postcode:&lt;/label&gt;
-                                                                &lt;div class="input-group"&gt;
-                                                                 &lt;input type="text" class="form-control" placeholder="Enter your postcode"/&gt;
-                                                                 &lt;div class="input-group-append"&gt;&lt;span class="input-group-text"&gt;&lt;i class="la la-bookmark-o"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;
-                                                                &lt;/div&gt;
-                                                                &lt;span class="form-text text-muted"&gt;Please enter your postcode&lt;/span&gt;
-                                                               &lt;/div&gt;
-                                                              &lt;/div&gt;
-                                                              &lt;div class="form-group row"&gt;
-                                                               &lt;div class="col-lg-6"&gt;
-                                                                &lt;label&gt;User Group:&lt;/label&gt;
-                                                                &lt;div class="radio-inline"&gt;
-                                                                 &lt;label class="radio radio-solid"&gt;
-                                                                  &lt;input type="radio" name="example_2" checked="checked" value="2"/&gt;
-                                                                  &lt;span&gt;&lt;/span&gt;
-                                                                  Sales Person
-                                                                 &lt;/label&gt;
-                                                                 &lt;label class="radio radio-solid"&gt;
-                                                                  &lt;input type="radio" name="example_2" value="2"/&gt;
-                                                                  &lt;span&gt;&lt;/span&gt;
-                                                                  Customer
-                                                                 &lt;/label&gt;
-                                                                &lt;/div&gt;
-                                                                &lt;span class="form-text text-muted"&gt;Please select user group&lt;/span&gt;
-                                                               &lt;/div&gt;
-                                                              &lt;/div&gt;
-                                                             &lt;/div&gt;
-                                                             &lt;div class="card-footer"&gt;
-                                                              &lt;div class="row"&gt;
-                                                               &lt;div class="col-lg-6"&gt;
-                                                                &lt;button type="submit" class="btn btn-primary mr-2"&gt;Save&lt;/button&gt;
-                                                                &lt;button type="submit" class="btn btn-secondary"&gt;Cancel&lt;/button&gt;
-                                                               &lt;/div&gt;
-                                                               &lt;div class="col-lg-6 text-lg-right"&gt;
-                                                                &lt;button type="reset" class="btn btn-danger"&gt;Reset&lt;/button&gt;
-                                                               &lt;/div&gt;
-                                                              &lt;/div&gt;
-                                                             &lt;/div&gt;
-                                                            &lt;/form&gt;
-                                                            </code>
-                                            </pre>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end: Example Code-->
-                        </div>
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <button type="submit" class="btn btn-primary mr-2">Save</button>
-                                    <button type="submit" class="btn btn-secondary" asp-area="admin" asp-controller="Blog" asp-action="Index">Cancel</button>
-                                </div>
-                                <div class="col-lg-6 text-lg-right">
-                                    <button type="reset" class="btn btn-danger">Reset</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!--end::Form-->
-                </div>
-                <!--end::Card-->
+                </form>
             </div>
         </div>
     </div>
-    <!--end::Container-->
-</div>
-
+</main>

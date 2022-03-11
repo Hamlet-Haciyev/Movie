@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Movie.Data;
 using Movie.Models;
 using System;
@@ -16,10 +17,12 @@ namespace Movie.Areas.admin.Controllers
         {
             _appDbContext = appDbContext;
         }
+        [Authorize(Roles ="SuperAdmin, Admin, Moderator")]
         public IActionResult Index()
         {
             return View(_appDbContext.Genres.ToList());
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public IActionResult Create()
         {
             return View();
@@ -35,6 +38,7 @@ namespace Movie.Areas.admin.Controllers
             }
             return View(genre);
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public IActionResult Update(int? id)
         {
             Genre genre = null;
@@ -61,6 +65,7 @@ namespace Movie.Areas.admin.Controllers
             }
             return View(genre);
         }
+        [Authorize(Roles = "SuperAdmin")]
         public IActionResult Delete(int? id)
         {
             Genre genre = null;

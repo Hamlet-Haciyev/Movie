@@ -18,7 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\ManageAdmin\" />
     <Folder Include="wwwroot\Trailer\" />
     <Folder Include="wwwroot\Videos\" />
     <Folder Include="wwwroot\Uploads\" />

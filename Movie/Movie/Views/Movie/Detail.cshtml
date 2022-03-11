@@ -13,7 +13,7 @@
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="movie-poster">
                         <div class="movie__detail__image">
-                            <img src="~/Uploads/@Model?.Movie.Image" alt="" style="max-height: 350px !important; height: 350px !important;" />
+                            <img src="~/Uploads/@Model?.Movie.Image" alt="" style="max-height: 350px !important; height: 350px !important; width:233px; object-fit:cover;" />
                         </div>
                         <div class="btn-transform-wrapped">
                             <div class="btn-transform">
@@ -89,7 +89,9 @@
                                 <div class="movie__tabs__content__overview show">
                                     <div class="row">
                                         <div class="col-lg-8 pt-30px">
-                                            @Html.Raw(Model.Movie.Description)
+                                            <p>
+                                                @Model.Movie.Description
+                                            </p>
                                             <div class="movie__media">
                                                 <div class="movie__media__title">
                                                     <h4>MEDIA</h4>
@@ -97,12 +99,24 @@
                                                 </div>
                                                 <div class="movie__media__video">
                                                     <div class="video">
-                                                        <a class="vidplay"
-                                                           href="~/Videos/@Model.Movie.Video">
-                                                            <img src="~/assets/images/movie-picture.jpg"
-                                                                 alt="" />
-                                                            <i class="fas fa-play"></i>
-                                                        </a>
+                                                        @if (_signManager.IsSignedIn(User))
+                                                        {
+                                                            <a class="vidplay"
+                                                               href="~/Videos/@Model.Movie.Video">
+                                                                <img src="~/assets/images/movie-picture.jpg"
+                                                                     alt="" />
+                                                                <i class="fas fa-play"></i>
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a class=""
+                                                              asp-controller="Movie" asp-action="Detail" asp-route-id="@Model.Movie.Id" asp-route-rgsbool="1">
+                                                                <img src="~/assets/images/movie-picture.jpg"
+                                                                     alt="" />
+                                                                <i class="fas fa-play"></i>
+                                                            </a>
+                                                        }
                                                     </div>
                                                 </div>
                                             </div>
@@ -202,7 +216,9 @@
                                                         @(item.Genre.Name + " ")
                                                     </a>
                                                 }
-                                            }
+
+
+}
                                         </div>
                                     </div>
                                 </div>
@@ -212,14 +228,27 @@
                                     <div class="movie__media__title">
                                         <h4>VIDEOS</h4>
                                     </div>
-                                    <div class="movie__media__video">
+                                    <div class="movie__media__video ">
                                         <div class="video">
-                                            <a class="vidplay"
-                                               href="~/Videos/@Model.Movie.Video">
-                                                <img src="~/assets/images/movie-picture.jpg"
-                                                     alt="" />
-                                                <i class="fas fa-play"></i>
-                                            </a>
+
+                                            @if (_signManager.IsSignedIn(User))
+                                            {
+                                                <a class="vidplay"
+                                                   href="~/Videos/@Model.Movie.Video">
+                                                    <img src="~/assets/images/movie-picture.jpg"
+                                                         alt="" />
+                                                    <i class="fas fa-play"></i>
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                    <a class=""
+                                                       asp-controller="Movie" asp-action="Detail" asp-route-id="@Model.Movie.Id" asp-route-rgsbool="1">
+                                                        <img src="~/assets/images/movie-picture.jpg"
+                                                             alt="" />
+                                                        <i class="fas fa-play"></i>
+                                                    </a>
+                                            }
                                         </div>
                                     </div>
                                 </div>

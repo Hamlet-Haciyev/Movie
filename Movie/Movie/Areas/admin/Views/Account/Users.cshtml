@@ -1,55 +1,118 @@
 ﻿@model VmUser
 @{
     ViewData["Title"] = "Users";
-    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutMain.cshtml";
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 mt-3">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{ int i = 0;
-                        foreach (var user in Model.CustomUsers)
-                        {
-                            i++;
+@inject AppDbContext _context
+
+<main class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- main title -->
+            <div class="col-12">
+                <div class="main__title">
+                    <h2>Users</h2>
+
+                    <span class="main__title-stat">@(_context.Users.ToList().Count) Total</span>
+
+                    <div class="main__title-wrap">
+                        <!-- search -->
+                        <form action="#" class="main__title-form">
+                            <input type="text" placeholder="Find movie / tv series..">
+                            <button type="button">
+                                <i class="icon ion-ios-search"></i>
+                            </button>
+                        </form>
+                        <!-- end search -->
+                    </div>
+                </div>
+            </div>
+            <!-- end main title -->
+            <!-- users -->
+            <div class="col-12">
+                <div class="main__table-wrap">
+                    <table class="main__table">
+                        <thead>
                             <tr>
-                                <th scope="row">@i</th>
-                                @*<td>@user.Name</td>
-                                <td>@user.Surname</td>*@
-                                <td>@user.Email</td>
-                                <td>
-                                    @{
-                                        var role = "";
-                                        var userRole = Model.UserRoles.FirstOrDefault(u => u.UserId == user.Id);
-
-                                        if (userRole != null)
-                                        {
-                                            role = Model.Roles.FirstOrDefault(r => r.Id == userRole.RoleId).Name;
-
-                                        }
-                                    }
-
-                                    @role
-                                </td>
-                                <td>
-                                    <a class="btn btn-success" asp-area="Admin" asp-controller="Account" asp-action="UpdateUser" asp-route-id="@user.Id">Update</a>
-                                </td>
+                                <th>ID</th>
+                                <th>EMAIL</th>
+                                <th>ROLE</th>
+                                <th>ACTIONS</th>
                             </tr>
-                        }
-                    }
-                </tbody>
-            </table>
+                        </thead>
 
+                        <tbody>
+                            @{
+                                int c = 1;
+                                @foreach (var user in Model.CustomUsers)
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="main__table-text">@c</div>
+                                        </td>
+                                        <td>
+                                            <div class="main__table-text main__table-text--rate">@user?.Email</div>
+                                        </td>
+                                        <td>
+                                            <div class="main__table-text main__table-text--rate">
+                                                @{
+                                                    var role = "";
+                                                    var userRole = Model.UserRoles.FirstOrDefault(u => u.UserId == user.Id);
+
+                                                    if (userRole != null)
+                                                    {
+                                                        role = Model.Roles.FirstOrDefault(r => r.Id == userRole.RoleId).Name;
+
+                                                    }
+                                                }
+
+                                                @role
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="main__table-btns">
+                                                <a asp-area="admin" asp-controller="account" asp-action="Updateuser" asp-route-id="@user.Id" class="main__table-btn main__table-btn--edit" title="Edit">
+                                                    <i class="icon ion-ios-create"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    c++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- end users -->
         </div>
+    </div>
+</main>
+
+<!-- end main content -->
+<!-- modal status -->
+<div id="modal-status" class="zoom-anim-dialog mfp-hide modal">
+    <h6 class="modal__title">Status change</h6>
+
+    <p class="modal__text">Are you sure about immediately change status?</p>
+
+    <div class="modal__btns">
+        <button class="modal__btn modal__btn--apply" type="button">Apply</button>
+        <button class="modal__btn modal__btn--dismiss" type="button">Dismiss</button>
+    </div>
+</div>
+<!-- end modal status -->
+<!-- modal delete -->
+<div id="modal-delete" class="zoom-anim-dialog mfp-hide modal">
+    <h6 class="modal__title">Item delete</h6>
+
+    <p class="modal__text">Are you sure to permanently delete this item?</p>
+
+    <div class="modal__btns">
+        <button class="modal__btn modal__btn--apply" type="button">Delete</button>
+        <button class="modal__btn modal__btn--dismiss" type="button">Dismiss</button>
     </div>
 </div>
 

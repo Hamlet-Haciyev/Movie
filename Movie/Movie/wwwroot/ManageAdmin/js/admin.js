@@ -4,12 +4,13 @@ $(document).ready(function () {
 	/*==============================
 	Menu
 	==============================*/
+	
 	$('.header__btn').on('click', function() {
 		$(this).toggleClass('header__btn--active');
 		$('.header').toggleClass('header--active');
 		$('.sidebar').toggleClass('sidebar--active');
 	});
-
+	
 	/*==============================
 	Filter
 	==============================*/
@@ -69,13 +70,15 @@ $(document).ready(function () {
 	$('#country').select2({
 		placeholder: "Choose country / countries"
 	});
-
 	$('#genre').select2({
 		placeholder: "Choose genre / genres"
 	});
 
 	$('#subscription, #rights').select2();
 
+	if ($('#sendMailSuccess').length > 0) {
+		swal("Mail sent successfully", "You clicked the button!", "success");
+    }
 	/*==============================
 	Upload cover
 	==============================*/

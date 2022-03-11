@@ -8,17 +8,18 @@
             <form asp-controller="Account" asp-action="Register" method="post">
                 @if (TempData["Failed"] != null)
                 {
-                    <div class="col-lg-12">
-                        <p class="alert alert-danger mb-5" style="font-weight: 500 !important; text-align: center !important;">@(TempData["Failed"] as string)</p>
-                    </div>
+                    <input type="hidden" id="Failed">
                     TempData["Failed"] = null;
                 }
                 @if (TempData["SuccessRegister"] != null)
                 {
-                    <div class="col-lg-12">
-                        <p class="alert alert-success mb-5" style="font-weight: 500 !important; text-align: center !important;">@(TempData["SuccessRegister"] as string)</p>
-                    </div>
+                    <input type="hidden" id="SuccessRegister">
                     TempData["SuccessRegister"] = null;
+                }
+                @if (TempData["RegisterExistError"] != null)
+                {
+                    <input type="hidden" id="RegisterExistError">
+                    TempData["RegisterExistError"] = null;
                 }
                 <div class="username-email">
                     <label asp-for="@Model.VmRegister.FirstName">FirstName</label>
@@ -44,5 +45,4 @@
         </div>
     </div>
 </div>
-
 

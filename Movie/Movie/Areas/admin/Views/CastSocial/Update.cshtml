@@ -1,0 +1,64 @@
+﻿@model CastToSocial 
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutMain.cshtml";
+}
+
+<main class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- main title -->
+            <div class="col-12">
+                <div class="main__title">
+                    <h2>Add new item</h2>
+                </div>
+            </div>
+            <!-- end main title -->
+            <!-- form -->
+            <div class="col-12">
+                <form asp-area="admin" asp-controller="castsocial" asp-action="update" class="form" method="post" enctype="multipart/form-data">
+                    <div class="row row--form">
+
+                        <div class="col-12 col-md-7 form__content">
+                            <div class="row row--form">
+
+                                <div class="col-12">
+                                    <input asp-for="@Model.Link" class="form__input" placeholder="Social media link">
+                                    <span asp-validation-for="@Model.Link" class="text-danger" style="display: inline-block; padding-bottom: 5px;"></span>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <select class="js-example-basic-single" id="quality" asp-for="@Model.SocialMediaId">
+                                        @foreach (var item in ViewBag.SocialMedia)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <select class="js-example-basic-single" id="cast" asp-for="@Model.CastId">
+                                        @foreach (var item in ViewBag.Casts)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <button type="submit" class="form__btn">publish</button>
+                        </div>
+                        <div class="col-12 col-lg-6" style="text-align: end;">
+                            <a asp-area="admin" asp-controller="castsocial" asp-action="Index" type="submit" class="form__btn" style="display: inline-block; line-height: 40px; text-align:center;">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- end form -->
+        </div>
+    </div>
+</main>
+
+
