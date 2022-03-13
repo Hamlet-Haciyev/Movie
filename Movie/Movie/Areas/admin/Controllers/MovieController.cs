@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Movie.Data;
 using Movie.Models;
+using Movie.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,6 +39,7 @@ namespace Movie.Areas.admin.Controllers
 
             return View(movies);
         }
+        [Authorize(Roles ="SuperAdmin, Admin")]
         public IActionResult Create()
         {
             ViewBag.Genres = _appDbContext.Genres.ToList();
@@ -190,6 +193,7 @@ namespace Movie.Areas.admin.Controllers
             ViewBag.Directors = _appDbContext.Directors.ToList();
             return View(movie);
         }
+        [Authorize(Roles ="SuperAdmin, Admin")]
         public IActionResult Update(int? id)
         {
             Models.Movies movie = null;
@@ -494,6 +498,7 @@ namespace Movie.Areas.admin.Controllers
             ViewBag.Directors = _appDbContext.Directors.ToList();
             return View(movie);
         }
+        [Authorize(Roles = "SuperAdmin")]
         public IActionResult Delete(int? id)
         {
             Models.Movies movie = null;
@@ -556,6 +561,27 @@ namespace Movie.Areas.admin.Controllers
 
             ModelState.AddModelError("", "Blog is not found");
             return RedirectToAction("Index");
+        }
+        public IActionResult Detail(int? id)
+        {
+            if (id == null)
+                    return RedirectToAction("Index","Error");
+
+
+            if (_appDbContext.Movies.Find(id) != null)
+            {
+                Movies movies = _appDbContext.Movies.Include(m => m.MovieToGenres).ThenInclude(mg => mg.Genre).FirstOrDefault(m => m.Id == id);
+
+                if (_appDbContext.MovieComments.Any(mc=>mc.MovieId == id))
+                {
+                    ViewBag.Average = _appDbContext.MovieComments.Where(mc => mc.MovieId == id).Average(m => m.Rating);
+                }
+
+                return Json(new { status = true, data = movies ,movieDate = movies.CreatedDate.ToString("dd MMM yyyy"),movieAverage = ViewBag.Average });
+
+            }
+
+            return Json(new { status = false});
         }
     }
 }

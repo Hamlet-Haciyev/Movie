@@ -291,7 +291,7 @@
                                             <div class="main__table-text main__table-text--rate">@item?.Title</div>
                                         </td>
                                         <td>
-                                            <div class="main__table-text" ><a href="#">@Html.Raw(item?.Description.Length > 50 ? item?.Description.Substring(0, 50) + " ..." : item?.Description)</a></div>
+                                            <div class="main__table-text"><a href="#">@Html.Raw(item?.Description.Length > 40 ? item?.Description.Substring(0, 40) + " ..." : item?.Description)</a></div>
                                         </td>
                                         <td>
                                             <div class="main__table-text">@(item?.Tagline.Length > 20 ? item?.Tagline.Substring(0, 20) + " ..." : item?.Tagline)</div>
@@ -301,6 +301,9 @@
                                         </td>
                                         <td>
                                             <div class="main__table-btns">
+                                                <a href="#modal-view"  data-id="@item.Id" class="main__table-btn main__table-btn--view open-modal reviewMovie">
+                                                    <i class="icon ion-ios-eye"></i>
+                                                </a>
                                                 <a asp-area="admin" asp-controller="movie" asp-action="Update" asp-route-id="@item.Id" class="main__table-btn main__table-btn--edit">
                                                     <i class="icon ion-ios-create"></i>
                                                 </a>
@@ -309,7 +312,9 @@
                                                 </a>
                                             </div>
                                         </td>
+
                                     </tr>
+                                    
                                     c++;
                                 }
                             }
@@ -322,6 +327,15 @@
     </div>
 </main>
 
+<div id="modal-view" class="zoom-anim-dialog mfp-hide modal modal--view">
+    <div class="reviews__autor">
+        <img class="reviews__avatar" src="~/Uploads/" alt="">
+        <span class="reviews__name"></span>
+        <span class="reviews__time"></span>
+        <span class="reviews__rating">8.4</span>
+    </div>
+    <p class="reviews__text"></p>
+</div>
 <!-- end main content -->
 <!-- modal status -->
 <div id="modal-status" class="zoom-anim-dialog mfp-hide modal">

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Movie.Data;
 using Movie.Models;
 using System;
@@ -19,11 +20,13 @@ namespace Movie.Areas.admin.Controllers
         {
             _appDbContext = appDbContext;
         }
+        [Authorize(Roles ="SuperAdmin, Admin, Moderator")]
         public IActionResult Index()
         {
             List<Subscribe> subscribes = _appDbContext.Subscribes.ToList();
             return View(subscribes);
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public IActionResult Send()
         {
             return View();

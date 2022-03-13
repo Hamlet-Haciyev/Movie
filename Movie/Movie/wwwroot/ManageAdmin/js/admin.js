@@ -4,7 +4,52 @@ $(document).ready(function () {
 	/*==============================
 	Menu
 	==============================*/
-	
+	let voteMath = (vote) => {
+		if (vote > 7) {
+			return "green";
+		} else if (vote > 3) {
+			return "orange";
+		} else if (vote < 3) {
+			return "red";
+		}
+    }
+
+	$(".reviewMovie").click(function (e) {
+		$.ajax({
+			url: location.origin + "/admin/Movie/Detail",
+			type: "GET",
+			datatype: "json",
+			data: ({
+				id: $(this).data("id")
+			}),
+			success: function (response) {
+				if (response.status) {
+					console.log("Success");
+					console.log(response.data.description); 
+					document.querySelector(".reviews__avatar").src = "../../Uploads/" + response.data.image
+					document.querySelector(".reviews__name").innerHTML = response.data.title
+					document.querySelector(".reviews__text").innerHTML = response.data.description
+					document.querySelector(".reviews__time").innerHTML = response.movieDate;
+					document.querySelector(".reviews__rating").innerHTML = `<i class='icon ion-ios-star'></i>${response.movieAverage > 0 ? response.movieAverage : "0"}`;
+					document.querySelector(".reviews__rating").style.color = voteMath(response.movieAverage)
+				}
+				else {
+                    swal("Not found data.", "You clicked the button!", "warning");
+					console.log("data yoxdur");
+				}
+			}
+			,
+			error: function (error) {
+				swal("Oops.", "You clicked the button!", "warning");
+
+				console.log("Error")
+			},
+			//complete: function () {
+			//    password = "";
+			//}
+		});
+	})
+
 	$('.header__btn').on('click', function() {
 		$(this).toggleClass('header__btn--active');
 		$('.header').toggleClass('header--active');
