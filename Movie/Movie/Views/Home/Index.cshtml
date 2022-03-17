@@ -278,46 +278,19 @@
                     </div>
                     <div class="spotlight__celebrities">
                         <h4>SPOTLIGHT CELEBRITIES</h4>
-                        <div class="spotlight__celebritie">
-                            <div class="spotlight__celebritie__image">
-                                <img src="~/assets/images/celebrities-1.png" alt="" />
+                        @foreach (var item in Model.SpotlightCelebritie)
+                        {
+                            <div class="spotlight__celebritie">
+                                <div class="spotlight__celebritie__image">
+                                    <img src="~/Uploads/@(item.Image != null? item.Image :"")" alt="" />
+                                </div>
+                                <div class="spotlight__celebritie__info">
+                                    <h6 class="spotlight__celebritie__name">
+                                        <a asp-controller="celebritie" asp-action="detail" asp-route-id="@item.Id">@item.Name</a>
+                                    </h6>
+                                </div>
                             </div>
-                            <div class="spotlight__celebritie__info">
-                                <h6 class="spotlight__celebritie__name">
-                                    <a href="#">Abby Ryder Fortson</a>
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="spotlight__celebritie">
-                            <div class="spotlight__celebritie__image">
-                                <img src="~/assets/images/celebrities-2.png" alt="" />
-                            </div>
-                            <div class="spotlight__celebritie__info">
-                                <h6 class="spotlight__celebritie__name">
-                                    <a href="#"> Alec Baldwin</a>
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="spotlight__celebritie">
-                            <div class="spotlight__celebritie__image">
-                                <img src="~/assets/images/celebrities-3.png" alt="" />
-                            </div>
-                            <div class="spotlight__celebritie__info">
-                                <h6 class="spotlight__celebritie__name">
-                                    <a href="#">Alexandra Roach</a>
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="spotlight__celebritie">
-                            <div class="spotlight__celebritie__image">
-                                <img src="~/assets/images/celebrities-4.png" alt="" />
-                            </div>
-                            <div class="spotlight__celebritie__info">
-                                <h6 class="spotlight__celebritie__name">
-                                    <a href="#">Alfre Woodard</a>
-                                </h6>
-                            </div>
-                        </div>
+                        }
                     </div>
                     <div id="instagram-feed-demo" class="instagram_feed">
                         <h3 style="padding-left:48px; color: white; font-size: 26px; font-weight: 600; margin-bottom: 20px;">Instagram</h3>

@@ -18,5 +18,6 @@ namespace Movie.ViewModels
         public Blog Blog { get; set; }
         public VmSearch VmSearch { get; set; }
         public List<MovieComment> MovieComments { get; set; }
+        public List<Cast> SpotlightCelebritie { get; set; }
     }
 }

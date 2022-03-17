@@ -43,7 +43,6 @@ namespace Movie.Controllers
         }
         public IActionResult Detail(int? id)
         {
-            List<int> CelebritieIds = null;
             List<int> MovieIds = new List<int>();
             if (User.Identity.IsAuthenticated)
             {
@@ -62,7 +61,7 @@ namespace Movie.Controllers
                                          .Include(c=>c.Gender)
                                          .Include(c => c.CastToSocials).ThenInclude(cs => cs.SocialMedia)
                                          .FirstOrDefault(c => c.Id == id);
-                CelebritieIds = _appDbContext.MovieToCasts.Where(mc => mc.MovieId == id).Select(m => m.CastId).ToList();
+                MovieIds = _appDbContext.MovieToCasts.Where(mc => mc.CastId == id).Select(m => m.MovieId).ToList();
             }
             else
             {
@@ -71,21 +70,7 @@ namespace Movie.Controllers
 
 
             List<MovieToCast> movieToCasts = _appDbContext.MovieToCasts.ToList();
-
-            List<int> moviesIdData = null;
-
-            if (CelebritieIds != null)
-            {
-                foreach (var item in CelebritieIds)
-                {
-                    moviesIdData = movieToCasts.Where(mc => mc.CastId == item && mc.MovieId != id).Select(m => m.MovieId).ToList();
-
-                    foreach (var mvId in moviesIdData)
-                    {
-                        MovieIds.Add(mvId);
-                    }
-                }
-            }
+           
             List<Movies> relatedMovies = new List<Movies>();
 
             foreach (var mvId in MovieIds)

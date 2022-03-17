@@ -65,6 +65,22 @@ namespace Movie.Controllers
             ViewBag.PageCount = pageCount;
             ViewBag.PageField = vmSearch.page;
 
+            List<VmSpotlightCelebritie> vmSpotlightCelebrities = _appDbContext.MovieToCasts
+                                                                   .GroupBy(bc => bc.CastId)
+                                                                   .Select(b => new VmSpotlightCelebritie { CastId = b.Key, Count = b.Count() })
+                                                                   .OrderByDescending(b => b.Count)
+                                                                   .Take(4)
+                                                                   .ToList();
+
+
+            List<Cast> spotLightCast = new List<Cast>();
+            foreach (var item in vmSpotlightCelebrities)
+            {
+                Cast sptLghCelebritie = _appDbContext.Casts.Find(item.CastId);
+
+                spotLightCast.Add(sptLghCelebritie);
+            }
+
 
             VmHome vmHome = new VmHome()
             {
@@ -76,7 +92,8 @@ namespace Movie.Controllers
                 Blogs = blogs,
                 Blog=blog,
                 VmSearch = vmSearch,
-                MovieComments = movieComments
+                MovieComments = movieComments,
+                SpotlightCelebritie= spotLightCast
             };
             return View(vmHome);
         }

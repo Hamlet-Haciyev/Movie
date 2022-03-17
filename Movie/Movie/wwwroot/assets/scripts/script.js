@@ -299,7 +299,7 @@ $(function () {
 
         let img = document.createElement("img");
         img.src = data[i].media_url;
-        img.style = "max-width:100%";
+          img.style = "max-width:100%;";
 
         instagramWrapped.appendChild(img);
           instagram.appendChild(instagramWrapped);
